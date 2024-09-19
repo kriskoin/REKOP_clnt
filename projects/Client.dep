@@ -1,0 +1,6 @@
+# Microsoft Developer Studio Generated Dependency File, included by Client.mak
+
+..\client\client.rc : \
+	"..\client\client.ICO"\
+	"..\client\SMALL.ICO"\
+	

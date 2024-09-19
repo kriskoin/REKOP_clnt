@@ -1,0 +1,3675 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "windows.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+#include "resource.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_CLIENT              ICON    DISCARDABLE     "client.ico"
+IDI_ICON1               ICON    DISCARDABLE     "W95MBX03.ICO"
+IDI_ICON2               ICON    DISCARDABLE     "HANDSHAK.ICO"
+IDI_ICON3               ICON    DISCARDABLE     "icon3.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDC_CLIENT MENU DISCARDABLE 
+BEGIN
+    POPUP "&Main"
+    BEGIN
+        MENUITEM "&Go to table",                IDC_GOTO_GAME
+        MENUITEM "&Waiting list...",            IDC_JOIN_WAIT_LIST
+        MENUITEM SEPARATOR
+        MENUITEM "(no open table windows)",     IDM_GOTO_TABLE1, GRAYED
+        MENUITEM SEPARATOR
+        MENUITEM "Cashier...",                  IDC_CASHIER
+        MENUITEM SEPARATOR
+        MENUITEM "Log in...",                   IDC_LOG_IN
+        MENUITEM SEPARATOR
+        MENUITEM "Log off and E&xit",           IDC_EXIT
+    END
+    POPUP "&Games"
+    BEGIN
+        MENUITEM "&Hold 'em",                   IDM_SHOW_HOLDEM, CHECKED
+        MENUITEM "&Omaha Hi",                   IDM_SHOW_OMAHA
+        MENUITEM "Omaha &Hi/Lo 8 or better",    IDM_SHOW_OMAHA_HI_LO
+        MENUITEM "&7 Card Stud",                IDM_SHOW_7CS
+        MENUITEM "7 Card Stud Hi/Lo 8 or better", IDM_SHOW_7CS_HI_LO
+        MENUITEM "One on One",                  IDM_SHOW_1ON1
+        MENUITEM "Hide &play money tables",     IDC_HIDE_PLAY_MONEY
+    END
+    POPUP "&Options"
+    BEGIN
+        MENUITEM "&All-Ins remaining...",       IDM_OPTIONS_ALLINS
+        MENUITEM "&Request All-Ins reset...",   IDM_REQUEST_ALLIN_RESET
+        MENUITEM "Request &Hand History...",    IDC_REQUEST_HAND_HISTORY
+        MENUITEM SEPARATOR
+        MENUITEM "Change/Validate &Email address...", IDM_CHANGE_EMAIL
+        MENUITEM "Edit Player &Information",    IDM_CHANGE_ADDRESS
+        MENUITEM "Change &Password...",         IDM_CHANGE_PASSWORD
+        MENUITEM SEPARATOR
+        MENUITEM "Enable A&nimation",           IDM_ENABLE_ANIMATION
+        , CHECKED
+        MENUITEM "Enable &Sounds",              IDM_ENABLE_SOUNDS, CHECKED
+        MENUITEM "Use &4 Color Deck",           IDM_ENABLE_4COLOR_DECK
+        MENUITEM "Table Themes (Skins)",        IDM_TABLE_THEMES, GRAYED
+    END
+    POPUP "&Player Services"
+    BEGIN
+        MENUITEM "&Promotions",                 IDC_PROMOTIONUPDATES
+        MENUITEM "&Help/Support",               IDC_ONLINE_HELP
+        MENUITEM SEPARATOR
+        MENUITEM "&About EmediaSoftware.com Client...", IDM_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDC_CLIENT ACCELERATORS MOVEABLE PURE 
+BEGIN
+    "?",            IDM_ABOUT,              ASCII,  ALT, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  22, 17, 232, 89
+STYLE DS_CENTER | WS_CAPTION
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDI_CLIENT,IDC_CLIENT,14,9,20,20
+    LTEXT           "e-Media Poker Win32 client",IDC_STATIC,48,6,119,11,
+                    SS_NOPREFIX
+    LTEXT           "Copyright (c) 2002-2004 Emediasoftware.Com   All rights reserved.",
+                    IDC_STATIC,12,52,207,8
+    DEFPUSHBUTTON   "OK",IDOK,183,65,35,14,WS_GROUP
+    GROUPBOX        "",IDC_STATIC,45,16,143,27
+    LTEXT           "Insert Info here (IDC_STATIC_ABOUT1)",IDC_STATIC_ABOUT1,
+                    48,23,135,8
+    LTEXT           "Insert Info here (IDC_STATIC_ABOUT2)",IDC_STATIC_ABOUT2,
+                    48,32,135,8
+    LTEXT           "Time/Date of build",IDC_STATIC_DATETIME,81,64,134,8,NOT 
+                    WS_VISIBLE
+    LTEXT           "Insert Info here (IDC_STATIC_ABOUT3)\nline2",
+                    IDC_STATIC_ABOUT3,25,65,206,17,NOT WS_VISIBLE
+    LTEXT           "The connection to the server is employing a secure, 128 Bit                connection using the OpenSSL Toolkit.                (http://www.openssl.org)",
+                    IDC_STATIC,9,55,218,27,NOT WS_VISIBLE
+END
+
+IDD_CARDROOM DIALOGEX 0, 0, 529, 316
+STYLE DS_MODALFRAME | DS_CENTER | WS_MINIMIZEBOX | WS_POPUP | 
+    WS_CLIPCHILDREN | WS_CAPTION | WS_SYSMENU
+CAPTION "Lobby"
+MENU IDC_CLIENT
+FONT 8, "Microsoft Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "Go To \nTable",IDC_GOTO_GAME,"Button",BS_OWNERDRAW | 
+                    BS_CENTER | BS_VCENTER,103,270,93,29
+    CONTROL         "Join the \nWait List...",IDC_JOIN_WAIT_LIST,"Button",
+                    BS_OWNERDRAW | BS_CENTER | WS_TABSTOP,245,270,89,30
+    PUSHBUTTON      "Debug: Reconnect",IDC_RECONNECT,5,270,96,13,NOT 
+                    WS_VISIBLE,WS_EX_TRANSPARENT
+    CTEXT           "Table:",IDC_TABLE_INFO_HEADER,398,80,90,10,
+                    SS_CENTERIMAGE
+    LTEXT           "",IDC_USER_COUNT,375,228,147,29,NOT WS_VISIBLE
+    PUSHBUTTON      "Stop sending for 5 Seconds",IDC_PAUSE_SENDING,5,286,95,
+                    13,BS_CENTER | BS_VCENTER | BS_MULTILINE | NOT 
+                    WS_VISIBLE,WS_EX_TRANSPARENT
+    CONTROL         "Go To \nCashier...",IDC_CASHIER,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,379,270,83,30
+    CONTROL         "IDC_TABLE_INFO\nsd\ndf\ns\ndff\ndffd\ndf\ndf\ndf\ndd\nDfd\nDf\nDf\nS\nS\nsd",
+                    IDC_TABLE_INFO,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,375,
+                    94,154,127
+    LTEXT           "Welcome to e-Media Poker",IDC_SHOT_CLOCK_MESSAGE,389,36,
+                    131,9,SS_CENTERIMAGE | NOT WS_VISIBLE
+    LTEXT           "Static",IDC_SHOT_CLOCK_ETA,397,49,108,9,SS_CENTERIMAGE | 
+                    NOT WS_VISIBLE
+    CONTROL         "Tab1",IDC_GAME_TYPE_TAB,"SysTabControl32",TCS_HOTTRACK | 
+                    TCS_FIXEDWIDTH,25,67,320,193
+    CONTROL         "",IDC_LINK,"Button",BS_OWNERDRAW | WS_TABSTOP,5,285,84,
+                    31
+END
+
+IDD_JOIN_WAIT_LIST DIALOG DISCARDABLE  0, 0, 204, 65
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Join waiting list"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Table 1000",IDC_WAIT_SINGLE_TABLE,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP | WS_TABSTOP,10,15,95,10
+    CONTROL         "First available  $10/$20 table",IDC_WAIT_ANY_TABLE,
+                    "Button",BS_AUTORADIOBUTTON | WS_TABSTOP,10,35,110,10
+    EDITTEXT        IDC_MIN_PLAYERS_VALUE,100,45,15,11,ES_NUMBER
+    CONTROL         "Spin1",IDC_MIN_PLAYERS_SPINNER,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_AUTOBUDDY | UDS_ARROWKEYS | 
+                    UDS_NOTHOUSANDS,117,45,9,11
+    DEFPUSHBUTTON   "OK",IDOK,150,25,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,150,45,50,14
+    GROUPBOX        "Join waiting list for:",IDC_STATIC,5,5,140,55
+    LTEXT           "Minimum # of players:",IDC_STATIC,22,45,76,8
+    LTEXT           "There are 4 players ahead of you",
+                    IDC_WAIT_SINGLE_TABLE_TEXT,22,25,120,9
+END
+
+IDD_SEAT_AVAIL DIALOG DISCARDABLE  0, 0, 278, 74
+STYLE DS_MODALFRAME | DS_SETFOREGROUND | DS_CONTROL | DS_CENTER | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "A seat is available for you..."
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "I'd like that seat",IDOK,5,42,82,14
+    PUSHBUTTON      "Take me off list",IDCANCEL,96,42,82,14
+    PUSHBUTTON      "Let me think about it",IDRETRY,187,42,82,14
+    LTEXT           "",IDC_SEAT_AVAIL_TEXT,10,7,264,29
+END
+
+IDD_LOGIN DIALOGEX 0, 0, 152, 154
+STYLE DS_SYSMODAL | DS_MODALFRAME | DS_SETFOREGROUND | DS_CENTER | WS_POPUP | 
+    WS_VISIBLE | WS_CAPTION
+CAPTION "EmediaSoftware."
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT_LOGIN_NAME,77,36,56,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_LOGIN_PASSWORD,77,51,56,12,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,20,116,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,83,116,50,14
+    PUSHBUTTON      "Create New Account",ID_CREATE_ACCOUNT,20,98,113,14,
+                    BS_MULTILINE
+    CONTROL         "Remember User ID and password",
+                    IDC_CHECK_REMEMBER_SETTINGS,"Button",BS_AUTOCHECKBOX | 
+                    BS_LEFTTEXT | BS_RIGHT | WS_TABSTOP,7,135,125,13
+    ICON            IDI_CLIENT,IDC_STATIC_LOGO,16,39,20,20
+    RTEXT           "Player ID:",IDC_STATIC,39,38,33,10
+    RTEXT           "Password:",IDC_STATIC,39,53,33,10
+    LTEXT           "",IDC_LOGIN_DETAIL_MSG,20,10,113,20,0,WS_EX_STATICEDGE
+    EDITTEXT        IDC_LOGIN_SOURCE,3,70,147,20,ES_CENTER | ES_MULTILINE | 
+                    ES_READONLY | NOT WS_BORDER | NOT WS_TABSTOP
+END
+
+IDD_BUY_IN DIALOG DISCARDABLE  0, 0, 197, 146
+STYLE DS_MODALFRAME | DS_SETFOREGROUND | DS_CENTER | WS_POPUP | WS_VISIBLE | 
+    WS_CAPTION | WS_SYSMENU
+CAPTION "Buy-In with how many chips?"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "($12,345)",IDC_BUY_IN_BUTTON_MAX,"Button",
+                    BS_AUTORADIOBUTTON | BS_TOP | WS_GROUP,23,56,99,10
+    CONTROL         "Other amount",IDC_BUY_IN_BUTTON_USR,"Button",
+                    BS_AUTORADIOBUTTON,23,70,57,10
+    EDITTEXT        IDC_EDIT_CHIPS,86,69,29,12,ES_NOHIDESEL | ES_NUMBER
+    PUSHBUTTON      "Where are my chips?",ID_MISC_CHIP_ACTION_BUTTON,10,124,
+                    82,14
+    PUSHBUTTON      "Cancel",IDCANCEL,98,124,39,14
+    DEFPUSHBUTTON   "OK",IDOK,145,124,39,14
+    ICON            IDI_CLIENT,IDC_STATIC,165,8,20,20
+    LTEXT           "place to hide the table info pointer",
+                    IDC_STATIC_TABLE_INFO,95,18,8,8,NOT WS_VISIBLE | 
+                    WS_DISABLED
+    GROUPBOX        "Chips",IDC_STATIC,10,43,175,74
+    LTEXT           "place to hide the max chips",IDC_STATIC_CHIPS,91,17,8,8,
+                    NOT WS_VISIBLE | WS_DISABLED
+    LTEXT           "place to hide the minimum allowed buyin",
+                    IDC_STATIC_MINIMUM,91,17,8,8,NOT WS_VISIBLE | 
+                    WS_DISABLED
+    LTEXT           "place to hide the max chips",IDC_STATIC_LOW_PLAY_CHIPS,
+                    93,19,8,8,NOT WS_VISIBLE | WS_DISABLED
+    LTEXT           "Static",IDC_BUYIN_HEADER,13,5,138,34
+    LTEXT           "If you are waiting to play at another table, you may wish to leave enough in your account for the other Buy-In.",
+                    IDC_STATIC,23,86,152,25,NOT WS_GROUP
+END
+
+IDD_HOLDEM_LAYOUT_LARGE DIALOGEX 0, 0, 531, 331
+STYLE DS_MODALFRAME | DS_CENTER | WS_MINIMIZEBOX | WS_POPUP | 
+    WS_CLIPCHILDREN | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_NOPARENTNOTIFY
+FONT 9, "Arial", 0, 0, 0x1
+BEGIN
+    CONTROL         "Button 1",IDC_BUTTON1,"Button",BS_OWNERDRAW | BS_CENTER | 
+                    BS_VCENTER | BS_MULTILINE | NOT WS_VISIBLE | WS_TABSTOP,
+                    115,250,75,27
+    CONTROL         "Button 2",IDC_BUTTON2,"Button",BS_OWNERDRAW | BS_CENTER | 
+                    BS_VCENTER | BS_MULTILINE | NOT WS_VISIBLE | WS_TABSTOP,
+                    226,251,75,26
+    CONTROL         "Button 3",IDC_BUTTON3,"Button",BS_OWNERDRAW | BS_CENTER | 
+                    BS_VCENTER | BS_MULTILINE | NOT WS_VISIBLE | WS_TABSTOP,
+                    321,251,75,26
+    DEFPUSHBUTTON   "Button 4",IDC_BUTTON4,366,256,6,19,BS_CENTER | 
+                    BS_VCENTER | BS_MULTILINE | NOT WS_VISIBLE
+    CONTROL         "AutoTest mode",IDC_COMPUTER_PLAY,"Button",
+                    BS_AUTOCHECKBOX | BS_NOTIFY | NOT WS_VISIBLE,6,267,76,10
+    CONTROL         "Auto-post blind",IDC_POST_IN_TURN,"Button",
+                    BS_AUTOCHECKBOX | BS_NOTIFY | WS_TABSTOP,6,280,75,10
+    CONTROL         "Muck losing hands",IDC_MUCK_LOSING_HANDS,"Button",
+                    BS_AUTOCHECKBOX | BS_NOTIFY | WS_TABSTOP,83,280,82,10
+    CONTROL         "Sit out next hand",IDC_SIT_OUT,"Button",BS_AUTOCHECKBOX | 
+                    BS_NOTIFY | WS_TABSTOP,6,295,76,10
+    COMBOBOX        IDC_COMBO_CHAT_MODE,83,293,92,100,CBS_DROPDOWNLIST | 
+                    WS_TABSTOP
+    EDITTEXT        IDC_TYPE_CHAT,5,311,169,13,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_AUTOHSCROLL | ES_OEMCONVERT | ES_WANTRETURN | 
+                    WS_DISABLED
+    CONTROL         "Cardroom",IDC_GOTO_CARDROOM,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,465,280,60,20
+    CONTROL         "Leave\ntable",IDC_LEAVE_TABLE,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,465,304,60,20
+    CONTROL         "Sit Down",IDC_SIT_DOWN_1,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,324,12,45,20
+    CONTROL         "Sit Down",IDC_SIT_DOWN_2,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,424,45,45,23
+    CONTROL         "Sit Down",IDC_SIT_DOWN_3,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,475,119,45,20
+    CONTROL         "Sit Down",IDC_SIT_DOWN_4,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,409,212,45,20
+    CONTROL         "Sit Down",IDC_SIT_DOWN_5,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,303,223,45,20
+    CONTROL         "Sit Down",IDC_SIT_DOWN_6,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,192,223,45,20
+    CONTROL         "Sit Down",IDC_SIT_DOWN_7,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,89,209,45,20
+    CONTROL         "Sit Down",IDC_SIT_DOWN_8,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,4,119,45,20
+    CONTROL         "Sit Down",IDC_SIT_DOWN_9,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,59,42,44,20
+    CONTROL         "Sit Down",IDC_SIT_DOWN_10,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,159,9,45,20
+    EDITTEXT        IDC_CHAT_BOX,180,280,280,44,ES_MULTILINE | ES_OEMCONVERT | 
+                    ES_READONLY | WS_VSCROLL
+    CTEXT           "BB",IDC_PLAYERPOS_1,365,48,13,10,SS_CENTERIMAGE | NOT 
+                    WS_VISIBLE
+    CTEXT           "BB",IDC_PLAYERPOS_2,430,78,13,10,SS_CENTERIMAGE | NOT 
+                    WS_VISIBLE
+    CTEXT           "BB",IDC_PLAYERPOS_3,442,151,13,10,SS_CENTERIMAGE | NOT 
+                    WS_VISIBLE
+    CTEXT           "BB",IDC_PLAYERPOS_4,386,187,13,10,SS_CENTERIMAGE | NOT 
+                    WS_VISIBLE
+    CTEXT           "BB",IDC_PLAYERPOS_5,290,189,13,10,SS_CENTERIMAGE | NOT 
+                    WS_VISIBLE
+    CTEXT           "BB",IDC_PLAYERPOS_6,167,187,13,10,SS_CENTERIMAGE | NOT 
+                    WS_VISIBLE
+    CTEXT           "BB",IDC_PLAYERPOS_7,86,165,13,10,SS_CENTERIMAGE | NOT 
+                    WS_VISIBLE
+    CTEXT           "BB",IDC_PLAYERPOS_8,72,99,13,10,SS_CENTERIMAGE | NOT 
+                    WS_VISIBLE
+    CTEXT           "BB",IDC_PLAYERPOS_9,126,50,13,10,SS_CENTERIMAGE | NOT 
+                    WS_VISIBLE
+    CTEXT           "BB",IDC_PLAYERPOS_10,217,39,13,10,SS_CENTERIMAGE | NOT 
+                    WS_VISIBLE
+    CTEXT           "",IDC_WAIT_LIST_STATUS,197,250,218,20,SS_CENTERIMAGE | 
+                    NOT WS_VISIBLE
+    RTEXT           "Current Game #287,123,123\nPrevious #123,345,678",
+                    IDC_TABLE_GAME_SERIAL_NUM,473,2,55,37
+    CTEXT           "Pot 1 chips",IDC_POT1,234,133,51,12,SS_CENTERIMAGE | 
+                    NOT WS_VISIBLE
+    CTEXT           "Pot 2 chips",IDC_POT2,183,147,60,11,SS_CENTERIMAGE | 
+                    NOT WS_VISIBLE
+    CTEXT           "Pot 3 chips",IDC_POT3,281,147,54,11,SS_CENTERIMAGE | 
+                    NOT WS_VISIBLE
+    CONTROL         "",IDC_CHIPS_RAKE,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    213,50,15,12
+    CONTROL         "",IDC_CHIPS_PLR1,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    315,66,15,12
+    CONTROL         "",IDC_CHIPS_PLR2,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    367,83,15,12
+    CONTROL         "",IDC_CHIPS_PLR3,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    371,117,15,12
+    CONTROL         "",IDC_CHIPS_PLR4,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    366,151,15,12
+    CONTROL         "",IDC_CHIPS_PLR5,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    289,160,15,12
+    CONTROL         "",IDC_CHIPS_PLR6,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    176,160,15,12
+    CONTROL         "",IDC_CHIPS_PLR7,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    103,149,15,12
+    CONTROL         "",IDC_CHIPS_PLR8,"Static",SS_BITMAP | NOT WS_VISIBLE,94,
+                    117,15,12
+    CONTROL         "",IDC_CHIPS_PLR9,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    101,85,15,12
+    CONTROL         "",IDC_CHIPS_PLR10,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    140,67,13,11
+    CONTROL         "",IDC_CARDS_PLR1,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    318,9,15,12
+    CONTROL         "",IDC_CARDS_PLR2,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    413,23,15,12
+    CONTROL         "",IDC_CARDS_PLR3,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    453,104,15,12
+    CONTROL         "",IDC_CARDS_PLR4,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    409,190,15,12
+    CONTROL         "",IDC_CARDS_PLR5,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    299,199,15,12
+    CONTROL         "",IDC_CARDS_PLR6,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    174,199,15,12
+    CONTROL         "",IDC_CARDS_PLR7,"Static",SS_BITMAP | NOT WS_VISIBLE,54,
+                    187,15,12
+    CONTROL         "",IDC_CARDS_PLR8,"Static",SS_BITMAP | NOT WS_VISIBLE,15,
+                    100,15,12
+    CONTROL         "",IDC_CARDS_PLR9,"Static",SS_BITMAP | NOT WS_VISIBLE,48,
+                    29,15,12
+    CONTROL         "",IDC_CARDS_PLR10,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    165,8,15,12
+    CONTROL         "",IDC_CARDS_FLOP,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    175,86,15,12
+    CONTROL         "",IDC_SMALL_CARD_PLR1,"Static",SS_BITMAP | NOT 
+                    WS_VISIBLE,336,48,15,12
+    CONTROL         "",IDC_SMALL_CARD_PLR2,"Static",SS_BITMAP | NOT 
+                    WS_VISIBLE,409,64,15,12
+    CONTROL         "",IDC_SMALL_CARD_PLR3,"Static",SS_BITMAP | NOT 
+                    WS_VISIBLE,438,117,15,12
+    CONTROL         "",IDC_SMALL_CARD_PLR4,"Static",SS_BITMAP | NOT 
+                    WS_VISIBLE,410,170,15,12
+    CONTROL         "",IDC_SMALL_CARD_PLR5,"Static",SS_BITMAP | NOT 
+                    WS_VISIBLE,320,181,15,12
+    CONTROL         "",IDC_SMALL_CARD_PLR6,"Static",SS_BITMAP | NOT 
+                    WS_VISIBLE,195,181,15,12
+    CONTROL         "",IDC_SMALL_CARD_PLR7,"Static",SS_BITMAP | NOT 
+                    WS_VISIBLE,102,169,15,12
+    CONTROL         "",IDC_SMALL_CARD_PLR8,"Static",SS_BITMAP | NOT 
+                    WS_VISIBLE,71,117,15,12
+    CONTROL         "",IDC_SMALL_CARD_PLR9,"Static",SS_BITMAP | NOT 
+                    WS_VISIBLE,101,65,15,12
+    CONTROL         "",IDC_SMALL_CARD_PLR10,"Static",SS_BITMAP | NOT 
+                    WS_VISIBLE,182,48,15,12
+    CONTROL         "",IDC_DECK_LOCATION,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    255,62,15,12
+    CONTROL         "Button5",IDC_PLAYERINFO_1,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,311,2,68,28
+    CONTROL         "Button5",IDC_PLAYERINFO_2,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,417,32,68,30
+    CONTROL         "Button5",IDC_PLAYERINFO_3,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,463,114,68,30
+    CONTROL         "Button5",IDC_PLAYERINFO_4,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,407,209,68,30
+    CONTROL         "Button5",IDC_PLAYERINFO_5,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,292,221,68,30
+    CONTROL         "Button5",IDC_PLAYERINFO_6,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,182,222,68,29
+    CONTROL         "Button5",IDC_PLAYERINFO_7,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,66,206,68,30
+    CONTROL         "Button5",IDC_PLAYERINFO_8,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,0,111,68,30
+    CONTROL         "Button5",IDC_PLAYERINFO_9,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,40,32,68,30
+    CONTROL         "Button5",IDC_PLAYERINFO_10,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,149,2,68,29
+    CTEXT           "",IDC_MAIN_POT_HOVER,211,131,99,16,NOT WS_VISIBLE | 
+                    WS_DISABLED
+    CTEXT           "",IDC_SIDE_POT1_HOVER,127,138,84,15,NOT WS_VISIBLE
+    CTEXT           "",IDC_SIDE_POT2_HOVER,295,139,83,14,NOT WS_VISIBLE
+    LTEXT           "",IDC_HOVER_PLAYER1,303,8,54,21,NOT WS_VISIBLE
+    LTEXT           "",IDC_HOVER_PLAYER2,405,22,69,26,NOT WS_VISIBLE
+    LTEXT           "",IDC_HOVER_PLAYER3,458,111,73,26,NOT WS_VISIBLE
+    LTEXT           "",IDC_HOVER_PLAYER4,405,200,79,31,NOT WS_VISIBLE
+    LTEXT           "",IDC_HOVER_PLAYER5,293,216,65,30,NOT WS_VISIBLE
+    LTEXT           "",IDC_HOVER_PLAYER6,171,216,67,30,NOT WS_VISIBLE
+    LTEXT           "",IDC_HOVER_PLAYER7,50,200,70,30,NOT WS_VISIBLE
+    LTEXT           "",IDC_HOVER_PLAYER8,0,108,68,29,NOT WS_VISIBLE
+    LTEXT           "",IDC_HOVER_PLAYER9,52,28,71,24,NOT WS_VISIBLE
+    LTEXT           "",IDC_HOVER_PLAYER10,172,2,59,29,NOT WS_VISIBLE
+    EDITTEXT        IDC_COMPUTER_PLAY_SECS,82,266,25,12,ES_AUTOHSCROLL | NOT 
+                    WS_VISIBLE | NOT WS_TABSTOP
+    CONTROL         "Spin1",IDC_COMPUTER_PLAY_SECS_SPIN,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS | NOT WS_VISIBLE,107,265,8,15
+    CONTROL         "Min rank popup",IDC_MIN_HAND_RANK,"Button",
+                    BS_AUTOCHECKBOX | NOT WS_VISIBLE,6,249,68,10
+    EDITTEXT        IDC_MIN_HAND_RANK_EDIT,82,248,25,12,ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_VISIBLE | NOT WS_TABSTOP
+    CONTROL         "Spin1",IDC_MIN_HAND_RANK_SPIN,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS | NOT WS_VISIBLE,107,246,8,15
+    RTEXT           "All-ins",IDC_ALL_INS_REMAINING,497,38,29,10,NOT 
+                    WS_VISIBLE
+    RTEXT           "Total",IDC_TOTAL_CONNECTIONS,495,47,31,10,NOT 
+                    WS_VISIBLE
+    RTEXT           "best hand",IDC_BEST_HAND,399,265,130,10,SS_CENTERIMAGE | 
+                    NOT WS_VISIBLE
+    CONTROL         "Fold/Check in turn",IDC_FOLD_IN_TURN,"Button",
+                    BS_AUTOCHECKBOX | BS_NOTIFY | NOT WS_VISIBLE | 
+                    WS_TABSTOP,119,253,83,10
+    CONTROL         "Fold",IDC_FOLD_IN_TURN2,"Button",BS_AUTOCHECKBOX | 
+                    BS_NOTIFY | NOT WS_VISIBLE | WS_TABSTOP,119,266,54,10
+    CONTROL         "Check in turn",IDC_CALL_IN_TURN2,"Button",
+                    BS_AUTOCHECKBOX | BS_NOTIFY | NOT WS_VISIBLE | 
+                    WS_TABSTOP,220,253,97,10
+    CONTROL         "Call/Check in turn",IDC_CALL_IN_TURN,"Button",
+                    BS_AUTOCHECKBOX | BS_NOTIFY | NOT WS_VISIBLE | 
+                    WS_TABSTOP,220,266,97,10
+    CONTROL         "Bet/Raise in turn",IDC_RAISE_IN_TURN2,"Button",
+                    BS_AUTOCHECKBOX | BS_NOTIFY | NOT WS_VISIBLE | 
+                    WS_TABSTOP,321,253,99,10
+    CONTROL         "Bet/Raise in turn",IDC_RAISE_IN_TURN,"Button",
+                    BS_AUTOCHECKBOX | BS_NOTIFY | NOT WS_VISIBLE | 
+                    WS_TABSTOP,321,266,95,10
+    RTEXT           "low hand",IDC_LOWEST_HAND,396,255,133,10,SS_CENTERIMAGE | 
+                    NOT WS_VISIBLE
+    CONTROL         "Menu Options",IDC_DEALER_CHIP_AREA,"Button",
+                    BS_OWNERDRAW | WS_TABSTOP,230,25,60,37,WS_EX_TRANSPARENT
+    CONTROL         "",IDC_TOURN_TABLE_SCRIPT,"Static",SS_BITMAP,67,247,13,
+                    11,WS_EX_TRANSPARENT
+    LTEXT           "Current high hand",IDC_HIGH_HAND,0,0,95,18,NOT 
+                    WS_VISIBLE
+    CONTROL         "",IDC_REAL_TABLE_SCRIPT,"Static",SS_BITMAP | NOT 
+                    WS_VISIBLE,249,2,15,12
+    LTEXT           "Static",IDC_MY_MONEY,411,246,118,11,NOT WS_VISIBLE | 
+                    NOT WS_GROUP,WS_EX_RIGHT
+    CTEXT           "Pot Value",IDC_POTS,245,161,37,9,SS_CENTERIMAGE
+    CONTROL         "",IDC_TOURN_TABLE1ON1_SCRIPT,"Static",SS_BITMAP,67,247,
+                    13,11,WS_EX_TRANSPARENT
+    CONTROL         "Slider1",IDC_LIMIT,"msctls_trackbar32",TBS_AUTOTICKS | 
+                    TBS_BOTH | TBS_ENABLESELRANGE | WS_TABSTOP,1,262,104,11
+    LTEXT           "",IDC_NEW_LIMIT,66,253,36,9
+    LTEXT           "Rake",IDC_RAKE,214,71,15,8
+END
+
+IDD_DOWNLOAD_STATUS DIALOGEX 0, 0, 199, 84
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "EmediaSoftware. auto-upgrader"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Cancel",IDCANCEL,145,52,50,14
+    CONTROL         "Progress1",IDC_PROGRESS,"msctls_progress32",WS_BORDER,5,
+                    27,190,10
+    LTEXT           "Downloading upgrade...",IDC_STATUS,7,15,190,10
+    LTEXT           "File:",IDC_CURRENT_FILE,5,42,135,10,SS_CENTERIMAGE
+    LTEXT           "bytes to go, eta, etc.",IDC_BYTES_TO_GO,5,57,135,10,
+                    SS_CENTERIMAGE
+    LTEXT           "",IDC_TASKS,7,2,152,10
+END
+
+IDD_PROMPT_JOIN_WAIT_LIST DIALOG DISCARDABLE  0, 0, 201, 118
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "No tables are playing..."
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Yes",IDOK,28,91,50,14
+    PUSHBUTTON      "No",IDCANCEL,118,91,50,14
+    ICON            IDI_CLIENT,IDC_STATIC,173,5,20,20
+    LTEXT           "",IDC_TEXT1,10,5,161,41
+    LTEXT           "If you select NO, you can join the waiting list at any time by pressing the 'Wait List' button.",
+                    IDC_TEXT2,10,49,161,19
+    LTEXT           "Press YES to be joined to the waiting list now.",
+                    IDC_TEXT3,10,73,161,15
+END
+
+IDD_LOGGING_IN_STATUS DIALOG DISCARDABLE  0, 0, 197, 23
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION
+CAPTION "Logging in to EmediaSoftware Server ..."
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Progress1",IDC_PROGRESS,"msctls_progress32",PBS_SMOOTH,
+                    5,6,187,11
+END
+
+IDD_GOING_TO_TABLE DIALOG DISCARDABLE  0, 0, 164, 25
+STYLE DS_MODALFRAME | DS_SETFOREGROUND | DS_CENTER | WS_POPUP | WS_VISIBLE | 
+    WS_CAPTION | WS_SYSMENU
+CAPTION "EmediaSoftware."
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "Taking you to the table... one moment please.",
+                    IDC_STATIC,5,4,149,15,SS_CENTERIMAGE
+END
+
+IDD_CONNECTING DIALOGEX 0, 0, 272, 162
+STYLE DS_CENTER | WS_POPUP | WS_CLIPCHILDREN
+FONT 8, "Arial Black", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "Retry",IDC_RECONNECT,201,100,66,14
+    PUSHBUTTON      "Cancel",IDCANCEL,201,140,66,14
+    PUSHBUTTON      "Network Status",IDC_WEB_PAGE,201,120,66,14
+    CONTROL         "Progress1",IDC_CONNECTION_PROGRESS,"msctls_progress32",
+                    NOT WS_VISIBLE | WS_BORDER,181,139,11,6
+    LTEXT           "status",IDC_CONNECTION_STATUS,10,144,190,10,
+                    SS_CENTERIMAGE | NOT WS_VISIBLE,WS_EX_TRANSPARENT
+    PUSHBUTTON      "AOL Clients",IDC_I_USE_AOL,201,80,66,14,NOT WS_VISIBLE
+    LTEXT           "Initializing...",IDC_STATIC_PROCESSSETENCE_1,48,75,84,8,
+                    0,WS_EX_TRANSPARENT
+    LTEXT           "V",IDC_STATIC_PROCESSMARK_1,34,76,9,10,0,
+                    WS_EX_TRANSPARENT
+    LTEXT           "Exchanging startup data...",IDC_STATIC_PROCESSSETENCE_5,
+                    47,118,89,8,0,WS_EX_TRANSPARENT
+    LTEXT           "V",IDC_STATIC_PROCESSMARK_2,34,87,8,9,0,
+                    WS_EX_TRANSPARENT
+    LTEXT           "V",IDC_STATIC_PROCESSMARK_4,34,109,8,9,0,
+                    WS_EX_TRANSPARENT
+    LTEXT           "Setting up connection...",IDC_STATIC_PROCESSSETENCE_4,
+                    47,108,83,8,0,WS_EX_TRANSPARENT
+    LTEXT           "Connecting socket...",IDC_STATIC_PROCESSSETENCE_3,47,98,
+                    83,8,0,WS_EX_TRANSPARENT
+    LTEXT           "Synchronizing...",IDC_STATIC_PROCESSSETENCE_6,47,129,85,
+                    8,0,WS_EX_TRANSPARENT
+    LTEXT           "V",IDC_STATIC_PROCESSMARK_5,34,119,8,8,0,
+                    WS_EX_TRANSPARENT
+    LTEXT           "Resolving server name...",IDC_STATIC_PROCESSSETENCE_2,
+                    47,86,88,8,0,WS_EX_TRANSPARENT
+    LTEXT           "V",IDC_STATIC_PROCESSMARK_6,34,130,8,8,0,
+                    WS_EX_TRANSPARENT
+    LTEXT           "V",IDC_STATIC_PROCESSMARK_3,34,99,8,9,0,
+                    WS_EX_TRANSPARENT
+END
+
+#if defined(APSTUDIO_INVOKED) || defined(_DEBUG)
+#if defined(APSTUDIO_INVOKED)
+IDD_BROADCAST_MESSAGE$(_DEBUG) DIALOG DISCARDABLE  0, 0, 401, 175
+#else
+IDD_BROADCAST_MESSAGE DIALOG DISCARDABLE  0, 0, 401, 175
+#endif
+STYLE DS_MODALFRAME | DS_SETFOREGROUND | DS_CENTER | WS_POPUP | WS_VISIBLE | 
+    WS_CAPTION | WS_SYSMENU
+CAPTION "Send Broadcast Message"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "Enter message to broadcast to ALL connected clients:",
+                    IDC_STATIC,7,7,387,161
+    EDITTEXT        IDC_MESSAGE_TEXT,13,24,256,136,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_AUTOHSCROLL | ES_WANTRETURN
+    PUSHBUTTON      "Cancel",IDCANCEL,276,144,48,14
+    PUSHBUTTON      "&Ship it",IDOK,332,144,48,14
+    CONTROL         "Send as online blast",IDC_RADIO_BROADCAST_BLAST,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,277,81,80,8
+    CONTROL         "Tournament",IDC_SEND_TO_TOURNAMENT,"Button",
+                    BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,279,126,54,10
+    CONTROL         "Send as Dealer chat",IDC_RADIO_BROADCAST_DEALER,"Button",
+                    BS_AUTORADIOBUTTON,277,92,83,8
+    CONTROL         "Play money",IDC_SEND_TO_PLAY_MONEY,"Button",
+                    BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,279,117,52,10
+    CONTROL         "Real money",IDC_SEND_TO_REAL_MONEY,"Button",
+                    BS_AUTOCHECKBOX | WS_DISABLED | WS_TABSTOP,279,106,53,10
+    CONTROL         278,IDC_STATIC,"Static",SS_BITMAP,274,24,115,52
+END
+#endif
+
+IDD_REQ_HAND_HISTORY DIALOG DISCARDABLE  0, 0, 145, 90
+STYLE DS_MODALFRAME | DS_SETFOREGROUND | DS_CENTER | WS_POPUP | WS_VISIBLE | 
+    WS_CAPTION | WS_SYSMENU
+CAPTION "Request Hand History..."
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "My last",IDC_RADIO_REQ_MULTIPLE_HANDS,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,18,24,38,10
+    CONTROL         "Game number:",IDC_RADIO_REQ_SINGLE_HAND,"Button",
+                    BS_AUTORADIOBUTTON,18,39,62,10
+    EDITTEXT        IDC_EDIT_HAND_REQ_SPIN,57,23,39,12,ES_AUTOHSCROLL
+    CONTROL         "Spin1",IDC_SPIN_HAND_REQ,"msctls_updown32",UDS_WRAP | 
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS,94,23,10,12
+    EDITTEXT        IDC_EDIT_REQ_HAND_NUM,81,38,43,12,ES_NOHIDESEL | 
+                    ES_NUMBER | WS_DISABLED
+    DEFPUSHBUTTON   "OK",IDOK,28,67,36,14
+    PUSHBUTTON      "Cancel",IDCANCEL,81,67,36,14
+    LTEXT           "hands",IDC_STATIC_REQ_HANDS,89,24,29,8
+    GROUPBOX        "Hand History Request",-1,7,7,131,56
+    LTEXT           "(Estimated email size: 5K)",IDC_STATIC_REQ_SIZE,20,54,
+                    105,8,NOT WS_VISIBLE
+    CONTROL         "Adm.",IDC_ADMIN_FLAG,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,103,14,29,10
+    PUSHBUTTON      "Apply",IDC_REQ_HH_APPLY,7,67,22,14,NOT WS_VISIBLE | 
+                    WS_DISABLED
+END
+
+IDD_STUD7_LAYOUT_LARGE DIALOGEX 0, 0, 529, 330
+STYLE DS_MODALFRAME | DS_CENTER | WS_MINIMIZEBOX | WS_POPUP | 
+    WS_CLIPCHILDREN | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_NOPARENTNOTIFY
+CAPTION "-"
+FONT 9, "Arial", 0, 0, 0x1
+BEGIN
+    CONTROL         "Button 1",IDC_BUTTON1,"Button",BS_OWNERDRAW | BS_CENTER | 
+                    BS_VCENTER | BS_MULTILINE | NOT WS_VISIBLE | WS_TABSTOP,
+                    130,250,75,26
+    CONTROL         "Button 2",IDC_BUTTON2,"Button",BS_OWNERDRAW | BS_CENTER | 
+                    BS_VCENTER | BS_MULTILINE | NOT WS_VISIBLE | WS_TABSTOP,
+                    227,250,75,26
+    CONTROL         "Button 3",IDC_BUTTON3,"Button",BS_OWNERDRAW | BS_CENTER | 
+                    BS_VCENTER | BS_MULTILINE | NOT WS_VISIBLE | WS_TABSTOP,
+                    324,250,75,26
+    CONTROL         "Button 4",IDC_BUTTON4,"Button",BS_OWNERDRAW | BS_CENTER | 
+                    BS_VCENTER | BS_MULTILINE | NOT WS_VISIBLE | WS_TABSTOP,
+                    421,250,75,26
+    CONTROL         "Auto test mode",IDC_COMPUTER_PLAY,"Button",
+                    BS_AUTOCHECKBOX | BS_NOTIFY | NOT WS_VISIBLE | 
+                    WS_TABSTOP,4,281,76,10
+    CONTROL         "Auto-post ante",IDC_POST_IN_TURN,"Button",
+                    BS_AUTOCHECKBOX | BS_NOTIFY | WS_TABSTOP,4,290,74,10
+    CONTROL         "Muck losing hands",IDC_MUCK_LOSING_HANDS,"Button",
+                    BS_AUTOCHECKBOX | BS_NOTIFY | WS_TABSTOP,83,281,82,10
+    CONTROL         "Sit out next hand",IDC_SIT_OUT,"Button",BS_AUTOCHECKBOX | 
+                    BS_NOTIFY | WS_TABSTOP,4,299,74,10
+    EDITTEXT        IDC_TYPE_CHAT,5,311,169,13,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_AUTOHSCROLL | ES_OEMCONVERT | ES_WANTRETURN | 
+                    WS_DISABLED
+    CONTROL         "Cardroom",IDC_GOTO_CARDROOM,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,463,280,60,20
+    CONTROL         "Leave\ntable",IDC_LEAVE_TABLE,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,463,302,60,20
+    CONTROL         "Sit Down",IDC_SIT_DOWN_1,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,333,10,45,20
+    CONTROL         "Sit Down",IDC_SIT_DOWN_2,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,455,60,45,20
+    CONTROL         "Sit Down",IDC_SIT_DOWN_3,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,429,207,45,20
+    CONTROL         "Sit Down",IDC_SIT_DOWN_4,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,309,224,45,20
+    CONTROL         "Sit Down",IDC_SIT_DOWN_5,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,181,225,45,20
+    CONTROL         "Sit Down",IDC_SIT_DOWN_6,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,46,205,45,20
+    CONTROL         "Sit Down",IDC_SIT_DOWN_7,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,32,58,45,20
+    CONTROL         "Sit Down",IDC_SIT_DOWN_8,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,158,10,45,20
+    EDITTEXT        IDC_CHAT_BOX,179,280,280,44,ES_MULTILINE | ES_OEMCONVERT | 
+                    ES_READONLY | WS_VSCROLL
+    CTEXT           "",IDC_WAIT_LIST_STATUS,210,252,231,20,SS_CENTERIMAGE | 
+                    NOT WS_VISIBLE
+    RTEXT           "Current Game #827,123,123\nPrevious #123,345,678",
+                    IDC_TABLE_GAME_SERIAL_NUM,422,2,104,19
+    CTEXT           "Pot 1 chips",IDC_POT1,237,120,51,13,SS_CENTERIMAGE | 
+                    NOT WS_VISIBLE
+    CTEXT           "Pot 2 chips",IDC_POT2,184,130,51,13,SS_CENTERIMAGE | 
+                    NOT WS_VISIBLE
+    CTEXT           "Pot 3 chips",IDC_POT3,283,130,51,13,SS_CENTERIMAGE | 
+                    NOT WS_VISIBLE
+    CONTROL         "",IDC_CHIPS_RAKE,"Static",SS_BITMAP | SS_RIGHTJUST | 
+                    NOT WS_VISIBLE,213,50,15,12
+    CONTROL         "",IDC_CHIPS_PLR1,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    306,78,15,12
+    CONTROL         "",IDC_CHIPS_PLR2,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    368,92,15,12
+    CONTROL         "",IDC_CHIPS_PLR3,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    369,134,15,12
+    CONTROL         "",IDC_CHIPS_PLR4,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    303,152,15,12
+    CONTROL         "",IDC_CHIPS_PLR5,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    160,153,15,12
+    CONTROL         "",IDC_CHIPS_PLR6,"Static",SS_BITMAP | NOT WS_VISIBLE,94,
+                    128,13,11
+    CONTROL         "",IDC_CHIPS_PLR7,"Static",SS_BITMAP | NOT WS_VISIBLE,93,
+                    95,13,11
+    CONTROL         "",IDC_CHIPS_PLR8,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    155,78,15,12
+    CONTROL         "",IDC_CARDS_PLR1,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    300,31,15,12
+    CONTROL         "",IDC_CARDS_PLR2,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    400,48,15,12
+    CONTROL         "",IDC_CARDS_PLR3,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    395,155,15,12
+    CONTROL         "",IDC_CARDS_PLR4,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    292,174,15,12
+    CONTROL         "",IDC_CARDS_PLR5,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    139,175,15,12
+    CONTROL         "",IDC_CARDS_PLR6,"Static",SS_BITMAP | NOT WS_VISIBLE,29,
+                    154,15,12
+    CONTROL         "",IDC_CARDS_PLR7,"Static",SS_BITMAP | NOT WS_VISIBLE,23,
+                    49,15,12
+    CONTROL         "",IDC_CARDS_PLR8,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    135,31,15,12
+    CONTROL         "",IDC_DECK_LOCATION,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    260,57,15,12
+    CONTROL         "Button5",IDC_PLAYERINFO_1,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,322,2,68,30
+    CONTROL         "Button5",IDC_PLAYERINFO_2,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,446,39,68,30
+    CONTROL         "Button5",IDC_PLAYERINFO_3,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,426,214,68,30
+    CONTROL         "Button5",IDC_PLAYERINFO_4,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,296,223,68,30
+    CONTROL         "Button5",IDC_PLAYERINFO_5,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,167,222,68,28
+    CONTROL         "Button5",IDC_PLAYERINFO_6,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,38,214,68,30
+    CONTROL         "Button5",IDC_PLAYERINFO_7,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,19,38,68,27
+    CONTROL         "Button5",IDC_PLAYERINFO_8,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,146,2,68,30
+    LTEXT           "",IDC_MAIN_POT_HOVER,217,118,89,14,NOT WS_VISIBLE | 
+                    WS_DISABLED | NOT WS_GROUP
+    LTEXT           "",IDC_SIDE_POT1_HOVER,143,121,89,13,NOT WS_VISIBLE
+    LTEXT           "",IDC_SIDE_POT2_HOVER,280,129,85,14,NOT WS_VISIBLE
+    CONTROL         "",IDC_CARDS_FLOP,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    249,68,13,11
+    EDITTEXT        IDC_COMPUTER_PLAY_SECS,82,271,25,12,ES_AUTOHSCROLL | NOT 
+                    WS_VISIBLE | NOT WS_TABSTOP
+    CONTROL         "Spin1",IDC_COMPUTER_PLAY_SECS_SPIN,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS | NOT WS_VISIBLE,106,269,11,15
+    CONTROL         "Watching pop-up",IDC_WATCHING_ACTIVATE,"Button",
+                    BS_AUTOCHECKBOX | NOT WS_VISIBLE,6,241,67,10
+    CONTROL         "Low player pop-up",IDC_LOW_PLAYERS_ACTIVATE,"Button",
+                    BS_AUTOCHECKBOX | NOT WS_VISIBLE,6,250,76,10
+    EDITTEXT        IDC_LOW_PLAYERS_COUNT,82,249,25,12,ES_AUTOHSCROLL | NOT 
+                    WS_VISIBLE | NOT WS_TABSTOP
+    CONTROL         "Spin1",IDC_LOW_PLAYERS_COUNT_SPIN,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS | NOT WS_VISIBLE,107,247,8,15
+    CONTROL         "Chat pop-up",IDC_CHAT_POPUP,"Button",BS_AUTO3STATE | 
+                    NOT WS_VISIBLE,6,259,76,10
+    RTEXT           "All-ins",IDC_ALL_INS_REMAINING,395,2,27,10
+    RTEXT           "Total",IDC_TOTAL_CONNECTIONS,389,11,32,10,NOT 
+                    WS_VISIBLE
+    RTEXT           "best hand",IDC_BEST_HAND,405,265,120,10,SS_CENTERIMAGE | 
+                    NOT WS_VISIBLE
+    CONTROL         "Fold/Check in turn",IDC_FOLD_IN_TURN,"Button",
+                    BS_AUTOCHECKBOX | BS_NOTIFY | NOT WS_VISIBLE | 
+                    WS_TABSTOP,130,253,95,10
+    CONTROL         "Fold",IDC_FOLD_IN_TURN2,"Button",BS_AUTOCHECKBOX | 
+                    BS_NOTIFY | NOT WS_VISIBLE | WS_TABSTOP,130,266,95,10
+    CONTROL         "Check in turn",IDC_CALL_IN_TURN2,"Button",
+                    BS_AUTOCHECKBOX | BS_NOTIFY | NOT WS_VISIBLE | 
+                    WS_TABSTOP,227,253,95,10
+    CONTROL         "Call/Check in turn",IDC_CALL_IN_TURN,"Button",
+                    BS_AUTOCHECKBOX | BS_NOTIFY | NOT WS_VISIBLE | 
+                    WS_TABSTOP,227,266,95,10
+    CONTROL         "Bet/Raise in turn",IDC_RAISE_IN_TURN2,"Button",
+                    BS_AUTOCHECKBOX | BS_NOTIFY | NOT WS_VISIBLE | 
+                    WS_TABSTOP,324,253,95,10
+    CONTROL         "Bet/Raise in turn",IDC_RAISE_IN_TURN,"Button",
+                    BS_AUTOCHECKBOX | BS_NOTIFY | NOT WS_VISIBLE | 
+                    WS_TABSTOP,324,266,95,10
+    COMBOBOX        IDC_COMBO_CHAT_MODE,83,293,92,100,CBS_DROPDOWNLIST | 
+                    WS_TABSTOP
+    CONTROL         "Menu Options",IDC_DEALER_CHIP_AREA,"Button",
+                    BS_OWNERDRAW | WS_TABSTOP,231,24,50,30,WS_EX_TRANSPARENT
+    RTEXT           "low hand",IDC_LOWEST_HAND,405,255,120,10,SS_CENTERIMAGE | 
+                    NOT WS_VISIBLE
+    CTEXT           "BB",IDC_PLAYERPOS_1,292,83,13,10,SS_CENTERIMAGE | NOT 
+                    WS_VISIBLE | WS_DISABLED | NOT WS_GROUP
+    CTEXT           "BB",IDC_PLAYERPOS_2,433,99,13,10,SS_CENTERIMAGE | NOT 
+                    WS_VISIBLE | WS_DISABLED | NOT WS_GROUP
+    CTEXT           "BB",IDC_PLAYERPOS_3,433,141,13,10,SS_CENTERIMAGE | NOT 
+                    WS_VISIBLE | WS_DISABLED | NOT WS_GROUP
+    CTEXT           "BB",IDC_PLAYERPOS_4,367,157,13,10,SS_CENTERIMAGE | NOT 
+                    WS_VISIBLE | WS_DISABLED | NOT WS_GROUP
+    CTEXT           "BB",IDC_PLAYERPOS_5,148,159,13,10,SS_CENTERIMAGE | NOT 
+                    WS_VISIBLE | WS_DISABLED
+    CTEXT           "BB",IDC_PLAYERPOS_6,82,135,13,10,SS_CENTERIMAGE | NOT 
+                    WS_VISIBLE | WS_DISABLED | NOT WS_GROUP
+    CTEXT           "BB",IDC_PLAYERPOS_7,81,100,13,10,SS_CENTERIMAGE | NOT 
+                    WS_VISIBLE | WS_DISABLED | NOT WS_GROUP
+    CTEXT           "BB",IDC_PLAYERPOS_8,217,83,13,10,SS_CENTERIMAGE | NOT 
+                    WS_VISIBLE | WS_DISABLED | NOT WS_GROUP
+    CONTROL         "",IDC_TOURN_TABLE_SCRIPT,"Static",SS_BITMAP | NOT 
+                    WS_VISIBLE,67,247,15,12
+    LTEXT           "Current high hand",IDC_HIGH_HAND,0,0,95,18,NOT 
+                    WS_VISIBLE
+    CONTROL         "",IDC_REAL_TABLE_SCRIPT,"Static",SS_BITMAP | NOT 
+                    WS_VISIBLE | WS_DISABLED,247,2,15,12
+    RTEXT           "",IDC_MY_MONEY,404,239,124,10,SS_CENTERIMAGE | NOT 
+                    WS_VISIBLE
+    CTEXT           "Pot $ Value",IDC_POTS,238,145,54,11,SS_CENTERIMAGE
+    LTEXT           "Rake",IDC_RAKE,217,71,15,8
+END
+
+IDD_CHANGE_PASSWORD DIALOG DISCARDABLE  0, 0, 207, 207
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Change Password"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_SECURE_PHRASE,99,37,81,12,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_PASSWORD,101,169,57,12,ES_PASSWORD | ES_AUTOHSCROLL | 
+                    NOT WS_VISIBLE
+    EDITTEXT        IDC_PASSWORD2,99,54,81,12,ES_PASSWORD | ES_AUTOHSCROLL
+    EDITTEXT        IDC_PASSWORD3,99,70,81,12,ES_PASSWORD | ES_AUTOHSCROLL
+    PUSHBUTTON      "Cancel",IDCANCEL,50,186,50,14
+    DEFPUSHBUTTON   "Save",IDOK,107,186,50,14
+    EDITTEXT        IDC_USERID,99,19,81,12,ES_AUTOHSCROLL | ES_READONLY
+    RTEXT           "Player ID:",IDC_STATIC,64,21,32,8
+    RTEXT           "New Password:",IDC_STATIC,46,55,50,8
+    RTEXT           "Current password:",IDC_STATIC,40,172,59,8,NOT 
+                    WS_VISIBLE
+    GROUPBOX        "Enter new password",IDC_STATIC,15,8,177,94
+    LTEXT           "To change your password, you must enter your current password in the top box, then enter your new password twice (to confirm it).\n\nPress 'Save' when you're ready to send it to the server.",
+                    IDC_STATIC,22,118,164,58
+    RTEXT           "Confirm new password:",IDC_STATIC,22,71,74,8
+    LTEXT           "Secure Phrase:",IDC_STATIC,47,38,49,9
+END
+
+#if defined(APSTUDIO_INVOKED) || defined(_DEBUG)
+#if defined(APSTUDIO_INVOKED)
+IDD_ACCOUNT_EDIT2$(_DEBUG) DIALOG DISCARDABLE  0, 0, 380, 365
+#else
+IDD_ACCOUNT_EDIT2 DIALOG DISCARDABLE  0, 0, 380, 365
+#endif
+STYLE DS_MODALFRAME | DS_3DLOOK | DS_CENTER | WS_MINIMIZEBOX | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "View/Edit account settings"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_USERID,154,26,55,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PASSWORD,154,41,55,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EMAIL,154,57,91,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_FULLNAME,281,17,89,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ADDRESS_LINE1,281,31,89,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ADDRESS_LINE2,281,44,89,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CITY,316,63,53,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_STATE,316,78,53,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_COUNTRY,316,92,53,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_POSTAL_CODE,316,105,53,12,ES_AUTOHSCROLL
+    CONTROL         "Email not validated",IDC_CHKBOX_EMAIL_INVALID,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,121,73,75,10
+    CONTROL         "Email bounces",IDC_CHKBOX_EMAIL_BOUNCES,"Button",
+                    BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,121,79,67,
+                    10
+    CONTROL         "Initial deposit ($200+)",IDC_CHKBOX_NO_NEWS,"Button",
+                    BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,122,100,75,
+                    10
+    CONTROL         "M",IDC_MALE,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,
+                    253,60,20,8
+    CONTROL         "F",IDC_FEMALE,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,
+                    276,60,20,8
+    CONTROL         "S&quelch chat",IDC_CHKBOX_SQUELCH_CHAT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,203,73,56,10
+    CONTROL         "Squelch RB chat",IDC_CHKBOX_SQUELCH_RB_CHAT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,203,85,67,10
+    CONTROL         "VIP",IDC_CHKBOX_VIP,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,305,306,27,10
+    COMBOBOX        IDC_COMBO_ACCOUNT_PRIV,116,116,91,100,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Seated at?",IDC_SEATED_AT_1,311,152,55,10,NOT 
+                    WS_VISIBLE
+    PUSHBUTTON      "Seated at?",IDC_SEATED_AT_2,311,166,55,10,NOT 
+                    WS_VISIBLE
+    PUSHBUTTON      "&Reset All-ins",IDC_RESET_ALLINS,142,199,55,11
+    CONTROL         "No auto reset",IDC_CHKBOX_NO_ALLIN_RESET,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,143,226,56,10
+    CONTROL         "Good AI alert",IDC_CHKBOX_GOOD_ALLIN_ALERT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,143,235,55,10
+    CONTROL         "&Login alert",IDC_CHKBOX_LOGIN_ALERT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,24,95,50,10
+    CONTROL         "Dupes OK",IDC_CHKBOX_DUPES_OK,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,24,107,48,10
+    CONTROL         "Locked out",IDC_CHKBOX_LOCKEDOUT,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,24,118,49,10
+    CONTROL         "Auto-block",IDC_CHKBOX_AUTOBLOCK,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,24,129,47,10
+    PUSHBUTTON      "Kick Off",IDC_KICK_OFF,24,151,55,10,BS_CENTER | 
+                    BS_MULTILINE
+    PUSHBUTTON      "Block",IDC_BLOCK_COMPUTER,24,166,55,10,BS_CENTER | 
+                    BS_MULTILINE
+    CONTROL         "Admin hh",IDC_HH_ADMIN_CHECK,"Button",BS_AUTOCHECKBOX | 
+                    BS_LEFTTEXT | WS_TABSTOP,237,215,44,10
+    EDITTEXT        IDC_HANDCOUNT,300,213,24,12,ES_AUTOHSCROLL
+    CONTROL         "Spin1",IDC_HANDCOUNT_SPIN,"msctls_updown32",UDS_WRAP | 
+                    UDS_SETBUDDYINT | UDS_AUTOBUDDY | UDS_ARROWKEYS,324,212,
+                    11,15
+    PUSHBUTTON      "Get hh",IDC_REQUEST_HAND_HISTORY,238,231,41,11
+    PUSHBUTTON      "All-In hh",IDC_REQUEST_HAND_HISTORY2,297,231,41,11
+    GROUPBOX        "Account Information:",IDC_STATIC,113,7,260,128
+    PUSHBUTTON      "Send Msg...",IDC_BROADCAST_MESSAGE,215,113,70,15,
+                    BS_CENTER | BS_MULTILINE
+    PUSHBUTTON      "&Save Changes",IDC_SAVE,305,322,67,18,WS_DISABLED
+    RTEXT           "User ID:",IDC_STATIC,124,28,27,8
+    RTEXT           "Passwd:",IDC_STATIC,124,44,28,8
+    RTEXT           "Full name:",IDC_STATIC,236,17,42,8
+    RTEXT           "City:",IDC_STATIC,299,67,14,8
+    RTEXT           "Email:",IDC_STATIC,131,58,20,8
+    RTEXT           "123456 hands, 55% flops",IDC_HANDS_SEEN,247,201,84,9
+    EDITTEXT        IDC_LOGINS,113,139,189,45,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL
+    EDITTEXT        IDC_ALLINS,22,199,117,46,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
+    RTEXT           "Address1:",IDC_STATIC,246,31,32,8
+    RTEXT           "Address2:",IDC_STATIC,246,47,32,8
+    RTEXT           "Prov/State:",IDC_STATIC,275,79,38,8
+    RTEXT           "Country:",IDC_STATIC,286,94,27,8
+    RTEXT           "Postal:",IDC_STATIC,291,107,22,8
+    LTEXT           "Date Opened:",IDC_DATE_OPENED,126,15,105,10
+    EDITTEXT        IDC_ADMIN_NOTES,7,257,291,63,ES_MULTILINE | 
+                    ES_WANTRETURN | WS_VSCROLL
+    GROUPBOX        "Player Status",IDC_LOGGED_IN_STATUS,305,139,68,45
+    LTEXT           "",IDC_SERIAL_NUM_S1,241,180,8,8,NOT WS_VISIBLE
+    LTEXT           "(characters)",IDC_ADMIN_NOTES_LEN,7,321,66,8
+    CONTROL         210,IDC_PICTURE_VIP,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    336,306,36,14
+    PUSHBUTTON      "Send\n&pswd",IDC_SEND_PASSWORD,211,26,33,27,
+                    BS_MULTILINE
+    GROUPBOX        "Real Money All-Ins (CST)",IDC_STATIC,7,190,195,59
+    GROUPBOX        "Security",IDC_STATIC,7,80,103,104
+    GROUPBOX        "Hand History",IDC_STATIC,206,190,167,59
+    PUSHBUTTON      "All-in Letters",IDC_REQINFO_ALLIN,305,283,67,11,
+                    BS_CENTER | BS_MULTILINE
+    PUSHBUTTON      "Chargeback Letter",IDC_REQINFO_CHARGEBACK,305,270,67,11,
+                    BS_CENTER | BS_MULTILINE
+    PUSHBUTTON      "Full Play History",IDC_REQINFO_PLAYERINFO,305,257,67,11,
+                    BS_CENTER | BS_MULTILINE
+    PUSHBUTTON      "Send &GAIL",IDC_GAIR_LETTER,143,212,55,11
+    EDITTEXT        IDC_EDIT_PHONE_NUMBER,215,97,70,12,ES_AUTOHSCROLL
+    CONTROL         "Real money player",IDC_CHKBOX_REAL_PLAYER,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,121,85,75,10
+    COMBOBOX        IDC_USERID1,13,20,69,239,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "&User ID",IDC_RETRIEVE_USERID,75,60,32,11,BS_CENTER
+    EDITTEXT        IDC_PLAYERID,14,40,59,12,ES_AUTOHSCROLL | ES_READONLY
+    PUSHBUTTON      "Hex ID",IDC_RETRIEVE_PLAYERID,181,329,28,11,BS_CENTER | 
+                    NOT WS_VISIBLE
+    PUSHBUTTON      "&Email",IDC_RETRIEVE_EMAIL,40,60,32,11,BS_CENTER
+    PUSHBUTTON      "&Name",IDC_RETRIEVE_NAME,144,326,28,11,BS_CENTER | NOT 
+                    WS_VISIBLE
+    PUSHBUTTON      "Paste",IDC_RETRIEVE_PASTE,13,60,24,11,BS_CENTER
+    CONTROL         "Spin2",IDC_SPIN_USERID,"msctls_updown32",UDS_WRAP | 
+                    UDS_HORZ,83,21,23,11
+    PUSHBUTTON      "Entire",IDC_CASHOUT_PLAYER_ENTIRE,320,30,38,11,NOT 
+                    WS_VISIBLE
+    EDITTEXT        IDC_EDIT_CASHOUT,284,17,33,12,ES_AUTOHSCROLL | NOT 
+                    WS_VISIBLE
+    PUSHBUTTON      "Specific",IDC_CASHOUT_PLAYER_SPECIFIED,320,17,38,11,NOT 
+                    WS_VISIBLE
+    PUSHBUTTON      "Entire",IDC_CASHOUT_PLAYER_ENTIRE3,188,350,38,11,NOT 
+                    WS_VISIBLE
+    EDITTEXT        IDC_EDIT_CASHOUT3,139,336,33,12,ES_AUTOHSCROLL | NOT 
+                    WS_VISIBLE
+    PUSHBUTTON      "Specific",IDC_CASHOUT_PLAYER_SPECIFIED3,209,350,38,11,
+                    NOT WS_VISIBLE
+    PUSHBUTTON      "Ecash",IDC_RETRIEVE_ECASH4,140,339,32,11,NOT WS_VISIBLE
+    PUSHBUTTON      "Ecash Fee",IDC_RETRIEVE_ECASH_FEE3,129,336,36,11,NOT 
+                    WS_VISIBLE
+    PUSHBUTTON      "Marketing",IDC_RETRIEVE_MARKETING4,174,350,36,11,NOT 
+                    WS_VISIBLE
+    PUSHBUTTON      "ChrgeBack",IDC_RETRIEVE_CHARGEBACK3,193,341,39,11,NOT 
+                    WS_VISIBLE
+    PUSHBUTTON      "Misc",IDC_RETRIEVE_MISC5,169,350,39,11,NOT WS_VISIBLE
+    PUSHBUTTON      "Rake",IDC_RETRIEVE_RAKE3,141,350,32,11,NOT WS_VISIBLE
+    PUSHBUTTON      "Xfer",IDC_TRANSFER_MONEY5,24,340,30,12,NOT WS_VISIBLE
+    EDITTEXT        IDC_PLAYMONEY3,61,343,38,12,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_VISIBLE | NOT WS_TABSTOP
+    EDITTEXT        IDC_PLAYMONEY_INPLAY3,82,334,38,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_VISIBLE | NOT 
+                    WS_TABSTOP
+    EDITTEXT        IDC_REALMONEY4,42,349,50,12,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_VISIBLE | NOT WS_TABSTOP
+    EDITTEXT        IDC_REALMONEY_INPLAY6,121,337,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_VISIBLE | NOT 
+                    WS_TABSTOP
+    EDITTEXT        IDC_REALMONEY_PENDING_CREDIT5,135,349,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_VISIBLE | NOT 
+                    WS_TABSTOP
+    EDITTEXT        IDC_REALMONEY5,35,338,50,12,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_VISIBLE | NOT WS_TABSTOP
+    EDITTEXT        IDC_REALMONEY_INPLAY7,200,336,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_VISIBLE | NOT 
+                    WS_TABSTOP
+    EDITTEXT        IDC_REALMONEY_PENDING_CREDIT6,137,349,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_VISIBLE | NOT 
+                    WS_TABSTOP
+    EDITTEXT        IDC_REALMONEY_PENDING_CHECK4,39,334,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_VISIBLE | NOT 
+                    WS_TABSTOP
+    EDITTEXT        IDC_REALMONEY_CCFEE4,39,349,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_VISIBLE | NOT 
+                    WS_TABSTOP
+    PUSHBUTTON      "&Transfer",IDC_TRANSFER_MONEY7,87,348,50,13,NOT 
+                    WS_VISIBLE
+    EDITTEXT        IDC_REALMONEY_TOTAL4,101,335,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_VISIBLE | NOT 
+                    WS_TABSTOP
+    GROUPBOX        "Account to Retrieve:",IDC_STATIC,7,7,103,73
+    CONTROL         "Spin1",IDC_PLAYERID_SPIN,"msctls_updown32",
+                    UDS_ARROWKEYS,72,39,11,13
+    LTEXT           "Ph#:",IDC_STATIC,199,101,16,8
+END
+#endif
+
+IDD_CASHIER DIALOG DISCARDABLE  0, 0, 466, 290
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Cashier..."
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Setup",IDC_SETUP_ACCOUNT,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,70,236,141,20
+    CONTROL         "Buy",IDC_PURCHASE_CHIPS,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,85,236,89,20
+    CONTROL         "Cashout",IDC_CASH_CHIPS,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,215,237,89,20
+    CONTROL         "History",IDC_TRANSACTION_HISTORY,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,345,239,89,20
+    CONTROL         "Leave",IDCANCEL,"Button",BS_OWNERDRAW | WS_TABSTOP,344,
+                    263,91,20
+    RTEXT           "0",IDC_REAL_BANK,387,99,48,11
+    RTEXT           "0",IDC_REAL_TABLE,387,147,48,11
+    RTEXT           "0",IDC_REAL_PENDING,387,123,48,11
+    LTEXT           "player info",IDC_CASHIER_PLAYERINFO,28,96,170,128
+    LTEXT           "* Credit Card Fees are reimbursed to you as you play. For every 100 raked hands (min $1) we will credit your Player Account $5 until all of your fees are reimbursed. See our Web Site for details.",
+                    IDC_CCFEE_CREDIT_TEXT,15,267,313,18,NOT WS_VISIBLE
+    RTEXT           "0",IDC_REAL_TOTAL,387,175,48,11
+    RTEXT           "*",IDC_STAR,191,123,31,11
+END
+
+IDD_ACCOUNT_CREATE2 DIALOG DISCARDABLE  0, 0, 451, 354
+STYLE DS_MODALFRAME | DS_3DLOOK | DS_CENTER | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Real Money Account Setup - Part 2 of 2"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "",IDC_STATIC,7,7,437,339
+    EDITTEXT        IDC_FULLNAME,76,163,83,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_USER_MI,185,163,21,13,ES_AUTOHSCROLL
+    LTEXT           "/",IDC_STATIC,109,230,9,13
+    EDITTEXT        IDC_LASTNAME,76,179,130,12,ES_AUTOHSCROLL
+    CONTROL         "Male",IDC_MALE,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,
+                    75,197,31,10
+    CONTROL         "Female",IDC_FEMALE,"Button",BS_AUTORADIOBUTTON | 
+                    WS_TABSTOP,75,209,39,10
+    EDITTEXT        IDC_MONTH,75,227,30,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DAY,119,227,30,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_YEAR,163,227,30,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ADDRESS_LINE1,289,158,101,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ADDRESS_LINE2,289,175,101,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CITY,289,193,60,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_STATE,289,209,60,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_POSTAL_CODE,289,226,60,14,ES_AUTOHSCROLL
+    COMBOBOX        IDC_COMBO_COUNTRY,289,243,122,100,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_PHONE,289,260,105,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PHONE2,289,277,106,14,ES_AUTOHSCROLL
+    LTEXT           "/",IDC_STATIC,151,230,9,13
+    LTEXT           "* Required Fields",IDC_STATIC,19,306,71,14,NOT 
+                    WS_VISIBLE
+    PUSHBUTTON      "<< Back",IDCANCEL,141,319,50,14
+    DEFPUSHBUTTON   "Finish",IDOK,247,319,58,14
+    GROUPBOX        "",IDC_STATIC,215,147,219,154
+    LTEXT           "Phone:",IDC_STATIC,255,262,29,10
+    RTEXT           "Country:",IDC_STATIC,239,245,44,8
+    RTEXT           "ZIP/Postal code:",IDC_STATIC,219,230,65,8
+    RTEXT           " First Name:",IDC_STATIC,31,166,42,8
+    LTEXT           "The information below will be held in the strictest confidence.",
+                    IDC_STATIC,215,126,220,23
+    LTEXT           " Last Name:",IDC_STATIC,32,180,41,9
+    RTEXT           " State/Prov:",IDC_STATIC,225,211,58,8
+    RTEXT           " City:",IDC_STATIC,257,195,27,8
+    RTEXT           "Address (line 2):",IDC_STATIC,232,179,51,8
+    RTEXT           " Address (line 1):",IDC_STATIC,228,163,53,8
+    GROUPBOX        "",IDC_STATIC,15,147,197,154
+    LTEXT           "M.I. :",IDC_STATIC,166,166,19,9
+    LTEXT           " Gender:",IDC_STATIC,42,196,31,10
+    LTEXT           "Birth Date:",IDC_STATIC,35,230,38,10
+    LTEXT           "Date Format:      ( mm )     /      ( dd )     /       ( yyyy )",
+                    IDC_STATIC,27,243,165,10
+    CONTROL         276,IDC_STATIC,"Static",SS_BITMAP | SS_CENTERIMAGE,215,
+                    18,220,101
+    GROUPBOX        "Static",IDC_STATIC,15,15,197,133
+    EDITTEXT        IDC_EMAIL,73,39,115,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_USERID,73,22,55,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_TABSTOP
+    RTEXT           "User Name:",IDC_STATIC,29,25,38,8
+    RTEXT           "Email:",IDC_STATIC,47,42,20,8
+    LTEXT           "(Must be a valid e-mail address)",IDC_STATIC,77,52,106,
+                    11
+    LTEXT           "Real Money account.",IDC_STATIC,41,134,133,11
+    CONTROL         "I am at least 21 years old.",IDC_CHECK1,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,29,78,103,15
+    PUSHBUTTON      "More Info",IDC_BUTTON1,142,81,60,13
+    CONTROL         "I have read and agree with the player agreement.",
+                    IDC_CHECK10,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,29,98,
+                    110,15
+    CONTROL         "I understand that each player can only have one (1)",
+                    IDC_CHECK11,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,29,123,
+                    178,13
+    PUSHBUTTON      "Player Agreement",IDC_BUTTON2,143,105,60,14
+    LTEXT           "player agreement",IDC_STATIC,42,110,76,10
+    LTEXT           "Requirements:",IDC_STATIC,26,68,66,10
+    LTEXT           "Alternative Phone:",IDC_STATIC,224,282,60,9
+END
+
+IDD_READ_CONTRACT DIALOG DISCARDABLE  0, 0, 332, 238
+STYLE DS_MODALFRAME | DS_SETFOREGROUND | DS_CENTER | WS_POPUP | WS_VISIBLE | 
+    WS_CAPTION | WS_SYSMENU
+CAPTION "EmediaSoftware Real Money Account Agreement"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "I do NOT agree",IDCANCEL,91,214,65,18,NOT WS_VISIBLE
+    PUSHBUTTON      "OK",IDOK,115,213,105,18
+    EDITTEXT        IDC_MESSAGE_TEXT,5,5,322,202,ES_MULTILINE | 
+                    ES_AUTOVSCROLL | ES_READONLY | WS_VSCROLL
+END
+
+IDD_ACCOUNT_CREDIT DIALOG DISCARDABLE  0, 0, 307, 255
+STYLE DS_MODALFRAME | DS_3DLOOK | DS_CENTER | WS_POPUP | WS_VISIBLE | 
+    WS_CAPTION | WS_SYSMENU
+CAPTION "Cash Out Real Money"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_AMOUNT,194,199,46,12,ES_RIGHT | ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Submit Cash-out Request",IDOK,61,233,87,14
+    PUSHBUTTON      "Cancel",IDCANCEL,179,233,50,14
+    RTEXT           "Enter Real Money cash-out amount:",IDC_STATIC,67,201,
+                    122,10
+    LTEXT           "This page is used for requesting a Real Money cash out ",
+                    IDC_TEXT_1,7,7,293,48
+    RTEXT           "Total amount in Real Money account:",IDC_STATIC,47,165,
+                    142,10
+    EDITTEXT        IDC_REAL_BANK,194,163,46,12,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY
+    RTEXT           "Real Money available for direct credit:",IDC_STATIC,48,
+                    182,142,10
+    EDITTEXT        IDC_CREDIT_GUESS,194,180,46,12,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY
+    GROUPBOX        "Transaction #",IDC_STATIC_ADMIN,236,223,64,24,NOT 
+                    WS_VISIBLE
+    EDITTEXT        IDC_EDIT_CREDITADMIN,235,235,59,12,ES_AUTOHSCROLL | NOT 
+                    WS_VISIBLE
+    LTEXT           "For Mastercard, PayPal, ",IDC_TEXT_2,7,56,293,73
+    GROUPBOX        "Cash Out Details",IDC_STATIC,7,135,289,84
+    LTEXT           "US",IDC_STATIC,244,165,11,11
+    LTEXT           "US",IDC_STATIC,244,182,11,11
+    LTEXT           "US",IDC_STATIC,244,201,11,11
+    RTEXT           "Promotion Hands to Play:",IDC_STATIC,47,148,142,10
+    EDITTEXT        IDC_EPTS2,194,146,46,12,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY
+END
+
+#if defined(APSTUDIO_INVOKED) || defined(_DEBUG)
+#if defined(APSTUDIO_INVOKED)
+IDD_TRANSFER_MONEY$(_DEBUG) DIALOG DISCARDABLE  0, 0, 322, 328
+#else
+IDD_TRANSFER_MONEY DIALOG DISCARDABLE  0, 0, 322, 328
+#endif
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Transfer money between accounts"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Default transaction history entry",IDC_XFER_DEFAULT,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,10,251,164,8
+    CONTROL         "No transaction history entry at all",IDC_XFER_NONE,
+                    "Button",BS_AUTORADIOBUTTON,10,260,181,8
+    CONTROL         "TRANSFER IN / TRANSFER OUT ( *WITH* USER ID DETAILS)",
+                    IDC_XFER_TOANDFROM,"Button",BS_AUTORADIOBUTTON,10,269,
+                    221,8
+    CONTROL         "Make C/C PURCHASE or C/C CASHOUT with C/C transaction #:",
+                    IDC_XFER_TREATASPURCHASE,"Button",BS_AUTORADIOBUTTON,10,
+                    278,220,8
+    CONTROL         "Customize descriptive entry:",IDC_XFER_CUSTOM,"Button",
+                    BS_AUTORADIOBUTTON,10,287,100,8
+    PUSHBUTTON      "Retrieve",IDC_RETRIEVE_USERID1,82,19,43,15
+    PUSHBUTTON      "Retrieve",IDC_RETRIEVE_USERID2,267,19,43,15
+    PUSHBUTTON      "--- Xfer --->",IDC_INITIATE_TRANSFER1,135,72,50,16
+    PUSHBUTTON      "<--- Xfer ---",IDC_INITIATE_TRANSFER2,135,97,50,16
+    PUSHBUTTON      "Marketing",IDC_RETRIEVE_MARKETING,14,170,38,11
+    PUSHBUTTON      "Pending",IDC_RETRIEVE_PENDING,13,186,38,11
+    PUSHBUTTON      "ChrgeBack",IDC_RETRIEVE_CHARGEBACKS,13,201,38,11
+    PUSHBUTTON      "Drafts In",IDC_RETRIEVE_DRAFTS,58,170,32,11
+    PUSHBUTTON      "Wires In",IDC_RETRIEVE_WIRES,58,186,32,11
+    PUSHBUTTON      "Checks",IDC_RETRIEVE_CHECKS,57,201,32,11
+    EDITTEXT        IDC_AMOUNT,135,50,50,13,ES_RIGHT | ES_AUTOHSCROLL
+    EDITTEXT        IDC_TRANSFER_REASON,177,228,142,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "Misc",IDC_RETRIEVE_MISC,95,186,29,11
+    PUSHBUTTON      "Ecash",IDC_RETRIEVE_ECASH,95,170,29,11
+    PUSHBUTTON      "Marketing",IDC_RETRIEVE_MARKETING2,199,170,38,11
+    PUSHBUTTON      "Misc",IDC_RETRIEVE_MISC2,281,185,29,11
+    PUSHBUTTON      "Ecash",IDC_RETRIEVE_ECASH2,281,170,29,11
+    PUSHBUTTON      "Pending",IDC_RETRIEVE_PENDING2,199,186,38,11
+    PUSHBUTTON      "Checks",IDC_RETRIEVE_CHECKS2,243,186,32,11
+    PUSHBUTTON      "Done",IDCANCEL,135,307,50,14
+    EDITTEXT        IDC_REALMONEY,64,72,45,12,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_REALMONEY_INPLAY,64,86,45,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_REALMONEY_PENDING_CREDIT,64,100,45,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_REALMONEY_PENDING_CHECK1,64,114,45,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_REALMONEY_TOTAL,64,149,45,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_REALMONEY2,212,72,46,12,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_REALMONEY_INPLAY4,212,86,46,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_REALMONEY_PENDING_CREDIT2,212,101,46,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_REALMONEY_PENDING_CHECK2,212,115,46,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_REALMONEY_TOTAL2,212,149,46,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    GROUPBOX        "Account 1",IDC_STATIC,3,7,128,213
+    CTEXT           "Amount (US$):",IDC_STATIC,135,39,50,9
+    GROUPBOX        "Account 2",IDC_STATIC,191,7,128,213
+    LTEXT           "Static",IDC_SRC_ACCOUNT_NAME,7,37,121,33
+    LTEXT           "Transfer reason (internal log; client doesn't see this):",
+                    IDC_STATIC,7,228,165,8
+    RTEXT           "Avail:",IDC_STATIC,43,75,18,8
+    RTEXT           "In play:",IDC_STATIC,37,88,24,8
+    RTEXT           "Pending PayPal:",IDC_STATIC,7,102,54,8
+    RTEXT           "Total:",IDC_STATIC,42,151,19,8
+    LTEXT           "Avail",IDC_STATIC,262,75,16,8
+    LTEXT           "In play",IDC_STATIC,262,88,22,8
+    LTEXT           "Pending PayPal",IDC_STATIC,262,102,51,8
+    LTEXT           "Total",IDC_STATIC,262,151,17,8
+    LTEXT           "Static",IDC_DEST_ACCOUNT_NAME,198,37,121,33
+    LTEXT           "Pending check",IDC_STATIC,262,117,49,8
+    RTEXT           "Pending check:",IDC_STATIC,10,117,51,8
+    PUSHBUTTON      "Drafts In",IDC_RETRIEVE_DRAFTS2,243,170,32,11
+    PUSHBUTTON      "Wires In",IDC_RETRIEVE_WIRES2,243,201,32,11
+    PUSHBUTTON      "ChrgeBack",IDC_RETRIEVE_CHARGEBACKS2,199,201,38,11
+    EDITTEXT        IDC_TRANSACTION_NUMBER,233,276,40,12,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    EDITTEXT        IDC_USERID_1,10,20,65,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_USERID_2,195,20,65,13,ES_AUTOHSCROLL
+    PUSHBUTTON      "Prizes",IDC_RETRIEVE_PRIZES,95,201,29,11
+    PUSHBUTTON      "Prizes",IDC_RETRIEVE_PRIZES2,281,202,29,11
+    GROUPBOX        "Transaction Customizations",IDC_STATIC,7,241,312,60
+    EDITTEXT        IDC_XFER_CUSTOM_MESSAGE,111,286,66,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_REALMONEY_CCFEE1,64,128,45,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    RTEXT           "CC Fee:",IDC_STATIC,10,131,51,8
+    EDITTEXT        IDC_REALMONEY_CCFEE2,212,129,46,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    LTEXT           "CC Fee:",IDC_STATIC,262,132,51,8
+    CONTROL         "",IDC_RADIO_SRC_AVAIL,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,112,75,11,10
+    CONTROL         "",IDC_RADIO_SRC_PENDING,"Button",BS_AUTORADIOBUTTON,113,
+                    101,9,11
+    CONTROL         "",IDC_RADIO_SRC_PENDING_CHECK,"Button",
+                    BS_AUTORADIOBUTTON,113,116,8,9
+    CONTROL         "",IDC_RADIO_SRC_CCFEE,"Button",BS_AUTORADIOBUTTON,113,
+                    130,8,9
+    CONTROL         "",IDC_RADIO_DEST_AVAIL,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,199,74,10,11
+    CONTROL         "Radio17",IDC_RADIO_DEST_PENDING,"Button",
+                    BS_AUTORADIOBUTTON,199,103,8,7
+    CONTROL         "",IDC_RADIO_DEST_PENDING_CHECK,"Button",
+                    BS_AUTORADIOBUTTON,199,117,7,9
+    CONTROL         "",IDC_RADIO_DEST_CCFEE,"Button",BS_AUTORADIOBUTTON,199,
+                    132,9,8
+END
+#endif
+
+IDD_VIEW_TRANSACTIONS DIALOGEX 0, 0, 444, 220
+STYLE DS_MODALFRAME | DS_SETFOREGROUND | DS_CENTER | WS_POPUP | WS_VISIBLE | 
+    WS_CAPTION | WS_SYSMENU
+CAPTION "No Transactions on Record..."
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Close",IDOK,393,200,47,17
+    PUSHBUTTON      "Set account for cc",IDC_SET_ACTIVE_ACCOUNT,67,200,63,17,
+                    NOT WS_VISIBLE
+    PUSHBUTTON      "Default",IDC_SET_MAX_ALLOWABLE_DEFAULT,142,204,31,11,
+                    NOT WS_VISIBLE
+    PUSHBUTTON      "Block",IDC_SET_MAX_ALLOWABLE_BLOCK,178,204,31,11,NOT 
+                    WS_VISIBLE
+    PUSHBUTTON      "Apply",IDC_SET_MAX_ALLOWABLE_APPLY,214,204,31,11,NOT 
+                    WS_VISIBLE
+    CTEXT           "Static",IDC_SET_MAX_ALLOWABLE_NUMBER,250,204,16,11,
+                    SS_CENTERIMAGE | NOT WS_VISIBLE,WS_EX_CLIENTEDGE
+    CONTROL         "Spin1",IDC_SET_MAX_ALLOWABLE_SPINNER,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ARROWKEYS | NOT WS_VISIBLE,266,204,
+                    13,12
+    PUSHBUTTON      "Set Credit",IDC_EDIT_CREDITABLE,352,200,37,17,NOT 
+                    WS_VISIBLE
+    EDITTEXT        IDC_TEXT,4,4,436,191,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_AUTOHSCROLL | ES_READONLY | WS_VSCROLL | WS_HSCROLL
+    LTEXT           "Transactions are listed newest to oldest.",
+                    IDC_STATIC_TRANSACTION_ORDER,4,205,127,8
+    GROUPBOX        "",IDC_SET_MAX_ALLOWABLE_STATIC,135,195,152,24,NOT 
+                    WS_VISIBLE
+    PUSHBUTTON      "Check Tracking",IDC_CHECK_TRACKING,3,200,59,17,NOT 
+                    WS_VISIBLE
+    PUSHBUTTON      "Req. Statement",IDC_REQ_STATEMENT,291,200,57,17,NOT 
+                    WS_VISIBLE
+END
+
+#if defined(APSTUDIO_INVOKED) || defined(_DEBUG)
+#if defined(APSTUDIO_INVOKED)
+IDD_CHANGE_SHOTCLOCK$(_DEBUG) DIALOGEX 0, 0, 321, 231
+#else
+IDD_CHANGE_SHOTCLOCK DIALOGEX 0, 0, 321, 231
+#endif
+STYLE DS_MODALFRAME | DS_SETFOREGROUND | DS_CENTER | WS_POPUP | WS_VISIBLE | 
+    WS_CAPTION
+CAPTION "Change Shot Clock Messages on Server..."
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    COMBOBOX        IDC_MESSAGE_TEXT,7,13,148,154,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP,WS_EX_RIGHT
+    COMBOBOX        IDC_MESSAGE_TEXT2,7,27,148,154,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP,WS_EX_RIGHT
+    CONTROL         "DateTimePicker1",IDC_DATEPICKER,"SysDateTimePick32",
+                    DTS_RIGHTALIGN | WS_TABSTOP,188,9,67,13
+    CONTROL         "DateTimePicker1",IDC_TIMEPICKER,"SysDateTimePick32",
+                    DTS_RIGHTALIGN | DTS_UPDOWN | WS_TABSTOP | 0x8,188,23,67,
+                    13
+    CONTROL         "Display d/h/m/s",IDC_CHKBOX_DISPLAY_SHORT_UNITS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,188,38,67,10
+    CONTROL         "Display seconds",IDC_CHKBOX_DISPLAY_SECONDS,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,188,48,67,10
+    CONTROL         "Announce at tables",IDC_ANNOUNCE_AT_TABLES,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,188,57,78,11
+    PUSHBUTTON      "Now",IDC_DATE_NOW,258,9,26,11
+    PUSHBUTTON      "5 min.",IDC_DATE_5MIN,287,9,26,11
+    PUSHBUTTON      "10 min.",IDC_DATE_10MIN,258,21,26,11
+    PUSHBUTTON      "15 min.",IDC_DATE_15MIN,287,21,26,11
+    PUSHBUTTON      "20 min.",IDC_DATE_20MIN,258,33,26,11
+    PUSHBUTTON      "30 min.",IDC_DATE_30MIN,287,33,26,11
+    PUSHBUTTON      "Hour",IDC_DATE_TOP_OF_HOUR,258,45,26,11
+    CONTROL         "Same as pre-expiry",IDC_CHKBOX_SAME_AS_PRE_EXPIRY,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,83,75,10
+    COMBOBOX        IDC_MESSAGE_TEXT1_EXPIRED,7,95,148,154,CBS_DROPDOWN | 
+                    WS_VSCROLL | WS_TABSTOP,WS_EX_RIGHT
+    COMBOBOX        IDC_MESSAGE_TEXT2_EXPIRED,7,109,148,154,CBS_DROPDOWN | 
+                    WS_VSCROLL | WS_TABSTOP,WS_EX_RIGHT
+    CONTROL         "Shutdown when done",IDC_SHUTDOWN_WHEN_DONE,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,226,92,86,11
+    CONTROL         "Shutdown is brief",IDC_SHUTDOWN_IS_BRIEF,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,226,102,86,11
+    CONTROL         "Restart w/ new server",IDC_RESTART_NEW_SERVER,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,226,112,86,11
+    CONTROL         "Allow cashier auto up/dn",
+                    IDC_CHKBOX_CASHIER_AUTO_UP_DOWN,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,227,144,92,11
+    CONTROL         "Cashier closed now",IDC_CHKBOX_CLOSE_CASHIER,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,227,133,78,11
+    CONTROL         "Open tournament tables as necessary",
+                    IDC_CHKBOX_TOURNAMENT_SITDOWN_ALLOWED,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,143,174,134,11
+    CONTROL         "Let tournament tables start playing",
+                    IDC_CHKBOX_TOURNAMENT_STARTING_ALLOWED,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,143,184,129,11
+    EDITTEXT        IDC_MAX_TOURN_TABLES,285,192,29,13,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    CONTROL         "Spin1",IDC_MAX_TOURN_TABLES_SPINNER,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS,305,192,9,13
+    GROUPBOX        "Fine-grained tournament table control",IDC_STATIC,138,
+                    165,180,43
+    PUSHBUTTON      "Welcome",IDC_MSG_WELCOME,10,142,55,13
+    PUSHBUTTON      "Conn. probs",IDC_MSG_CONNECTION_PROBS,69,142,55,13
+    PUSHBUTTON      "Short Shutdown",IDC_MSG_SHUTDOWN,10,174,55,13
+    PUSHBUTTON      "Close Cashier",IDC_MSG_CLOSE_CASHIER,10,158,55,13
+    PUSHBUTTON      "Server back up",IDC_MSG_SERVER_BACK_UP,69,158,55,13
+    PUSHBUTTON      "Long Shutdown",IDC_MSG_SHUTDOWN2,69,174,55,13
+    PUSHBUTTON      "Cancel",IDCANCEL,153,213,48,14
+    PUSHBUTTON      "&Apply",IDC_APPLY,209,213,48,14
+    DEFPUSHBUTTON   "&Send",IDOK,265,213,48,14
+    GROUPBOX        "Presets",IDC_STATIC,4,129,129,98
+    LTEXT           "Max tables:",IDC_STATIC,277,182,37,8
+    RTEXT           "IDC_TIMEZONE_EXAMPLES\nline 2",IDC_TIMEZONE_EXAMPLES,6,
+                    43,174,17
+    LTEXT           "(line 1)",IDC_STATIC,158,16,22,8
+    LTEXT           "(line 2)",IDC_STATIC,158,30,22,8
+    LTEXT           "(line 1)",IDC_STATIC,158,98,22,8
+    LTEXT           "(line 2)",IDC_STATIC,158,112,22,8
+    GROUPBOX        "Pre-expiry Shot Clock settings:",IDC_STATIC,3,2,315,69
+    GROUPBOX        "Post-expiry Shot Clock settings:",IDC_STATIC,3,74,315,
+                    53
+    CONTROL         "Local chime (does not\naffect other users)",
+                    IDC_CHKBOX_ALARM,"Button",BS_AUTOCHECKBOX | BS_MULTILINE | 
+                    WS_TABSTOP,138,133,86,21
+    CONTROL         "Tournaments Open",IDC_CHKBOX_TOURNAMENTS_OPEN,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,226,83,77,10
+    PUSHBUTTON      "4pm Open",IDC_MSG_TOURN_OPEN1,10,190,55,13
+    PUSHBUTTON      "9pm Close",IDC_MSG_TOURN_CLOSE1,69,190,55,13
+    PUSHBUTTON      "1am Open",IDC_MSG_TOURN_OPEN2,10,206,55,13
+    PUSHBUTTON      "4am Close",IDC_MSG_TOURN_CLOSE2,69,206,55,13
+    CONTROL         "Emergency tournament shutdown",
+                    IDC_CHKBOX_TOURNAMENT_EMERGENCY_SHUTDOWN,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,143,194,129,11
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(_DEBUG)
+#if defined(APSTUDIO_INVOKED)
+IDD_ADMIN_STATS$(_DEBUG) DIALOG DISCARDABLE  0, 0, 154, 89
+#else
+IDD_ADMIN_STATS DIALOG DISCARDABLE  0, 0, 154, 89
+#endif
+STYLE DS_SETFOREGROUND | DS_CENTER | WS_MINIMIZEBOX | WS_VISIBLE | 
+    WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+CAPTION "Server stats..."
+FONT 8, "Courier New"
+BEGIN
+    EDITTEXT        IDC_TEXT,1,0,153,89,ES_MULTILINE | ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_BORDER | WS_VSCROLL
+    DEFPUSHBUTTON   "",IDC_BUTTON1,40,27,30,11,NOT WS_VISIBLE | WS_DISABLED
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(_DEBUG)
+#if defined(APSTUDIO_INVOKED)
+IDD_ADMIN_CHECK_RUN$(_DEBUG) DIALOG DISCARDABLE  0, 0, 546, 295
+#else
+IDD_ADMIN_CHECK_RUN DIALOG DISCARDABLE  0, 0, 546, 295
+#endif
+STYLE DS_MODALFRAME | DS_SETFOREGROUND | DS_CENTER | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Begin check run..."
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "1",IDC_RADIO_CHECKRUN_PAGE1,"Button",BS_AUTORADIOBUTTON | 
+                    BS_PUSHLIKE | WS_GROUP,238,278,19,11
+    CONTROL         "2",IDC_RADIO_CHECKRUN_PAGE2,"Button",BS_AUTORADIOBUTTON | 
+                    BS_PUSHLIKE,261,278,19,11
+    CONTROL         "3",IDC_RADIO_CHECKRUN_PAGE3,"Button",BS_AUTORADIOBUTTON | 
+                    BS_PUSHLIKE,284,278,19,11
+    CONTROL         "4",IDC_RADIO_CHECKRUN_PAGE4,"Button",BS_AUTORADIOBUTTON | 
+                    BS_PUSHLIKE,307,278,19,11
+    PUSHBUTTON      "Select ALL",IDC_SELECT_ALL,4,278,51,13
+    PUSHBUTTON      "Unselect ALL",IDC_UNSELECT_ALL,61,278,51,13
+    PUSHBUTTON      "Invert",IDC_INVERT_ALL,118,278,51,13
+    PUSHBUTTON      "Cancel",IDCANCEL,464,277,35,14
+    DEFPUSHBUTTON   "Submit...",IDOK,506,277,35,14
+    EDITTEXT        IDC_GRAND_TOTAL,330,279,125,12,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_BORDER
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK1,"Button",BS_AUTOCHECKBOX | BS_NOTIFY | 
+                    NOT WS_VISIBLE | WS_TABSTOP,4,2,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK2,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,4,11,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK3,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,4,20,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK4,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,4,29,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK5,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,4,38,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK6,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,4,47,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK7,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,4,56,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK8,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,4,65,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK9,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,4,74,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK10,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,4,83,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK11,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,4,92,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK12,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,4,101,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK13,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,4,110,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK14,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,4,119,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK15,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,4,128,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK16,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,4,137,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK17,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,4,146,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK18,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,4,155,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK19,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,4,164,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK20,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,4,173,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK21,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,4,182,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK22,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,4,191,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK23,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,4,200,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK24,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,4,209,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK25,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,4,218,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK26,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,4,227,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK27,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,4,236,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK28,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,4,245,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK29,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,4,254,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK30,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,4,263,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK31,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,185,2,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK32,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,185,11,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK33,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,185,20,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK34,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,185,29,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK35,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,185,38,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK36,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,185,47,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK37,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,185,56,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK38,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,185,65,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK39,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,185,74,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK40,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,185,83,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK41,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,185,92,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK42,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,185,101,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK43,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,185,110,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK44,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,185,119,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK45,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,185,128,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK46,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,185,137,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK47,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,185,146,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK48,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,185,155,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK49,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,185,164,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK50,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,185,173,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK51,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,185,182,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK52,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,185,191,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK53,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,185,200,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK54,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,185,209,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK55,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,185,218,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK56,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,185,227,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK57,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,185,236,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK58,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,185,245,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK59,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,185,254,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK60,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,185,263,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK61,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,364,2,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK62,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,364,11,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK63,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,364,20,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK64,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,364,29,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK65,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,364,38,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK66,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,364,47,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK67,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,364,56,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK68,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,364,65,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK69,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,364,74,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK70,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,364,83,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK71,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,364,92,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK72,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,364,101,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK73,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,364,110,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK74,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,364,119,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK75,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,364,128,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK76,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,364,137,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK77,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,364,146,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK78,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,364,155,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK79,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,364,164,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK80,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,364,173,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK81,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,364,182,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK82,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,364,191,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK83,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,364,200,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK84,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,364,209,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK85,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,364,218,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK86,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,364,227,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK87,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,364,236,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK88,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,364,245,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK89,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,364,254,175,10
+    CONTROL         "$1234.56  PlrUserID, First and Last name, city and state, country",
+                    IDC_ISSUE_CHECK90,"Button",BS_AUTOCHECKBOX | NOT 
+                    WS_VISIBLE | WS_TABSTOP,364,263,175,10
+    RTEXT           "Page:",IDC_STATIC,208,279,26,8
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(_DEBUG)
+#if defined(APSTUDIO_INVOKED)
+IDD_CHAT_MONITOR$(_DEBUG) DIALOG DISCARDABLE  0, 0, 504, 302
+#else
+IDD_CHAT_MONITOR DIALOG DISCARDABLE  0, 0, 504, 302
+#endif
+STYLE DS_MODALFRAME | DS_CENTER | WS_MINIMIZEBOX | WS_CAPTION | WS_SYSMENU
+CAPTION "Monitor"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "",IDC_STATIC,7,7,490,288
+    EDITTEXT        IDC_CHATMON_EDIT,355,118,72,12,ES_AUTOHSCROLL
+    GROUPBOX        "Filter",IDC_STATIC,341,102,150,85
+    CTEXT           "",IDC_STATIC_ALERT_LEVEL,447,250,20,8
+    PUSHBUTTON      "Clear",IDC_CHATMON_RESET,446,118,35,12
+    DEFPUSHBUTTON   "Apply",IDC_CHATMON_APPLY,446,134,35,12
+    CONTROL         "Play Money",IDC_CHECK_MONITOR_PLAY,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,362,150,53,10
+    CONTROL         "Real Money",IDC_CHECK_MONITOR_REAL,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,362,161,52,10
+    CONTROL         "Freeze",IDC_CHAT_MONITOR_FREEZE,"Button",
+                    BS_AUTOCHECKBOX | BS_PUSHLIKE | WS_TABSTOP,366,263,40,19
+    CONTROL         "Slider1",IDC_MONITOR_SLIDER,"msctls_trackbar32",
+                    TBS_AUTOTICKS | TBS_TOP | TBS_ENABLESELRANGE | 
+                    WS_TABSTOP,348,209,93,22
+    GROUPBOX        "Security / Monitoring",IDC_STATIC,341,193,150,51
+    LTEXT           "Low",IDC_STATIC,354,231,14,8
+    LTEXT           "High",IDC_STATIC,420,231,16,8
+    EDITTEXT        IDC_EDIT1,14,17,322,267,ES_MULTILINE | WS_VSCROLL
+    CONTROL         "Tourney",IDC_CHECK_MONITOR_TOURN,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,362,170,42,10
+    PUSHBUTTON      "Clear Alerts",IDC_CHAT_MONITOR_CLEAR_ALERTS,438,263,40,
+                    19,BS_MULTILINE
+    CONTROL         "Sound",IDC_CHECK_MONITOR_SOUND,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,448,226,37,10
+    CONTROL         "Pop Up",IDC_CHECK_MONITOR_POPUP,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,448,215,40,10
+    CONTROL         270,IDC_STATIC,"Static",SS_BITMAP | WS_BORDER,341,17,150,
+                    84
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(_DEBUG)
+#if defined(APSTUDIO_INVOKED)
+IDD_EDIT_CREDITABLE$(_DEBUG) DIALOG DISCARDABLE  0, 0, 166, 146
+#else
+IDD_EDIT_CREDITABLE DIALOG DISCARDABLE  0, 0, 166, 146
+#endif
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Creditable Amounts on Transactions..."
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Apply",IDOK,121,65,32,15
+    COMBOBOX        IDC_COMBO_TRANSACTIONS,13,66,47,100,CBS_DROPDOWN | 
+                    WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_CREDITABLE_EDIT,71,65,43,14,ES_AUTOHSCROLL
+    LTEXT           "Transaction #",IDC_STATIC,14,56,47,8
+    LTEXT           "Creditable $",IDC_STATIC,72,56,39,8
+    LTEXT           "The amount next to each transaction number is the amount that we will try to credit back to it.\n\nTo prevent a transaction from being credited against, tick one of the ""Disable"" checkboxes.",
+                    IDC_STATIC,10,8,149,45
+    DEFPUSHBUTTON   "Close",IDCANCEL,135,131,28,11
+    CONTROL         "Disable this transaction from crediting",
+                    IDC_CHECK_DISABLE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    13,84,131,8
+    PUSHBUTTON      "Disable all with same c/c number",IDC_CHECK_DISABLE_ALL,
+                    12,96,130,12
+    PUSHBUTTON      "Enable all with same c/c number",IDC_CHECK_ENABLE_ALL,
+                    12,112,130,12
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(_DEBUG)
+#if defined(APSTUDIO_INVOKED)
+IDD_GLOBAL_ALLINS$(_DEBUG) DIALOG DISCARDABLE  0, 0, 167, 93
+#else
+IDD_GLOBAL_ALLINS DIALOG DISCARDABLE  0, 0, 167, 93
+#endif
+STYLE DS_MODALFRAME | DS_SETFOREGROUND | DS_CENTER | WS_POPUP | WS_VISIBLE | 
+    WS_CAPTION
+CAPTION "Global All-In settings"
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "DateTimePicker1",IDC_DATEPICKER,"SysDateTimePick32",
+                    DTS_RIGHTALIGN | WS_TABSTOP,5,17,61,13
+    CONTROL         "DateTimePicker1",IDC_TIMEPICKER,"SysDateTimePick32",
+                    DTS_RIGHTALIGN | DTS_UPDOWN | WS_TABSTOP | 0x8,70,17,62,
+                    13
+    PUSHBUTTON      "Now",IDC_SETTIME_NOW,136,17,24,13
+    EDITTEXT        IDC_ALLINS_ALLOWED,102,34,30,13,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    CONTROL         "Spin1",IDC_ALLINS_ALLOWED_SPINNER,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS,133,34,9,13
+    EDITTEXT        IDC_MAX_GOOD_ALLINS_ALLOWED,102,52,30,13,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    CONTROL         "Spin1",IDC_MAX_GOOD_ALLINS_ALLOWED_SPINNER,
+                    "msctls_updown32",UDS_SETBUDDYINT | UDS_ALIGNRIGHT | 
+                    UDS_AUTOBUDDY | UDS_ARROWKEYS,133,52,9,13
+    PUSHBUTTON      "Cancel",IDCANCEL,58,73,48,14
+    PUSHBUTTON      "&Send",IDOK,112,73,48,14
+    LTEXT           "Time of Global All-In Reset: (local time)",IDC_STATIC,5,
+                    5,161,8
+    LTEXT           "All-Ins allowed:",IDC_STATIC,52,36,48,8
+    RTEXT           "Max good All-ins allowed for automatic reset:",
+                    IDC_STATIC,16,49,79,16
+    ICON            273,IDC_STATIC,7,66,20,20
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(_DEBUG)
+#if defined(APSTUDIO_INVOKED)
+IDD_BLOCK_COMPUTER$(_DEBUG) DIALOG DISCARDABLE  0, 0, 167, 52
+#else
+IDD_BLOCK_COMPUTER DIALOG DISCARDABLE  0, 0, 167, 52
+#endif
+STYLE DS_MODALFRAME | DS_SETFOREGROUND | DS_CENTER | WS_POPUP | WS_VISIBLE | 
+    WS_CAPTION
+CAPTION "Block/unblock a computer by serial num"
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_SERIAL_NUM,114,8,46,12,ES_AUTOHSCROLL | ES_NUMBER
+    CONTROL         "Block",IDC_RADIO_BLOCK,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP | WS_TABSTOP,5,25,46,10
+    CONTROL         "Unblock",IDC_RADIO_UNBLOCK,"Button",BS_AUTORADIOBUTTON | 
+                    WS_TABSTOP,5,35,50,10
+    DEFPUSHBUTTON   "Cancel",IDCANCEL,56,31,48,14
+    PUSHBUTTON      "&Submit",IDOK,112,31,48,14
+    LTEXT           "Computer s/n to block or unblock:",-1,3,9,111,8
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(_DEBUG)
+#if defined(APSTUDIO_INVOKED)
+IDD_SET_ACTIVE_ACCOUNT$(_DEBUG) DIALOG DISCARDABLE  0, 0, 161, 103
+#else
+IDD_SET_ACTIVE_ACCOUNT DIALOG DISCARDABLE  0, 0, 161, 103
+#endif
+STYLE DS_MODALFRAME | DS_SETFOREGROUND | DS_CENTER | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Set active account for a credit card"
+FONT 8, "MS Sans Serif"
+BEGIN
+    COMBOBOX        IDC_COMBO_CARDNUMBERS,62,64,96,100,CBS_DROPDOWN | 
+                    CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "&Submit",IDOK,63,83,43,15
+    DEFPUSHBUTTON   "Cancel",IDCANCEL,113,83,43,15
+    EDITTEXT        IDC_USERID,8,64,46,13,ES_AUTOHSCROLL | ES_READONLY
+    LTEXT           "Credit card #",IDC_STATIC,62,52,62,8
+    LTEXT           "Player ID",IDC_STATIC,8,54,47,8
+    LTEXT           "This dialog box lets you set the 'main' account which is allowed to use a particular credit card.\n\nOnly the first n accounts are allowed to use a particular card.",
+                    IDC_STATIC,8,8,148,45
+END
+#endif
+
+IDD_TABLE_OPTIONS DIALOG DISCARDABLE  0, 0, 114, 81
+STYLE DS_MODALFRAME | DS_SETFOREGROUND | DS_CENTER | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Request..."
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Close",IDCANCEL,71,52,28,13
+    ICON            IDI_CLIENT,IDC_STATIC,75,21,20,20
+    PUSHBUTTON      "All-In Reset...",IDM_REQUEST_ALLIN_RESET,14,52,52,13
+    PUSHBUTTON      "Hand History...",IDC_REQUEST_HAND_HISTORY,14,34,52,13
+    PUSHBUTTON      "More Chips...",IDC_REQUEST_MORE_CHIPS,14,16,52,13
+    GROUPBOX        "",IDC_STATIC,7,3,100,70
+END
+
+#if defined(APSTUDIO_INVOKED) || defined(_DEBUG)
+#if defined(APSTUDIO_INVOKED)
+IDD_CC_LIMITS$(_DEBUG) DIALOGEX 0, 0, 151, 205
+#else
+IDD_CC_LIMITS DIALOGEX 0, 0, 151, 205
+#endif
+STYLE DS_MODALFRAME | DS_SETFOREGROUND | DS_CENTER | WS_POPUP | WS_VISIBLE | 
+    WS_CAPTION
+CAPTION "Set Credit Card Purchase Limits"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "&Close",IDCANCEL,23,184,48,14
+    PUSHBUTTON      "&Apply",IDOK,78,184,48,14
+    CONTROL         "Lower Limits",IDC_RADIO_LOWER_LIMITS,"Button",
+                    BS_AUTORADIOBUTTON | WS_GROUP,25,85,55,10
+    CONTROL         "Higher Limits",IDC_RADIO_HIGHER_LIMITS,"Button",
+                    BS_AUTORADIOBUTTON,25,95,56,10
+    GROUPBOX        "Standard Purchase Limits",IDC_STATIC,18,75,115,33
+    GROUPBOX        "Purchase Limit Overrides",IDC_STATIC,18,114,116,58
+    EDITTEXT        IDC_EDIT_LIMIT1,75,124,40,12,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    CONTROL         "24 hours",IDC_CHECK_LIMIT1,"Button",BS_AUTOCHECKBOX | 
+                    BS_LEFTTEXT | WS_GROUP | WS_TABSTOP,19,126,50,10,
+                    WS_EX_RIGHT
+    CONTROL         "7 days",IDC_CHECK_LIMIT2,"Button",BS_AUTOCHECKBOX | 
+                    BS_LEFTTEXT | WS_TABSTOP,19,140,50,10,WS_EX_RIGHT
+    CONTROL         "30 days",IDC_CHECK_LIMIT3,"Button",BS_AUTOCHECKBOX | 
+                    BS_LEFTTEXT | WS_TABSTOP,19,154,50,10,WS_EX_RIGHT
+    EDITTEXT        IDC_EDIT_LIMIT2,75,138,40,12,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    EDITTEXT        IDC_EDIT_LIMIT3,75,152,40,12,ES_AUTOHSCROLL | 
+                    WS_DISABLED
+    GROUPBOX        "Current Status",IDC_STATIC,17,13,115,57
+    RTEXT           "24 hours",IDC_STATIC,25,33,28,8
+    RTEXT           "7 days",IDC_STATIC,25,44,28,8
+    RTEXT           "30 days",IDC_STATIC,25,55,28,8
+    LTEXT           "Purchased",IDC_STATIC,59,24,36,8
+    LTEXT           "Avail",IDC_STATIC,107,24,19,8
+    RTEXT           "$0",IDC_PURCH_1,69,33,23,8
+    RTEXT           "$0",IDC_PURCH_2,69,44,23,8
+    RTEXT           "$0",IDC_PURCH_3,69,55,23,8
+    RTEXT           "$0",IDC_AVAIL_1,102,33,20,8
+    RTEXT           "$0",IDC_AVAIL_2,102,44,20,8
+    RTEXT           "$0",IDC_AVAIL_3,102,55,20,8
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(_DEBUG)
+#if defined(APSTUDIO_INVOKED)
+IDD_CHECK_TRACKING$(_DEBUG) DIALOG DISCARDABLE  0, 0, 194, 175
+#else
+IDD_CHECK_TRACKING DIALOG DISCARDABLE  0, 0, 194, 175
+#endif
+STYLE DS_MODALFRAME | DS_SETFOREGROUND | DS_CENTER | WS_POPUP | WS_VISIBLE | 
+    WS_CAPTION
+CAPTION "Send Check Tracking Info..."
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "&DHL",IDC_RADIO_DHL,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP | WS_TABSTOP,15,71,42,10
+    CONTROL         "None",IDC_RADIO_NONE,"Button",BS_AUTORADIOBUTTON | 
+                    WS_TABSTOP,15,81,42,10
+    CONTROL         "Certified",IDC_RADIO_CERTIFIED,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,15,91,57,10
+    CONTROL         "&FedEx",IDC_RADIO_FEDEX,"Button",BS_AUTORADIOBUTTON | 
+                    WS_TABSTOP,15,101,42,10
+    CONTROL         "&TransExpress",IDC_RADIO_TRANS_EXPRESS,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,79,71,55,10
+    CONTROL         "&Registered Mail",IDC_RADIO_REGISTERED,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,79,81,85,10
+    CONTROL         "&Express Mail",IDC_RADIO_EXPRESS,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,79,91,85,10
+    CONTROL         "&Priority Mail",IDC_RADIO_PRIORITY,"Button",
+                    BS_AUTORADIOBUTTON | WS_TABSTOP,79,101,85,10
+    COMBOBOX        IDC_COMBO_CHECKNUM,15,113,36,72,CBS_DROPDOWN | 
+                    WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    EDITTEXT        IDC_EDIT_TRACKING_NUMBER,106,113,63,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Apply && Email",IDAPPLY_EMAIL,13,139,36,23,BS_MULTILINE
+    PUSHBUTTON      "Apply w/\nNo Email",IDAPPLY_NOEMAIL,57,139,36,23,
+                    BS_MULTILINE
+    PUSHBUTTON      "Only\nEmail",IDNOAPPLY_EMAIL,101,139,36,23,BS_MULTILINE
+    PUSHBUTTON      "&Cancel",IDCANCEL,145,139,36,23
+    EDITTEXT        IDC_EDIT_DELIVERY_AMOUNT,58,113,40,12,ES_AUTOHSCROLL | 
+                    ES_READONLY
+    GROUPBOX        "Delivery Details",IDC_STATIC,7,60,180,108
+    LTEXT           "Check &Total",IDC_STATIC,58,126,45,8
+    LTEXT           "Tracking &Number",IDC_STATIC,107,126,66,8
+    LTEXT           "Chec&k #",IDC_STATIC,15,126,34,8
+END
+#endif
+
+IDD_SNACKMENU DIALOGEX 0, 0, 333, 195
+STYLE DS_CENTER | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Snacks & Drinks..."
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "Cancel",IDCANCEL,"Button",BS_OWNERDRAW | WS_TABSTOP,272,
+                    171,58,19
+    CONTROL         "",IDC_NO_SMOKING,"Button",BS_OWNERDRAW | WS_TABSTOP,168,
+                    171,87,19
+    CONTROL         "",IDC_NOTHING,"Button",BS_OWNERDRAW | WS_TABSTOP,11,171,
+                    89,19
+    CONTROL         "",IDC_CHKBOX_NO_SMOKING,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,159,175,8,9
+    CONTROL         "",IDC_MENU_ITEM1,"Button",BS_OWNERDRAW | WS_TABSTOP,36,
+                    56,26,9
+    CONTROL         "",IDC_MENU_ITEM2,"Button",BS_OWNERDRAW | WS_TABSTOP,32,
+                    66,38,11
+    CONTROL         "",IDC_MENU_ITEM3,"Button",BS_OWNERDRAW | WS_TABSTOP,24,
+                    76,52,9
+    CONTROL         "",IDC_MENU_ITEM4,"Button",BS_OWNERDRAW | WS_TABSTOP,19,
+                    86,62,17
+    CONTROL         "",IDC_MENU_ITEM5,"Button",BS_OWNERDRAW | WS_TABSTOP,32,
+                    103,40,10
+    CONTROL         "",IDC_MENU_ITEM6,"Button",BS_OWNERDRAW | WS_TABSTOP,26,
+                    112,52,9
+    CONTROL         "",IDC_MENU_ITEM7,"Button",BS_OWNERDRAW | WS_TABSTOP,33,
+                    141,33,9
+    CONTROL         "",IDC_MENU_ITEM8,"Button",BS_OWNERDRAW | WS_TABSTOP,27,
+                    151,52,9
+    CONTROL         "",IDC_MENU_ITEM9,"Button",BS_OWNERDRAW | WS_TABSTOP,28,
+                    161,46,9
+    CONTROL         "",IDC_MENU_ITEM10,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    186,56,35,10
+    CONTROL         "",IDC_MENU_ITEM11,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    184,66,42,11
+    CONTROL         "",IDC_MENU_ITEM12,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    172,76,59,12
+    CONTROL         "",IDC_MENU_ITEM13,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    178,86,47,15
+    CONTROL         "",IDC_MENU_ITEM14,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    178,102,49,14
+    CONTROL         "",IDC_MENU_ITEM15,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    174,119,52,9
+    CONTROL         "",IDC_MENU_ITEM16,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    188,128,31,10
+    CONTROL         "",IDC_MENU_ITEM17,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    175,138,52,9
+    CONTROL         "",IDC_MENU_ITEM18,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    182,148,38,10
+    CONTROL         "",IDC_MENU_ITEM19,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    174,157,56,11
+    CONTROL         "",IDC_MENU_ITEM20,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    271,56,23,10
+    CONTROL         "",IDC_MENU_ITEM21,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    266,66,36,10
+    CONTROL         "",IDC_MENU_ITEM22,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    263,76,46,11
+    CONTROL         "",IDC_MENU_ITEM23,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    268,86,35,10
+    CONTROL         "",IDC_MENU_ITEM24,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    259,96,47,15
+    CONTROL         "",IDC_MENU_ITEM25,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    258,113,49,11
+    CONTROL         "",IDC_MENU_ITEM26,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    267,142,37,10
+    CONTROL         "",IDC_MENU_ITEM27,"Button",BS_OWNERDRAW | WS_TABSTOP,
+                    259,152,48,12
+END
+
+IDD_STUD7_LAYOUT_1ON1 DIALOGEX 0, 0, 529, 330
+STYLE DS_MODALFRAME | DS_CENTER | WS_MINIMIZEBOX | WS_POPUP | 
+    WS_CLIPCHILDREN | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_NOPARENTNOTIFY
+FONT 9, "Arial", 0, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_SNACK_PLR8,"Static",SS_BITMAP | NOT WS_VISIBLE,4,
+                    167,15,12
+    CONTROL         "",IDC_SNACK_PLR9,"Static",SS_BITMAP | NOT WS_VISIBLE,84,
+                    22,15,13
+    CONTROL         "Button 1",IDC_BUTTON1,"Button",BS_OWNERDRAW | BS_CENTER | 
+                    BS_VCENTER | BS_MULTILINE | NOT WS_VISIBLE | WS_TABSTOP,
+                    119,250,75,26
+    CONTROL         "Button 2",IDC_BUTTON2,"Button",BS_OWNERDRAW | BS_CENTER | 
+                    BS_VCENTER | BS_MULTILINE | NOT WS_VISIBLE | WS_TABSTOP,
+                    219,250,75,26
+    CONTROL         "Button 3",IDC_BUTTON3,"Button",BS_OWNERDRAW | BS_CENTER | 
+                    BS_VCENTER | BS_MULTILINE | NOT WS_VISIBLE | WS_TABSTOP,
+                    319,250,75,26
+    CONTROL         "Button 4",IDC_BUTTON4,"Button",BS_OWNERDRAW | BS_CENTER | 
+                    BS_VCENTER | BS_MULTILINE | NOT WS_VISIBLE | WS_TABSTOP,
+                    419,250,75,26
+    CONTROL         "AutoTest mode",IDC_COMPUTER_PLAY,"Button",
+                    BS_AUTOCHECKBOX | BS_NOTIFY | NOT WS_VISIBLE,6,267,76,10
+    CONTROL         "Auto-post ante",IDC_POST_IN_TURN,"Button",
+                    BS_AUTOCHECKBOX | BS_NOTIFY | WS_TABSTOP,6,280,75,10
+    CONTROL         "Muck losing hands",IDC_MUCK_LOSING_HANDS,"Button",
+                    BS_AUTOCHECKBOX | BS_NOTIFY | WS_TABSTOP,83,280,82,10
+    CONTROL         "Sit out next hand",IDC_SIT_OUT,"Button",BS_AUTOCHECKBOX | 
+                    BS_NOTIFY | WS_TABSTOP,6,295,73,10
+    COMBOBOX        IDC_COMBO_CHAT_MODE,83,293,92,100,CBS_DROPDOWNLIST | 
+                    WS_TABSTOP
+    EDITTEXT        IDC_TYPE_CHAT,5,311,169,13,ES_MULTILINE | ES_AUTOVSCROLL | 
+                    ES_AUTOHSCROLL | ES_OEMCONVERT | ES_WANTRETURN | 
+                    WS_DISABLED
+    CONTROL         "Cardroom",IDC_GOTO_CARDROOM,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,465,280,60,20
+    CONTROL         "Leave\ntable",IDC_LEAVE_TABLE,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,465,304,60,20
+    CONTROL         "Sit Down",IDC_SIT_DOWN_1,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,331,7,45,20
+    CONTROL         "Sit Down",IDC_SIT_DOWN_2,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,456,58,45,20
+    CONTROL         "Sit Down",IDC_SIT_DOWN_3,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,476,133,45,20
+    CONTROL         "Sit Down",IDC_SIT_DOWN_4,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,426,216,45,20
+    CONTROL         "Sit Down",IDC_SIT_DOWN_5,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,302,222,45,20
+    CONTROL         "Sit Down",IDC_SIT_DOWN_6,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,169,222,45,20
+    CONTROL         "Sit Down",IDC_SIT_DOWN_7,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,23,212,45,20
+    CONTROL         "Sit Down",IDC_SIT_DOWN_8,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,3,134,45,20
+    CONTROL         "Sit Down",IDC_SIT_DOWN_9,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,20,57,45,20
+    CONTROL         "Sit Down",IDC_SIT_DOWN_10,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,146,7,45,20
+    EDITTEXT        IDC_CHAT_BOX,180,280,280,44,ES_MULTILINE | ES_OEMCONVERT | 
+                    ES_READONLY | WS_VSCROLL
+    CTEXT           "BB",IDC_PLAYERPOS_1,326,41,13,10,SS_CENTERIMAGE | NOT 
+                    WS_VISIBLE
+    CTEXT           "BB",IDC_PLAYERPOS_2,418,64,13,10,SS_CENTERIMAGE | NOT 
+                    WS_VISIBLE
+    CTEXT           "BB",IDC_PLAYERPOS_3,446,119,13,10,SS_CENTERIMAGE | NOT 
+                    WS_VISIBLE
+    CTEXT           "BB",IDC_PLAYERPOS_4,407,181,13,10,SS_CENTERIMAGE | NOT 
+                    WS_VISIBLE
+    CTEXT           "BB",IDC_PLAYERPOS_5,286,187,13,10,SS_CENTERIMAGE | NOT 
+                    WS_VISIBLE
+    CTEXT           "BB",IDC_PLAYERPOS_6,178,187,13,10,SS_CENTERIMAGE | NOT 
+                    WS_VISIBLE
+    CTEXT           "BB",IDC_PLAYERPOS_7,90,176,13,10,SS_CENTERIMAGE | NOT 
+                    WS_VISIBLE
+    CTEXT           "BB",IDC_PLAYERPOS_8,66,117,13,10,SS_CENTERIMAGE | NOT 
+                    WS_VISIBLE
+    CTEXT           "BB",IDC_PLAYERPOS_9,87,64,13,10,SS_CENTERIMAGE | NOT 
+                    WS_VISIBLE
+    CTEXT           "BB",IDC_PLAYERPOS_10,179,41,13,10,SS_CENTERIMAGE | NOT 
+                    WS_VISIBLE
+    CTEXT           "",IDC_WAIT_LIST_STATUS,200,252,239,20,SS_CENTERIMAGE | 
+                    NOT WS_VISIBLE
+    RTEXT           "Current Game #287,123,123\nPrevious #123,345,678",
+                    IDC_TABLE_GAME_SERIAL_NUM,411,2,115,19
+    CONTROL         "",IDC_CHIPS_RAKE,"Static",SS_BITMAP | SS_NOTIFY | 
+                    SS_CENTERIMAGE | NOT WS_VISIBLE,213,50,15,12
+    CONTROL         "",IDC_CHIPS_PLR1,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    326,58,15,13
+    CONTROL         "",IDC_CHIPS_PLR2,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    366,81,15,13
+    CONTROL         "",IDC_CHIPS_PLR3,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    374,128,15,13
+    CONTROL         "",IDC_CHIPS_PLR4,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    378,155,15,13
+    CONTROL         "",IDC_CHIPS_PLR5,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    288,161,15,13
+    CONTROL         "",IDC_CHIPS_PLR6,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    181,162,15,13
+    CONTROL         "",IDC_CHIPS_PLR7,"Static",SS_BITMAP | NOT WS_VISIBLE,83,
+                    153,15,12
+    CONTROL         "",IDC_CHIPS_PLR8,"Static",SS_BITMAP | NOT WS_VISIBLE,92,
+                    126,15,13
+    CONTROL         "",IDC_CHIPS_PLR9,"Static",SS_BITMAP | NOT WS_VISIBLE,98,
+                    80,15,13
+    CONTROL         "",IDC_CHIPS_PLR10,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    137,58,15,13
+    CONTROL         "",IDC_CARDS_PLR1,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    332,0,15,13
+    CONTROL         "",IDC_CARDS_PLR2,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    464,42,15,13
+    CONTROL         "",IDC_CARDS_PLR3,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    471,111,15,13
+    CONTROL         "",IDC_CARDS_PLR4,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    389,173,15,12
+    CONTROL         "",IDC_CARDS_PLR5,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    299,204,15,13
+    CONTROL         "",IDC_CARDS_PLR6,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    171,203,15,13
+    CONTROL         "",IDC_CARDS_PLR7,"Static",SS_BITMAP | NOT WS_VISIBLE,40,
+                    173,15,12
+    CONTROL         "",IDC_CARDS_PLR8,"Static",SS_BITMAP | NOT WS_VISIBLE,9,
+                    109,15,13
+    CONTROL         "",IDC_CARDS_PLR9,"Static",SS_BITMAP | NOT WS_VISIBLE,17,
+                    40,15,13
+    CONTROL         "",IDC_CARDS_PLR10,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    142,0,15,13
+    CONTROL         "",IDC_SMALL_CARD_PLR1,"Static",SS_BITMAP | NOT 
+                    WS_VISIBLE,348,39,15,13
+    CONTROL         "",IDC_SMALL_CARD_PLR2,"Static",SS_BITMAP | NOT 
+                    WS_VISIBLE,430,77,15,13
+    CONTROL         "",IDC_SMALL_CARD_PLR3,"Static",SS_BITMAP | NOT 
+                    WS_VISIBLE,438,134,15,13
+    CONTROL         "",IDC_SMALL_CARD_PLR4,"Static",SS_BITMAP | NOT 
+                    WS_VISIBLE,383,179,15,13
+    CONTROL         "",IDC_SMALL_CARD_PLR5,"Static",SS_BITMAP | NOT 
+                    WS_VISIBLE,309,182,15,13
+    CONTROL         "",IDC_SMALL_CARD_PLR6,"Static",SS_BITMAP | NOT 
+                    WS_VISIBLE,202,182,15,13
+    CONTROL         "",IDC_SMALL_CARD_PLR7,"Static",SS_BITMAP | NOT 
+                    WS_VISIBLE,108,177,15,13
+    CONTROL         "",IDC_SMALL_CARD_PLR8,"Static",SS_BITMAP | NOT 
+                    WS_VISIBLE,68,132,15,13
+    CONTROL         "",IDC_SMALL_CARD_PLR9,"Static",SS_BITMAP | NOT 
+                    WS_VISIBLE,74,77,15,13
+    CONTROL         "",IDC_SMALL_CARD_PLR10,"Static",SS_BITMAP | NOT 
+                    WS_VISIBLE,154,38,15,13
+    CONTROL         "",IDC_DECK_LOCATION,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    260,68,15,12
+    CONTROL         "Button5",IDC_PLAYERINFO_1,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,323,1,68,30
+    CONTROL         "Button5",IDC_PLAYERINFO_2,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,456,51,68,30
+    CONTROL         "Button5",IDC_PLAYERINFO_3,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,460,127,68,30
+    CONTROL         "Button5",IDC_PLAYERINFO_4,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,421,210,68,30
+    CONTROL         "Button5",IDC_PLAYERINFO_5,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,291,217,68,30
+    CONTROL         "Button5",IDC_PLAYERINFO_6,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,158,217,68,30
+    CONTROL         "Button5",IDC_PLAYERINFO_7,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,5,207,68,30
+    CONTROL         "Button5",IDC_PLAYERINFO_8,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,0,125,68,30
+    CONTROL         "Button5",IDC_PLAYERINFO_9,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,2,52,68,30
+    CONTROL         "Button5",IDC_PLAYERINFO_10,"Button",BS_OWNERDRAW | NOT 
+                    WS_VISIBLE | WS_TABSTOP,129,1,68,30
+    EDITTEXT        IDC_COMPUTER_PLAY_SECS,82,266,25,12,ES_AUTOHSCROLL | NOT 
+                    WS_VISIBLE | NOT WS_TABSTOP
+    CONTROL         "Spin1",IDC_COMPUTER_PLAY_SECS_SPIN,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS | NOT WS_VISIBLE,107,265,8,15
+    CONTROL         "Watching pop-up",IDC_WATCHING_ACTIVATE,"Button",
+                    BS_AUTOCHECKBOX | NOT WS_VISIBLE,6,240,67,10
+    CONTROL         "Low player pop-up",IDC_LOW_PLAYERS_ACTIVATE,"Button",
+                    BS_AUTOCHECKBOX | NOT WS_VISIBLE,6,249,76,10
+    EDITTEXT        IDC_LOW_PLAYERS_COUNT,82,248,25,12,ES_AUTOHSCROLL | NOT 
+                    WS_VISIBLE | NOT WS_TABSTOP
+    CONTROL         "Spin1",IDC_LOW_PLAYERS_COUNT_SPIN,"msctls_updown32",
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS | NOT WS_VISIBLE,107,246,8,15
+    RTEXT           "All-ins",IDC_ALL_INS_REMAINING,465,21,61,10
+    CONTROL         "Chat pop-up",IDC_CHAT_POPUP,"Button",BS_AUTO3STATE | 
+                    NOT WS_VISIBLE,6,258,76,10
+    RTEXT           "Total",IDC_TOTAL_CONNECTIONS,490,31,36,10,NOT 
+                    WS_VISIBLE
+    RTEXT           "best hand",IDC_BEST_HAND,401,265,124,10,SS_CENTERIMAGE | 
+                    NOT WS_VISIBLE
+    CONTROL         "Fold/Check in turn",IDC_FOLD_IN_TURN,"Button",
+                    BS_AUTOCHECKBOX | BS_NOTIFY | NOT WS_VISIBLE | 
+                    WS_TABSTOP,119,253,98,10
+    CONTROL         "Fold",IDC_FOLD_IN_TURN2,"Button",BS_AUTOCHECKBOX | 
+                    BS_NOTIFY | NOT WS_VISIBLE | WS_TABSTOP,119,266,98,10
+    CONTROL         "Check in turn",IDC_CALL_IN_TURN2,"Button",
+                    BS_AUTOCHECKBOX | BS_NOTIFY | NOT WS_VISIBLE | 
+                    WS_TABSTOP,220,253,97,10
+    CONTROL         "Call/Check in turn",IDC_CALL_IN_TURN,"Button",
+                    BS_AUTOCHECKBOX | BS_NOTIFY | NOT WS_VISIBLE | 
+                    WS_TABSTOP,220,266,97,10
+    CONTROL         "Bet/Raise in turn",IDC_RAISE_IN_TURN2,"Button",
+                    BS_AUTOCHECKBOX | BS_NOTIFY | NOT WS_VISIBLE | 
+                    WS_TABSTOP,321,253,96,10
+    CONTROL         "Bet/Raise in turn",IDC_RAISE_IN_TURN,"Button",
+                    BS_AUTOCHECKBOX | BS_NOTIFY | NOT WS_VISIBLE | 
+                    WS_TABSTOP,321,266,95,10
+    RTEXT           "low hand",IDC_LOWEST_HAND,401,255,124,10,SS_CENTERIMAGE | 
+                    NOT WS_VISIBLE
+    CONTROL         "",IDC_DEALER_CHIP_AREA,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,229,26,76,43,WS_EX_TRANSPARENT
+    CTEXT           "Pot 1 chips",IDC_POT1,234,113,51,13,SS_CENTERIMAGE | 
+                    NOT WS_VISIBLE
+    CTEXT           "Pot 2 chips",IDC_POT2,187,129,51,13,SS_CENTERIMAGE | 
+                    NOT WS_VISIBLE
+    CTEXT           "Pot 3 chips",IDC_POT3,277,129,51,13,SS_CENTERIMAGE | 
+                    NOT WS_VISIBLE
+    LTEXT           "",IDC_MAIN_POT_HOVER,213,109,98,16,NOT WS_VISIBLE
+    LTEXT           "",IDC_SIDE_POT1_HOVER,152,124,82,14,NOT WS_VISIBLE
+    LTEXT           "",IDC_SIDE_POT2_HOVER,282,124,93,16,NOT WS_VISIBLE
+    CONTROL         "",IDC_CARDS_FLOP,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    245,68,15,13
+    LTEXT           "Current high hand",IDC_HIGH_HAND,4,2,97,23,NOT 
+                    WS_VISIBLE
+    RTEXT           "",IDC_MY_MONEY,404,242,124,10,SS_CENTERIMAGE | NOT 
+                    WS_VISIBLE
+    CTEXT           "Pot Value",IDC_POTS,233,145,54,13,NOT WS_GROUP
+    CONTROL         "",IDC_TOURN_TABLE1ON1_SCRIPT,"Static",SS_BITMAP,251,231,
+                    15,12,WS_EX_TRANSPARENT
+    LTEXT           "Rake",IDC_RAKE,212,74,21,8
+END
+
+IDD_BUY_IN_TOURN DIALOG DISCARDABLE  0, 0, 173, 164
+STYLE DS_MODALFRAME | DS_SETFOREGROUND | DS_CENTER | WS_POPUP | WS_VISIBLE | 
+    WS_CAPTION | WS_SYSMENU
+CAPTION "Tournament Buy-In..."
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "$22 Total",IDC_BUY_IN_BUTTON_MAX,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,21,110,108,9
+    PUSHBUTTON      "Where are my chips?",ID_MISC_CHIP_ACTION_BUTTON,5,143,
+                    79,16
+    PUSHBUTTON      "Cancel",IDCANCEL,89,143,37,16
+    DEFPUSHBUTTON   "OK",IDOK,131,143,37,16
+    ICON            IDI_CLIENT,IDC_STATIC,122,5,20,20
+    LTEXT           "place to hide the table info pointer",
+                    IDC_STATIC_TABLE_INFO,95,29,8,8,NOT WS_VISIBLE | 
+                    WS_DISABLED
+    GROUPBOX        "Prizes",IDC_GROUP_TOURNAMENT_PRIZES,6,36,162,43
+    LTEXT           "place to hide the max chips",IDC_STATIC_CHIPS,91,28,8,8,
+                    NOT WS_VISIBLE | WS_DISABLED
+    LTEXT           "place to hide the minimum allowed buyin",
+                    IDC_STATIC_MINIMUM,91,28,8,8,NOT WS_VISIBLE | 
+                    WS_DISABLED
+    LTEXT           "place to hide the max chips",IDC_STATIC_LOW_PLAY_CHIPS,
+                    93,30,8,8,NOT WS_VISIBLE | WS_DISABLED
+    LTEXT           "1st:   $100\n2nd:  $66.66\n3rd:   $33.33",
+                    IDC_STATIC_PRIZE_DESCRIPTION,20,48,108,26
+    GROUPBOX        "Buy-In and Fee",IDC_STATIC,6,88,162,46
+    LTEXT           "Static\n2\n3",IDC_BUYIN_HEADER,13,5,107,31
+    LTEXT           "You have x available",IDC_STATIC_BANKROLL,20,122,109,8
+    LTEXT           "$10 Buy-In + $1 Entry Fee",IDC_STATIC_BUYIN_DETAILS,20,
+                    99,109,11
+END
+
+IDD_TOURN_EMAIL DIALOG DISCARDABLE  0, 0, 282, 89
+STYLE DS_SYSMODAL | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_VISIBLE | 
+    WS_CAPTION
+CAPTION "Tournament Result..."
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Yes",IDYES,79,66,50,17,NOT WS_VISIBLE
+    PUSHBUTTON      "No",IDNO,152,66,50,17,NOT WS_VISIBLE
+    CTEXT           "1\n2\n3",IDC_TEXT,37,7,214,27
+    CTEXT           "1\n2",IDC_REQUEST_SUMMARY_QUESTION,37,37,214,18
+    ICON            IDI_CLIENT,IDC_STATIC,10,6,20,20
+    DEFPUSHBUTTON   "OK",IDOK,115,66,50,17,NOT WS_VISIBLE
+    LTEXT           "",IDC_STATIC_SERIALNO,257,68,8,8,NOT WS_VISIBLE
+END
+
+IDD_ACCOUNT_EDIT_ADDRESS DIALOG DISCARDABLE  0, 0, 455, 319
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Edit Player Information..."
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_FULLNAME,73,140,83,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_USER_MI,182,140,21,13,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LASTNAME,73,156,130,12,ES_AUTOHSCROLL
+    CONTROL         "Male",IDC_MALE,"Button",BS_AUTORADIOBUTTON | WS_TABSTOP,
+                    72,175,31,10
+    CONTROL         "Female",IDC_FEMALE,"Button",BS_AUTORADIOBUTTON | 
+                    WS_TABSTOP,72,186,39,10
+    EDITTEXT        IDC_MONTH,72,204,30,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DAY,116,204,30,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_YEAR,160,204,30,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ADDRESS_LINE1,297,140,101,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ADDRESS_LINE2,297,156,101,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CITY,297,173,60,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_STATE,297,191,60,14,ES_AUTOHSCROLL
+    COMBOBOX        IDC_COMBO_COUNTRY,297,207,122,100,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_POSTAL_CODE,297,224,60,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PHONE,297,240,106,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PHONE2,297,260,105,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Submit",IDOK,151,292,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,243,290,50,14
+    EDITTEXT        IDC_USERID,52,38,55,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER | NOT WS_TABSTOP
+    RTEXT           " City:",IDC_STATIC,269,175,24,8
+    GROUPBOX        "Enter your updated information:",IDC_STATIC,7,7,441,305
+    RTEXT           " Address (line 1):",IDC_STATIC,237,141,53,8
+    RTEXT           "Address (line 2):",IDC_STATIC,237,159,57,8
+    RTEXT           " State/Prov:",IDC_STATIC,249,192,44,8
+    RTEXT           " ZIP/Postal code:",IDC_STATIC,235,226,58,8
+    RTEXT           "Country:",IDC_STATIC,249,210,44,8
+    RTEXT           "User ID:",IDC_STATIC,22,38,28,12
+    RTEXT           "Phone Number:",IDC_STATIC,235,244,58,8
+    GROUPBOX        "",IDC_STATIC,221,129,217,152
+    GROUPBOX        "",IDC_STATIC,13,129,202,152
+    LTEXT           "/",IDC_STATIC,106,207,9,13
+    LTEXT           "/",IDC_STATIC,148,207,9,13
+    RTEXT           " First Name:",IDC_STATIC,28,143,42,8
+    LTEXT           " Last Name:",IDC_STATIC,29,158,41,9
+    LTEXT           "M.I. :",IDC_STATIC,163,143,19,9
+    LTEXT           "Gender:",IDC_STATIC,39,174,31,10
+    LTEXT           " Birth Date:",IDC_STATIC,32,207,38,10
+    LTEXT           "Date Format:  ( mm / dd / yyyy )",IDC_STATIC,78,220,111,
+                    10
+    LTEXT           "The information below will be used only to mail out winning checks, and will be held in the strictest confidence.",
+                    IDC_STATIC,23,72,147,29
+    CONTROL         276,IDC_STATIC,"Static",SS_BITMAP | SS_CENTERIMAGE,219,
+                    21,220,100
+    LTEXT           "* Required Fields",IDC_STATIC,13,284,71,14,NOT 
+                    WS_VISIBLE
+    LTEXT           "Email :",IDC_STATIC,28,54,22,8
+    EDITTEXT        IDC_EMAIL,52,54,137,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER
+    GROUPBOX        "Static",IDC_STATIC,13,17,202,105
+    LTEXT           "Alternative Phone:",IDC_STATIC,233,265,60,9
+END
+
+IDD_EMAIL_SEARCH DIALOG DISCARDABLE  0, 0, 297, 191
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Search for User IDs..."
+FONT 8, "MS Sans Serif"
+BEGIN
+    CONTROL         "Email",IDC_RADIO_EMAIL,"Button",BS_AUTORADIOBUTTON | 
+                    WS_GROUP,219,155,33,10
+    CONTROL         "Name",IDC_RADIO_NAME2,"Button",BS_AUTORADIOBUTTON,219,
+                    164,32,10
+    CONTROL         "User ID",IDC_RADIO_USERID,"Button",BS_AUTORADIOBUTTON,
+                    219,173,36,10
+    DEFPUSHBUTTON   "Search",IDC_BUTTON_SEARCH,187,155,30,27,WS_GROUP
+    CONTROL         "Spin2",IDC_SPIN_EMAILSEARCH,"msctls_updown32",UDS_WRAP | 
+                    UDS_HORZ,9,156,75,14
+    PUSHBUTTON      "Player1",IDC_FOUND_PLAYER1,9,30,75,16
+    PUSHBUTTON      "Player2",IDC_FOUND_PLAYER2,9,55,75,16
+    PUSHBUTTON      "Player3",IDC_FOUND_PLAYER3,9,78,75,16
+    PUSHBUTTON      "Player4",IDC_FOUND_PLAYER4,9,102,75,16
+    PUSHBUTTON      "Player5",IDC_FOUND_PLAYER5,9,126,75,16
+    CONTROL         "1This is a line\n2This is a line\n3This is a line\n4This is a line\n5This is a line\n6This is a line\n7This is a line\n8This is a line\n1This is a line\n2This is a line\n3This is a line\n4This is a line\n5This is a line\n6This is a line\n7This is a line\n8This is a line",
+                    IDC_TEXT_BLOCK,"Static",SS_LEFTNOWORDWRAP | WS_GROUP,91,
+                    29,198,112
+    LTEXT           "12 - 20 of 800 matches",IDC_TEXT_MATCHES,10,172,80,8
+    GROUPBOX        "String to search for...",IDC_STATIC,91,147,204,38
+    EDITTEXT        IDC_EDIT_SEARCH_EMAIL,98,162,85,14,ES_AUTOHSCROLL
+    RTEXT           "This file was last updated",IDC_FILE_INFO,6,15,234,8
+    PUSHBUTTON      "Update Now",IDC_BUTTON_UPDATE_FILE,245,11,49,15
+    PUSHBUTTON      "Paste &&\nSearch",IDC_BUTTON_PASTE,258,155,34,27,
+                    BS_MULTILINE
+END
+
+#if defined(APSTUDIO_INVOKED) || defined(_DEBUG)
+#if defined(APSTUDIO_INVOKED)
+IDD_ADMIN_INFO$(_DEBUG) DIALOG DISCARDABLE  0, 0, 397, 311
+#else
+IDD_ADMIN_INFO DIALOG DISCARDABLE  0, 0, 397, 311
+#endif
+STYLE DS_MODALFRAME | DS_CENTER | WS_MINIMIZEBOX | WS_CAPTION | WS_SYSMENU
+CAPTION "Info requested..."
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_ADMIN_INFO_EDIT,2,1,394,304,ES_MULTILINE | 
+                    WS_VSCROLL
+END
+#endif
+
+#if defined(APSTUDIO_INVOKED) || defined(_DEBUG)
+#if defined(APSTUDIO_INVOKED)
+IDD_REQ_PLAYER_INFO$(_DEBUG) DIALOG DISCARDABLE  0, 0, 161, 167
+#else
+IDD_REQ_PLAYER_INFO DIALOG DISCARDABLE  0, 0, 161, 167
+#endif
+STYLE DS_MODALFRAME | DS_SETFOREGROUND | DS_CENTER | DS_CENTERMOUSE | 
+    WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Request Player Info..."
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,31,148,40,14
+    PUSHBUTTON      "Cancel",IDCANCEL,90,148,40,14
+    GROUPBOX        "Request Parameters",IDC_STATIC,7,44,146,99
+    CONTROL         "DateTimePicker1",IDC_DATEPICKER,"SysDateTimePick32",
+                    DTS_RIGHTALIGN | WS_TABSTOP,50,85,67,13
+    LTEXT           "Name:      Joe Q. Player\nUser ID:   FloppedNutz\nPlayerID:  0x00101234",
+                    IDC_TEXT_PLAYER_INFO,49,56,76,27
+    LTEXT           "Start Date:",IDC_STATIC,14,87,36,8
+    LTEXT           "Number of days to scan:",IDC_STATIC,15,103,81,8
+    EDITTEXT        IDC_REQINFO_DAYS,94,101,34,12,ES_AUTOHSCROLL
+    CONTROL         "Spin1",IDC_REQINFO_SPIN,"msctls_updown32",UDS_WRAP | 
+                    UDS_SETBUDDYINT | UDS_ALIGNRIGHT | UDS_AUTOBUDDY | 
+                    UDS_ARROWKEYS,129,101,10,14
+    CONTROL         "Email to support@e-mediasoftware.com",
+                    IDC_CHECK_EMAIL_ADMIN,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,15,117,133,10
+    CONTROL         "Email to support@e-mediasoftware.com",
+                    IDC_CHECK_EMAIL_SUPPORT,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,15,126,133,10
+    LTEXT           "Name:\nUser ID:\nPlayerID:",IDC_TEXT_PLAYER_INFO2,14,56,
+                    32,27
+    LTEXT           "                 ** PLEASE NOTE **\nRunning one of these requests is very labour intensive on the server and may slow down all games!  Run these requests only when you really need to; not just for fun.",
+                    IDC_STATIC,9,0,143,42
+END
+#endif
+
+IDD_SUBMIT_PHONE_NUMBER DIALOG DISCARDABLE  0, 0, 206, 109
+STYLE DS_MODALFRAME | DS_SETFOREGROUND | DS_CENTER | WS_POPUP | WS_VISIBLE | 
+    WS_CAPTION
+CAPTION "Please enter your phone number..."
+FONT 8, "MS Sans Serif"
+BEGIN
+    EDITTEXT        IDC_EDIT_PHONE_NUMBER,67,48,70,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,82,85,40,18,WS_DISABLED
+    GROUPBOX        "Phone Number Info",IDC_STATIC,7,7,192,72
+    LTEXT           "As you may receive a bankdraft for this cashout, our courier requests that you include your telephone number in order to assist with the delivery.",
+                    IDC_STATIC,13,19,180,24
+    LTEXT           "Example: (213) 555-1212",IDC_STATIC,38,63,112,8
+    ICON            IDI_CLIENT,IDC_STATIC,156,46,20,20
+END
+
+#if defined(APSTUDIO_INVOKED) || defined(_DEBUG)
+#if defined(APSTUDIO_INVOKED)
+IDD_REQ_XFER_EMAIL$(_DEBUG) DIALOG DISCARDABLE  0, 0, 185, 118
+#else
+IDD_REQ_XFER_EMAIL DIALOG DISCARDABLE  0, 0, 185, 118
+#endif
+STYLE DS_MODALFRAME | DS_SETFOREGROUND | DS_CENTER | DS_CENTERMOUSE | 
+    WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "Request Player Info..."
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,46,97,40,14
+    PUSHBUTTON      "Cancel",IDCANCEL,98,97,40,14
+    GROUPBOX        "Emails to send",-1,7,48,171,42
+    CONTROL         "Email to transferer",IDC_CHECK_EMAIL_FROM,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,61,100,10
+    CONTROL         "Email to transfereé",IDC_CHECK_EMAIL_TO,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,15,73,105,10
+    LTEXT           "You can choose to automatically send an email to either (or both) of the players involved in this transfer.\n\nThe email will detail for each the transfer amount as well as account balances.  See 'answers' for a copy.",
+                    -1,7,4,171,42
+    LTEXT           "",IDC_STORE_FROM_ID,101,64,8,8,NOT WS_VISIBLE | 
+                    WS_DISABLED
+    LTEXT           "",IDC_STORE_TO_ID,112,72,8,8,NOT WS_VISIBLE | 
+                    WS_DISABLED
+    LTEXT           "",IDC_STORE_AMOUNT,110,61,8,8,NOT WS_VISIBLE | 
+                    WS_DISABLED
+END
+#endif
+
+IDD_DISABLE_CASHIER DIALOG DISCARDABLE  220, 170, 216, 98
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "The Cashier Has Been Disabled"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,83,62,50,14
+    ICON            IDI_CLIENT,IDC_MYICON2,14,15,20,20
+    GROUPBOX        "",IDC_STATIC,7,7,202,84
+    LTEXT           "The cashier has been disabled,",IDC_STATIC_ABOUT1,56,25,
+                    138,8
+    CONTROL         "Real money option coming soon.",IDC_STATIC_ABOUT2,
+                    "Static",SS_LEFTNOWORDWRAP | WS_GROUP,57,41,108,8
+END
+
+IDD_EMAIL_VALIDATION DIALOG DISCARDABLE  0, 0, 183, 127
+STYLE DS_MODALFRAME | DS_CENTER | WS_MINIMIZEBOX | WS_POPUP | 
+    WS_CLIPCHILDREN | WS_CAPTION | WS_SYSMENU
+CAPTION "Email Validation"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Continue",IDC_VALIDATE,8,96,51,14
+    PUSHBUTTON      "Return to Create New Account",IDCANCEL,74,96,102,14
+    LTEXT           "Your Validation Code will now be sent to :",IDC_STATIC,
+                    19,27,133,11
+    GROUPBOX        " Validation code",IDC_STATIC,7,7,169,78
+    LTEXT           "You are required to enter this code to play at the tables and receive information requested by you.",
+                    IDC_STATIC,17,54,141,26
+    LTEXT           "",IDC_EMAIL,18,40,149,11
+END
+
+IDD_ACCOUNT_CREATE DIALOG DISCARDABLE  0, 0, 327, 375
+STYLE DS_MODALFRAME | DS_3DLOOK | DS_CENTER | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Please Complete This Form To Create a New Account"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "",IDC_STATIC,7,7,315,351
+    EDITTEXT        IDC_USERID,100,35,59,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PASSWORD,100,55,60,12,ES_PASSWORD | ES_AUTOHSCROLL
+    EDITTEXT        IDC_PASSWORD2,100,75,60,12,ES_PASSWORD | ES_AUTOHSCROLL
+    EDITTEXT        IDC_CITY,100,95,60,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EMAIL,100,115,100,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EMAIL2,100,135,100,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SECURE_PHRASE,100,155,100,13,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    EDITTEXT        IDC_REFERED_BY,128,228,130,15,ES_AUTOHSCROLL
+    COMBOBOX        IDC_HEART_ABOUT_US,128,252,133,100,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_COMMENTS,128,277,175,48,ES_MULTILINE | 
+                    ES_AUTOVSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,85,337,50,14,NOT WS_TABSTOP
+    PUSHBUTTON      "Cancel",IDCANCEL,197,337,50,14,NOT WS_TABSTOP
+    RTEXT           "Player ID (nickname) : ",IDC_STATIC,24,38,72,8
+    RTEXT           "Password :",IDC_STATIC,60,57,36,8
+    RTEXT           "Retype password :",IDC_STATIC,37,78,59,8
+    RTEXT           "Home City :",IDC_STATIC,59,98,37,8
+    RTEXT           "Email address :",IDC_STATIC,40,117,56,8
+    GROUPBOX        "Login Information",IDC_STATIC,14,14,299,202
+    GROUPBOX        "",IDC_STATIC,16,218,299,114
+    LTEXT           "*       Your email address is required in order for you to receive hand histories and perform                 certain other functions.  It is our policy to protect the privacy of your email address.",
+                    IDC_STATIC,16,359,293,8,NOT WS_VISIBLE
+    CTEXT           "Your E-mail  is held in strictest confidence. Requiered for you to recieve your validation number, hand  histories and other important information.",
+                    IDC_STATIC,33,184,182,26
+    RTEXT           "Retype Email address :",IDC_STATIC,18,137,73,8
+    LTEXT           "How did yor hear about us?",IDC_STATIC,28,254,97,12
+    LTEXT           "Comment:",IDC_STATIC,80,276,45,11
+    LTEXT           "Refered by:",IDC_STATIC,75,233,50,10
+    LTEXT           "**     Optional Field",IDC_STATIC,7,340,54,9,NOT 
+                    WS_VISIBLE
+    LTEXT           "Secure Phrase:",IDC_STATIC,45,158,51,9
+    CONTROL         292,IDC_STATIC,"Static",SS_BITMAP,221,33,78,142
+END
+
+IDD_CHANGE_EMAIL DIALOG DISCARDABLE  0, 0, 226, 249
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Change/Validate Email Address"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "",IDC_STATIC,7,7,212,235
+    EDITTEXT        IDC_EMAIL,73,102,104,12,ES_AUTOHSCROLL
+    CONTROL         "I do not like junk mail",IDC_CHECK2,"Button",
+                    BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,21,126,81,
+                    10
+    PUSHBUTTON      "Submit Email Address",IDC_SUBMIT,74,121,82,14
+    EDITTEXT        IDC_VALIDATION_CODE,101,189,42,14,ES_AUTOHSCROLL | 
+                    ES_NUMBER
+    PUSHBUTTON      "Validate",IDC_VALIDATE,147,189,46,14
+    PUSHBUTTON      "Cancel",IDCANCEL,87,222,50,14
+    EDITTEXT        IDC_USERID,73,86,104,12,ES_AUTOHSCROLL | ES_READONLY
+    RTEXT           "Player ID:",IDC_STATIC,39,89,32,8
+    RTEXT           "Email address:",IDC_STATIC,25,105,46,8
+    GROUPBOX        "Email Address",IDC_STATIC,15,51,194,93
+    LTEXT           "Your Email Address must be Validated to play at the Tables and to ensure a secure environment for all players.",
+                    IDC_STATIC,27,19,167,25
+    RTEXT           "Validation code:",IDC_STATIC,35,193,63,8
+    GROUPBOX        "Validation code",IDC_STATIC,15,151,194,59
+    LTEXT           "Enter the Validation Code you received by Email in the box below and press 'Validate'.",
+                    IDC_STATIC,35,163,168,21
+    LTEXT           "Press 'Submit Email Address' When changing displayed Email Address or to retrieve your Validation Code.",
+                    IDC_STATIC,30,65,175,20
+END
+
+IDD_REALMONEY_ACCOUNT_SETUP1 DIALOG DISCARDABLE  0, 0, 217, 121
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION
+CAPTION "Real Money Account Setup - Part 1 of 2"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "<<Back",IDCANCEL,36,99,48,14
+    PUSHBUTTON      "Next>>",IDC_VALIDATE,128,99,47,14
+END
+
+IDD_Western_Union DIALOGEX 22, 17, 231, 210
+STYLE DS_MODALFRAME | DS_3DLOOK | DS_CENTER | WS_CAPTION | WS_SYSMENU
+CAPTION "Western Union..."
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    LTEXT           "You are able to send funds via Western Union, into your\ne-Media Poker account.\n\nFor information on how to send a Western Union wire transfer, please click here",
+                    IDC_STATIC,5,8,207,33,SS_NOPREFIX
+    DEFPUSHBUTTON   "<< Back",IDOK,169,186,54,14,WS_GROUP
+    LTEXT           "Dollar amount wired\nYour player ID\nYour Full Real Name\nWestern Union money transfer control number\nDate and Time of wire",
+                    IDC_STATIC,39,96,156,43,SS_NOPREFIX
+    LTEXT           "Once you have completed the steps at your local Western Union \nbranch, email us the following transaction details:",
+                    IDC_STATIC,5,69,207,20,SS_NOPREFIX
+    LTEXT           "Once you wire the money, the transfer and receipt into your e-Media Poker account usually takes 1-4  business days (Monday through Friday).",
+                    IDC_STATIC,8,150,207,29,SS_NOPREFIX
+    PUSHBUTTON      "Western Union Help",IDC_BUTTON1,69,49,73,14,0,
+                    WS_EX_TRANSPARENT
+    LTEXT           "please click here.",IDC_STATIC,6,40,55,8
+END
+
+IDD_Bank_Draft DIALOG DISCARDABLE  22, 17, 231, 231
+STYLE DS_MODALFRAME | DS_3DLOOK | DS_CENTER | WS_CAPTION | WS_SYSMENU
+CAPTION "Bank Drafts..."
+FONT 8, "MS Sans Serif"
+BEGIN
+    LTEXT           "If you prefer to not use your credit card or wire money through Western Union, you can send us a Bank Draft, Money Order or Cashier's Check.",
+                    IDC_STATIC,5,8,207,28,SS_NOPREFIX
+    DEFPUSHBUTTON   "<< Back",IDOK,168,210,54,14,WS_GROUP
+    LTEXT           "You must write your Real Name and Player ID on the draft. If this has been done, we will be able to credit your account as soon as we receive the Bank Draft.",
+                    IDC_STATIC,7,136,207,26,SS_NOPREFIX
+    LTEXT           "",IDC_STATIC,39,96,159,35,SS_NOPREFIX
+    LTEXT           "We do not accept personal checks or cash.",IDC_STATIC,5,
+                    48,207,12,SS_NOPREFIX
+    LTEXT           "To send the Bank Draft, you can use either courier or Registered mail. Your paperwork will be received more quickly than by regular mail and will be traceable.",
+                    IDC_STATIC,8,174,207,29,SS_NOPREFIX
+    LTEXT           "Make the draft payable to: e-Media Poker eCash, S.A.",
+                    IDC_STATIC,5,67,207,12,SS_NOPREFIX
+    LTEXT           "Send the draft to:",IDC_STATIC,5,80,207,12,SS_NOPREFIX
+END
+
+IDD_PAYPAL DIALOGEX 22, 17, 219, 97
+STYLE DS_MODALFRAME | DS_3DLOOK | DS_CENTER | WS_POPUP | WS_CAPTION
+CAPTION "PayPal"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_EDIT1,69,37,82,12,ES_AUTOHSCROLL
+    LTEXT           "Your credit card statement will show ""PayPal"" and the amount you deposited.",
+                    IDC_STATIC,10,6,132,18,SS_NOPREFIX,WS_EX_TRANSPARENT
+    DEFPUSHBUTTON   "Submit Purchase Request",IDSUBMIT,12,63,103,21,WS_GROUP
+    PUSHBUTTON      "About PayPal",IDC_BUTTON1,148,7,51,14
+    LTEXT           "Charge amount:",IDC_STATIC,11,38,53,10
+    LTEXT           "($600 U.S. max)",IDC_STATIC,157,39,56,9
+    PUSHBUTTON      "Cancel",IDOK,143,63,62,20
+END
+
+IDD_TRANSACTION_DECLINE_SMALL DIALOG DISCARDABLE  22, 17, 207, 71
+STYLE DS_MODALFRAME | DS_3DLOOK | DS_CENTER | WS_POPUP | WS_CAPTION
+CAPTION "Validate Deposit Amount"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDI_ICON1,IDC_MYICON,16,5,20,20
+    DEFPUSHBUTTON   "OK",IDOK,72,50,56,15,WS_GROUP
+    LTEXT           "Transaction Declined:",IDC_STATIC,52,18,87,11
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,45,10,132,1
+    LTEXT           "The minimum deposit you can make\n is $50.",IDC_STATIC,
+                    52,28,137,18
+END
+
+IDD_TRANSACTION_PROCESS DIALOG DISCARDABLE  22, 17, 258, 90
+STYLE DS_3DLOOK | DS_CENTER | WS_POPUP | WS_THICKFRAME
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,90,62,71,17,WS_GROUP
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,47,15,191,1
+    ICON            IDI_ICON2,IDC_STATIC,10,23,21,20
+    LTEXT           "Processing",IDC_STATIC,5,12,37,16
+    LTEXT           "Your purchase request is being submitted to PayPal where you will complete the deposit tansaction.",
+                    IDC_STATIC,46,31,190,26
+END
+
+IDD_TRANSACTION_DECLINE_LARGE DIALOG DISCARDABLE  22, 17, 263, 106
+STYLE DS_MODALFRAME | DS_3DLOOK | DS_CENTER | WS_POPUP | WS_CAPTION
+CAPTION "Validate Deposit Amount"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDI_ICON1,IDC_MYICON,17,8,20,20
+    DEFPUSHBUTTON   "OK",IDOK,96,82,62,14,WS_GROUP
+    LTEXT           "Transaction Declined.",IDC_STATIC,47,14,87,11
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,48,29,205,1
+    LTEXT           "",IDC_STATIC_SHOW_LARGE,46,36,196,41
+END
+
+IDD_ACCOUNT_CHARGE DIALOGEX 0, 0, 398, 301
+STYLE DS_MODALFRAME | DS_3DLOOK | DS_CENTER | WS_POPUP | WS_CAPTION | 
+    WS_SYSMENU
+CAPTION "Deposit Real Money"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "",IDC_RADIO_FIREPAY,"Button",BS_AUTORADIOBUTTON | 
+                    WS_TABSTOP,24,90,12,19
+    EDITTEXT        IDC_CARD_NUMBER,112,197,91,12,ES_AUTOHSCROLL | ES_NUMBER
+    COMBOBOX        IDC_CARD_EXP_MONTH,112,215,29,91,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_CARD_EXP_YEAR,152,215,44,90,CBS_DROPDOWN | CBS_SORT | 
+                    WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_AMOUNT,112,233,39,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "Submit Purchase Request",IDOK,269,248,109,19
+    PUSHBUTTON      "Cancel",IDCANCEL,315,279,70,15
+    PUSHBUTTON      "Encryption",IDC_LOCK_ICON,7,279,17,15,BS_BITMAP
+    LTEXT           "The minimum purchase is $50. The maximum limits are: $1000 per 24 hours, $2,500 per 7 days and $5,000 per 30 days.",
+                    IDC_PURCHASE_FEE,7,51,348,19,0,WS_EX_TRANSPARENT
+    LTEXT           "msgtext",IDC_MSGTEXT,7,7,348,41,0,WS_EX_TRANSPARENT
+    CONTROL         "/",IDC_SLASH,"Static",SS_SIMPLE,143,217,8,8,
+                    WS_EX_TRANSPARENT
+    LTEXT           "Expiry:",IDC_TEXT2,26,217,83,10
+    LTEXT           "Number:",IDC_TEXT1,26,199,83,11
+    GROUPBOX        "Deposit Options",IDC_STATIC,7,77,378,194
+    LTEXT           "Charge Amount: ",IDC_STATIC,26,235,83,12
+    LTEXT           "User Info",IDC_STATIC_MailingAddress,208,197,165,45
+    CONTROL         "Save this card information",IDC_CHKBOX_SAVE_CARD_INFO,
+                    "Button",BS_AUTOCHECKBOX | NOT WS_VISIBLE | WS_TABSTOP,
+                    27,252,128,9
+    CONTROL         "Western Union",IDC_BUTTON2,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,206,167,70,23
+    CONTROL         "Bank Draft",IDC_BUTTON3,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,282,167,69,23
+    PUSHBUTTON      "Deposit Options Help",IDC_BUTTON4,144,279,91,15
+    CONTROL         "Firepay",IDC_BUTTON_FIREPAY_LOGO,"Button",BS_OWNERDRAW | 
+                    WS_DISABLED | WS_TABSTOP,39,88,149,24
+    CONTROL         "Paypal",IDC_BUTTON_PAYPAL_LOGO,"Button",BS_OWNERDRAW | 
+                    WS_DISABLED | WS_TABSTOP,39,115,149,24
+    CONTROL         "Visa",IDC_BUTTON_VISA,"Button",BS_OWNERDRAW | 
+                    WS_DISABLED | WS_TABSTOP,39,172,41,22
+    CONTROL         "Master",IDC_BUTTON_MASTERCARD,"Button",BS_OWNERDRAW | 
+                    WS_DISABLED | WS_TABSTOP,103,171,42,22
+    LTEXT           "Connection Secured",IDC_STATIC,29,276,45,18
+    CONTROL         "About Paypal",IDC_ABOUT_PAYPAL,"Button",BS_OWNERDRAW | 
+                    BS_FLAT | WS_TABSTOP,216,121,133,11
+    CONTROL         "About Firepay",IDC_ABOUT_FIREPAY,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,216,88,134,11
+    CONTROL         "Sign for Firepay",IDC_SIGN_FIREPAY,"Button",
+                    BS_OWNERDRAW | BS_FLAT | WS_TABSTOP,216,99,134,11
+    LTEXT           "Both Firepay and PayPal are NO FEE purchase options",
+                    IDC_STATIC,37,143,316,10
+    LTEXT           "Note: Your Email address must match your e-Media Poker  Email",
+                    IDC_STATIC,37,154,316,10
+    CONTROL         "",IDC_RADIO_PAYPAL,"Button",BS_AUTORADIOBUTTON,25,118,
+                    13,17
+    CONTROL         "",IDC_RADIO_VISA,"Button",BS_AUTORADIOBUTTON,25,173,13,
+                    20
+    CONTROL         "",IDC_RADIO_MASTERCARD,"Button",BS_AUTORADIOBUTTON,88,
+                    174,15,16
+    CONTROL         "",IDC_LISTVIEWCTRL1,
+                    "{BDD1F04B-858B-11D1-B16A-00C0F0283628}",WS_TABSTOP,121,
+                    11,66,26
+END
+
+IDD_TRANSACTION_DECLINE_SMALL1 DIALOG DISCARDABLE  22, 17, 207, 71
+STYLE DS_MODALFRAME | DS_3DLOOK | DS_CENTER | WS_POPUP | WS_CAPTION
+CAPTION "Validate Cashout Amount"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDI_ICON1,IDC_MYICON,16,5,21,20
+    DEFPUSHBUTTON   "OK",IDOK,72,50,56,15,WS_GROUP
+    LTEXT           "Transaction Declined:",IDC_STATIC,52,18,87,11
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,45,10,132,1
+    LTEXT           "The minimum cashout you can make\n is $50.",IDC_STATIC,
+                    52,28,137,18
+END
+
+IDD_ACCOUNT_CREDIT1 DIALOG DISCARDABLE  0, 0, 320, 226
+STYLE DS_MODALFRAME | DS_3DLOOK | DS_CENTER | WS_POPUP | WS_VISIBLE | 
+    WS_CAPTION | WS_SYSMENU
+CAPTION "e-Media Poker Cash Out"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Submit Request",IDOK,57,195,65,19
+    PUSHBUTTON      "Cancel",IDCANCEL,206,194,55,19
+    LTEXT           "",IDC_STATIC_FirstMessage,7,7,265,32
+    LTEXT           "PayPal is the preferred method for money transfers at e-Media Poker.  By using PayPal your real money transfers are safe, secure, free and processed in 1-3 days. There are no transfer fees when using your personal PayPal account with Poker.",
+                    IDC_STATIC_FirstMessage,8,43,264,34
+    GROUPBOX        "Cash Out Option",IDC_STATIC_FirstMessage,7,84,306,99
+    CONTROL         "PayPal",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,23,96,92,
+                    14
+    CONTROL         "By Check",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,173,96,
+                    92,14
+    LTEXT           "Static",IDC_STATIC_1,36,110,120,62
+    LTEXT           "Static",IDC_STATIC_2,177,113,126,51
+END
+
+IDD_TRANSACTION_DECLINE_SMALL2 DIALOG DISCARDABLE  22, 17, 207, 82
+STYLE DS_MODALFRAME | DS_3DLOOK | DS_CENTER | WS_POPUP | WS_CAPTION
+CAPTION "Validate CashOut Amount"
+FONT 8, "MS Sans Serif"
+BEGIN
+    ICON            IDI_ICON1,IDC_MYICON,16,5,21,20
+    DEFPUSHBUTTON   "OK",IDOK,69,60,56,15,WS_GROUP
+    LTEXT           "Transaction Declined:",IDC_STATIC,52,18,87,11
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,45,10,132,1
+    LTEXT           "The Cash-Out request above the amount that is available for direct credit must be $50 or greater.",
+                    IDC_STATIC,52,28,137,30
+END
+
+IDD_DOWNLOAD_INQUIRY DIALOG DISCARDABLE  22, 17, 220, 93
+STYLE DS_MODALFRAME | DS_SETFOREGROUND | DS_3DLOOK | DS_CENTER | WS_VISIBLE | 
+    WS_CAPTION
+CAPTION "Emedia Software Update"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Download Software Update ",IDOK,19,73,99,17,NOT 
+                    WS_VISIBLE | WS_GROUP
+    LTEXT           "Emedia Software is currently installing some new software features to enhance your Poker Experience.",
+                    IDC_STATIC_ABOUT3,13,7,194,64,NOT WS_GROUP
+    DEFPUSHBUTTON   "Cancel",IDCANCEL,139,72,54,17,NOT WS_VISIBLE | WS_GROUP
+END
+
+IDD_DOWNLOAD_MUST DIALOG DISCARDABLE  22, 17, 219, 90
+STYLE DS_MODALFRAME | DS_3DLOOK | DS_CENTER | WS_CAPTION
+CAPTION "EmediaSoftware."
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "Download Software Update   ",IDOK,54,64,99,16,WS_GROUP
+    LTEXT           "Old Software Version Found\nNew EmediaSoftware. Client Software is Required to Play\nDownload Now and get the latest improvements\nand features. Your Client will shut down while the\nNew Software is being installed.",
+                    IDC_STATIC_ABOUT3,31,9,161,49
+END
+
+IDD_NEWS DIALOGEX 0, 0, 275, 258
+STYLE DS_SYSMODAL | DS_MODALFRAME | DS_SETFOREGROUND | DS_CENTER | 
+    WS_VISIBLE | WS_CLIPCHILDREN | WS_CAPTION
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    CONTROL         "OK",IDOK,"Button",BS_OWNERDRAW | NOT WS_VISIBLE | 
+                    WS_TABSTOP,106,236,50,14
+    CONTROL         "details ...",IDC_NEWS_DETAILS,"Button",BS_OWNERDRAW | 
+                    WS_TABSTOP,189,210,44,10,WS_EX_TRANSPARENT
+    LTEXT           "Static",IDC_STATIC_NEWS,46,71,177,138,0,
+                    WS_EX_TRANSPARENT
+END
+
+IDD_RETRIEVE_PASSW DIALOG DISCARDABLE  0, 0, 225, 141
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Retrieve Lost Password"
+FONT 8, "MS Sans Serif"
+BEGIN
+    GROUPBOX        "",IDC_STATIC,7,7,211,127
+    LTEXT           "Secret Question:",IDC_STATIC,13,49,55,10
+    LTEXT           "Secret Answer:",IDC_STATIC,19,68,50,12
+    EDITTEXT        IDC_SECRET_QUESTION,72,44,137,15,ES_AUTOHSCROLL | 
+                    WS_GROUP
+    EDITTEXT        IDC_SECRET_ANSWER,72,63,138,14,ES_PASSWORD | 
+                    ES_AUTOHSCROLL
+    LTEXT           "Your password will be mailed to your registered email address",
+                    IDC_STATIC,18,90,191,19
+    DEFPUSHBUTTON   "Submit",IDOK,52,108,50,14,BS_CENTER
+    PUSHBUTTON      "Cancel",IDCANCEL,120,108,50,14
+    RTEXT           "Player ID: ",IDC_STATIC,35,25,34,8
+    EDITTEXT        IDC_USERID,72,21,100,15,ES_AUTOHSCROLL
+END
+
+IDD_BACKUP DIALOG DISCARDABLE  0, 0, 397, 316
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Sans Serif"
+BEGIN
+    COMBOBOX        IDC_USERID1,13,17,69,239,CBS_DROPDOWN | CBS_AUTOHSCROLL | 
+                    CBS_SORT | NOT WS_VISIBLE | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Ecash",IDC_RETRIEVE_ECASH,265,10,32,11,NOT WS_VISIBLE
+    DEFPUSHBUTTON   "&User ID",IDC_RETRIEVE_USERID,109,17,32,11,BS_CENTER | 
+                    NOT WS_VISIBLE
+    EDITTEXT        IDC_PLAYERID,13,30,59,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_VISIBLE
+    PUSHBUTTON      "Hex ID",IDC_RETRIEVE_PLAYERID,143,17,28,11,BS_CENTER | 
+                    NOT WS_VISIBLE
+    PUSHBUTTON      "Ecash Fee",IDC_RETRIEVE_ECASH_FEE,299,10,36,11,NOT 
+                    WS_VISIBLE
+    PUSHBUTTON      "Marketing",IDC_RETRIEVE_MARKETING,299,23,36,11,NOT 
+                    WS_VISIBLE
+    PUSHBUTTON      "Entire",IDC_CASHOUT_PLAYER_ENTIRE,219,30,38,11,NOT 
+                    WS_VISIBLE
+    PUSHBUTTON      "&Email",IDC_RETRIEVE_EMAIL,109,31,32,11,BS_CENTER | NOT 
+                    WS_VISIBLE
+    PUSHBUTTON      "ChrgeBack",IDC_RETRIEVE_CHARGEBACK,337,10,39,11,NOT 
+                    WS_VISIBLE
+    PUSHBUTTON      "&Name",IDC_RETRIEVE_NAME,143,31,28,11,BS_CENTER | NOT 
+                    WS_VISIBLE
+    EDITTEXT        IDC_EDIT_CASHOUT,183,17,33,12,ES_AUTOHSCROLL | NOT 
+                    WS_VISIBLE
+    PUSHBUTTON      "Misc",IDC_RETRIEVE_MISC,337,23,39,11,NOT WS_VISIBLE
+    PUSHBUTTON      "Specific",IDC_CASHOUT_PLAYER_SPECIFIED,219,17,38,11,NOT 
+                    WS_VISIBLE
+    PUSHBUTTON      "Rake",IDC_RETRIEVE_RAKE,265,23,32,11,NOT WS_VISIBLE
+    PUSHBUTTON      "Xfer",IDC_TRANSFER_MONEY2,277,47,30,12,NOT WS_VISIBLE
+    EDITTEXT        IDC_PLAYMONEY,333,42,38,12,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_VISIBLE | NOT WS_TABSTOP
+    RTEXT           "Avail:",IDC_STATIC,311,44,18,8,NOT WS_VISIBLE
+    GROUPBOX        "Account to retrieve:",IDC_STATIC_GROUP_ID1,7,7,167,42,
+                    NOT WS_VISIBLE
+    EDITTEXT        IDC_PLAYMONEY_INPLAY,333,57,38,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_VISIBLE | NOT 
+                    WS_TABSTOP
+    RTEXT           "In play:",IDC_STATIC,305,58,24,8,NOT WS_VISIBLE
+    GROUPBOX        "Play Chips",IDC_STATIC,269,36,109,36,NOT WS_VISIBLE
+    PUSHBUTTON      "Paste",IDC_RETRIEVE_PASTE,83,31,24,11,BS_CENTER | NOT 
+                    WS_VISIBLE
+    GROUPBOX        "Cash Out",IDC_STATIC,177,7,86,42,NOT WS_VISIBLE
+    CONTROL         "Spin2",IDC_SPIN_USERID,"msctls_updown32",UDS_WRAP | 
+                    UDS_HORZ | NOT WS_VISIBLE,83,17,23,11
+    CONTROL         "Spin1",IDC_PLAYERID_SPIN,"msctls_updown32",
+                    UDS_ARROWKEYS,71,30,11,13
+    PUSHBUTTON      "&History",IDC_TRANSACT_HISTORY,274,169,47,13,
+                    BS_MULTILINE
+    PUSHBUTTON      "&Transfer",IDC_TRANSFER_MONEY,325,169,50,13,NOT 
+                    WS_VISIBLE
+    CONTROL         "No cashier",IDC_CHKBOX_NO_CASHIER,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,274,182,50,10
+    PUSHBUTTON      "C/C Limits",IDC_SET_CCLIMITS,325,185,50,11
+    EDITTEXT        IDC_REALMONEY,325,84,50,12,ES_RIGHT | ES_AUTOHSCROLL | 
+                    ES_READONLY | NOT WS_VISIBLE | NOT WS_TABSTOP
+    RTEXT           "Avail:",IDC_STATIC,304,87,18,8
+    EDITTEXT        IDC_REALMONEY_INPLAY,325,98,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_VISIBLE | NOT 
+                    WS_TABSTOP
+    RTEXT           "In Play:",IDC_STATIC,298,100,24,8
+    EDITTEXT        IDC_REALMONEY_PENDING_CREDIT,325,113,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_VISIBLE | NOT 
+                    WS_TABSTOP
+    RTEXT           "Pending PPal: ",IDC_PENDING_CC_REFUND,277,113,47,8
+    EDITTEXT        IDC_REALMONEY_TOTAL,325,154,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_VISIBLE | NOT 
+                    WS_TABSTOP
+    RTEXT           "Total:",IDC_STATIC,303,156,19,8
+    GROUPBOX        "Real Money",IDC_STATIC,269,76,109,142
+    EDITTEXT        IDC_REALMONEY_PENDING_CHECK,325,126,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_VISIBLE | NOT 
+                    WS_TABSTOP
+    RTEXT           "Pending Check:",IDC_STATIC,271,129,51,8
+    RTEXT           "Exposure",IDC_NET_EXPOSURE,302,202,72,8,NOT WS_VISIBLE
+    CONTROL         211,IDC_EXPOSURE_GREEN,"Static",SS_BITMAP | NOT 
+                    WS_VISIBLE,274,202,16,10
+    CONTROL         "No Cashout",IDC_CHKBOX_USED_FIREPAY,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,274,193,50,10
+    RTEXT           "Promotion:",IDC_EPTS_STR,307,241,39,8
+    EDITTEXT        IDC_EPTS,352,241,19,12,ES_AUTOHSCROLL
+    GROUPBOX        "Hands to play",IDC_STATIC,269,220,109,35
+    EDITTEXT        IDC_RAKED_GAMES,352,228,19,12,ES_AUTOHSCROLL
+    RTEXT           "C/C Fee:",IDC_EPTS_STR2,307,230,39,8
+    EDITTEXT        IDC_REALMONEY_CCFEE,325,140,50,12,ES_RIGHT | 
+                    ES_AUTOHSCROLL | ES_READONLY | NOT WS_VISIBLE | NOT 
+                    WS_TABSTOP
+    RTEXT           "C/C Fee:",IDC_STATIC,287,142,35,8
+    CONTROL         212,IDC_EXPOSURE_RED,"Static",SS_BITMAP | NOT WS_VISIBLE,
+                    274,199,16,10
+    LTEXT           "Ph#:",IDC_STATIC,84,128,16,8
+    LTEXT           "",IDC_SERIAL_NUM_S2,103,129,8,8,NOT WS_VISIBLE
+    PUSHBUTTON      "",IDC_DUPE1,7,238,58,11,BS_CENTER | BS_MULTILINE | NOT 
+                    WS_VISIBLE
+    PUSHBUTTON      "",IDC_DUPE2,7,250,58,11,BS_CENTER | BS_MULTILINE | NOT 
+                    WS_VISIBLE
+    PUSHBUTTON      "",IDC_DUPE3,67,238,58,11,BS_CENTER | BS_MULTILINE | NOT 
+                    WS_VISIBLE
+    PUSHBUTTON      "",IDC_DUPE4,67,250,58,11,BS_CENTER | BS_MULTILINE | NOT 
+                    WS_VISIBLE
+    PUSHBUTTON      "",IDC_DUPE5,127,238,58,11,BS_CENTER | BS_MULTILINE | 
+                    NOT WS_VISIBLE
+    PUSHBUTTON      "",IDC_DUPE6,127,250,58,11,BS_CENTER | BS_MULTILINE | 
+                    NOT WS_VISIBLE
+    PUSHBUTTON      "",IDC_DUPE7,187,238,58,11,BS_CENTER | BS_MULTILINE | 
+                    NOT WS_VISIBLE
+    PUSHBUTTON      "",IDC_DUPE8,187,250,58,11,BS_CENTER | BS_MULTILINE | 
+                    NOT WS_VISIBLE
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""windows.h""\r\n"
+    "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""resource.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 86
+    END
+
+    IDD_CARDROOM, DIALOG
+    BEGIN
+        LEFTMARGIN, 5
+        RIGHTMARGIN, 522
+        TOPMARGIN, 7
+        HORZGUIDE, 270
+    END
+
+    IDD_JOIN_WAIT_LIST, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 197
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 58
+    END
+
+    IDD_SEAT_AVAIL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 271
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 67
+    END
+
+    IDD_LOGIN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 145
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 147
+    END
+
+    IDD_BUY_IN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 190
+        TOPMARGIN, 10
+        BOTTOMMARGIN, 138
+    END
+
+    IDD_HOLDEM_LAYOUT_LARGE, DIALOG
+    BEGIN
+        TOPMARGIN, 2
+        BOTTOMMARGIN, 329
+    END
+
+    IDD_DOWNLOAD_STATUS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 192
+        BOTTOMMARGIN, 77
+    END
+
+    IDD_PROMPT_JOIN_WAIT_LIST, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 194
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 111
+    END
+
+    IDD_LOGGING_IN_STATUS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 190
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 16
+    END
+
+    IDD_GOING_TO_TABLE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 157
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 18
+    END
+
+    IDD_CONNECTING, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 265
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 155
+    END
+
+    "IDD_BROADCAST_MESSAGE$(_DEBUG)", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 394
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 168
+    END
+
+    IDD_REQ_HAND_HISTORY, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 138
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 81
+    END
+
+    IDD_STUD7_LAYOUT_LARGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 4
+        RIGHTMARGIN, 528
+        TOPMARGIN, 2
+        BOTTOMMARGIN, 328
+    END
+
+    IDD_CHANGE_PASSWORD, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 200
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 200
+    END
+
+    "IDD_ACCOUNT_EDIT2$(_DEBUG)", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 373
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 361
+    END
+
+    IDD_CASHIER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 459
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 283
+    END
+
+    IDD_ACCOUNT_CREATE2, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 444
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 346
+    END
+
+    IDD_READ_CONTRACT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 325
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 231
+    END
+
+    IDD_ACCOUNT_CREDIT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 300
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 247
+    END
+
+    "IDD_TRANSFER_MONEY$(_DEBUG)", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 319
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 321
+    END
+
+    IDD_VIEW_TRANSACTIONS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 437
+        TOPMARGIN, 7
+    END
+
+    "IDD_CHANGE_SHOTCLOCK$(_DEBUG)", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 314
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 224
+    END
+
+    "IDD_ADMIN_STATS$(_DEBUG)", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 147
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 82
+    END
+
+    "IDD_ADMIN_CHECK_RUN$(_DEBUG)", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 539
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 288
+    END
+
+    "IDD_CHAT_MONITOR$(_DEBUG)", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 497
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 295
+    END
+
+    "IDD_EDIT_CREDITABLE$(_DEBUG)", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 159
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 139
+    END
+
+    "IDD_GLOBAL_ALLINS$(_DEBUG)", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 160
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 86
+    END
+
+    "IDD_BLOCK_COMPUTER$(_DEBUG)", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 160
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 45
+    END
+
+    "IDD_SET_ACTIVE_ACCOUNT$(_DEBUG)", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 154
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 96
+    END
+
+    IDD_TABLE_OPTIONS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 107
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 73
+    END
+
+    "IDD_CC_LIMITS$(_DEBUG)", DIALOG
+    BEGIN
+        LEFTMARGIN, 6
+        RIGHTMARGIN, 144
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 198
+    END
+
+    "IDD_CHECK_TRACKING$(_DEBUG)", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 187
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 168
+    END
+
+    IDD_SNACKMENU, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 326
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 188
+    END
+
+    IDD_STUD7_LAYOUT_1ON1, DIALOG
+    BEGIN
+        LEFTMARGIN, 4
+        RIGHTMARGIN, 528
+        TOPMARGIN, 2
+        BOTTOMMARGIN, 328
+        HORZGUIDE, 88
+        HORZGUIDE, 100
+    END
+
+    IDD_BUY_IN_TOURN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 166
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 156
+    END
+
+    IDD_TOURN_EMAIL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 275
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 82
+    END
+
+    IDD_ACCOUNT_EDIT_ADDRESS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 448
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 312
+    END
+
+    IDD_EMAIL_SEARCH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 289
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 184
+    END
+
+    "IDD_ADMIN_INFO$(_DEBUG)", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 390
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 304
+    END
+
+    "IDD_REQ_PLAYER_INFO$(_DEBUG)", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 154
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 158
+    END
+
+    IDD_SUBMIT_PHONE_NUMBER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 199
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 100
+    END
+
+    "IDD_REQ_XFER_EMAIL$(_DEBUG)", DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 178
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 108
+    END
+
+    IDD_DISABLE_CASHIER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 209
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 91
+        HORZGUIDE, 7
+    END
+
+    IDD_EMAIL_VALIDATION, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 176
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 120
+    END
+
+    IDD_ACCOUNT_CREATE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 320
+        VERTGUIDE, 104
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 368
+    END
+
+    IDD_CHANGE_EMAIL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 219
+        VERTGUIDE, 61
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 242
+    END
+
+    IDD_REALMONEY_ACCOUNT_SETUP1, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 210
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 114
+    END
+
+    IDD_Western_Union, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 203
+    END
+
+    IDD_TRANSACTION_DECLINE_SMALL, DIALOG
+    BEGIN
+        RIGHTMARGIN, 197
+        BOTTOMMARGIN, 64
+    END
+
+    IDD_TRANSACTION_PROCESS, DIALOG
+    BEGIN
+        BOTTOMMARGIN, 81
+    END
+
+    IDD_TRANSACTION_DECLINE_LARGE, DIALOG
+    BEGIN
+        RIGHTMARGIN, 253
+        BOTTOMMARGIN, 100
+    END
+
+    IDD_ACCOUNT_CHARGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 393
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 294
+        HORZGUIDE, 82
+        HORZGUIDE, 271
+    END
+
+    IDD_TRANSACTION_DECLINE_SMALL1, DIALOG
+    BEGIN
+        RIGHTMARGIN, 197
+        BOTTOMMARGIN, 64
+    END
+
+    IDD_ACCOUNT_CREDIT1, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 313
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 217
+    END
+
+    IDD_TRANSACTION_DECLINE_SMALL2, DIALOG
+    BEGIN
+        RIGHTMARGIN, 197
+        BOTTOMMARGIN, 75
+    END
+
+    IDD_NEWS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 268
+        TOPMARGIN, 7
+    END
+
+    IDD_RETRIEVE_PASSW, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 218
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 134
+    END
+
+    IDD_BACKUP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 390
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 309
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,12,10,4
+ PRODUCTVERSION 1,12,10,4
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", "e-Mediasoftware \0"
+            VALUE "FileDescription", "e-Media Poker Demo\0"
+            VALUE "FileVersion", "1, 12, 10, 4\0"
+            VALUE "InternalName", "e-Mediasoftware client program\0"
+            VALUE "LegalCopyright", "Copyright (c) 1999-2001\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "client.exe\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "e-Media Poker Demo\0"
+            VALUE "ProductVersion", "1, 12, 10, 4\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+#if defined(APSTUDIO_INVOKED) || defined(_DEBUG)
+#if defined(APSTUDIO_INVOKED)
+IDB_BITMAP_VIP$(_DEBUG) BITMAP  DISCARDABLE     "vip.bmp"
+#else
+IDB_BITMAP_VIP          BITMAP  DISCARDABLE     "vip.bmp"
+#endif
+#endif
+#if defined(APSTUDIO_INVOKED) || defined(_DEBUG)
+#if defined(APSTUDIO_INVOKED)
+IDB_BITMAP_GREEN$(_DEBUG) BITMAP  DISCARDABLE     "bitmap_g.bmp"
+#else
+IDB_BITMAP_GREEN        BITMAP  DISCARDABLE     "bitmap_g.bmp"
+#endif
+#endif
+#if defined(APSTUDIO_INVOKED) || defined(_DEBUG)
+#if defined(APSTUDIO_INVOKED)
+IDB_BITMAP_RED$(_DEBUG) BITMAP  DISCARDABLE     "bitmap_r.bmp"
+#else
+IDB_BITMAP_RED          BITMAP  DISCARDABLE     "bitmap_r.bmp"
+#endif
+#endif
+IDB_LOCK                BITMAP  DISCARDABLE     "lock.bmp"
+IDB_PDLG_FIREPAY        BITMAP  DISCARDABLE     "pdlg_fp.bmp"
+IDB_PDLG_MASTERCARD     BITMAP  DISCARDABLE     "pdlg_mc.bmp"
+IDB_PDLG_VISA           BITMAP  DISCARDABLE     "pdlg_vi.bmp"
+IDB_VISA_MASTERCARD     BITMAP  DISCARDABLE     "bitmap3.bmp"
+IDB_SPLASH              BITMAP  DISCARDABLE     "data\\media\\splash.bmp"
+IDB_BITMAP4             BITMAP  DISCARDABLE     "data\\media\\emedia.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_ACCOUNT_CHARGE DLGINIT
+BEGIN
+    IDC_LISTVIEWCTRL1, 0x376, 174, 0
+0x0024, 0x0000, 0x0039, 0x0033, 0x0036, 0x0038, 0x0032, 0x0036, 0x0035, 
+0x0045, 0x002d, 0x0038, 0x0035, 0x0046, 0x0045, 0x002d, 0x0031, 0x0031, 
+0x0064, 0x0031, 0x002d, 0x0038, 0x0042, 0x0045, 0x0033, 0x002d, 0x0030, 
+0x0030, 0x0030, 0x0030, 0x0046, 0x0038, 0x0037, 0x0035, 0x0034, 0x0044, 
+0x0041, 0x0031, 0x4321, 0x1234, 0x0008, 0x0000, 0x0a3b, 0x0000, 0x0457, 
+0x0000, 0x084e, 0xeb7d, 0x0001, 0x0006, 0x001c, 0x0000, 0x0000, 0x0000, 
+0x0000, 0x0000, 0x0600, 0x3000, 0x0a3b, 0x0000, 0xef01, 0xabcd, 0x0000, 
+0x0005, 0x0002, 0x0000, 0x0007, 0x7574, 0x0008, 0x8000, 0x0005, 0x8000, 
+0xfffe, 0xffff, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0xde1f, 
+0xbdec, 0x0001, 0x0005, 0x77d0, 0x0018, 0x0000, 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_APP_TITLE           "e-Media Poker "
+    IDS_HELLO               "Welcome to the e-Media Poker.com client."
+    IDC_CLIENT              "e-Media Poker"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

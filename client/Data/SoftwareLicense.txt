@@ -1,0 +1,33 @@
+SOFTWARE LICENSE AGREEMENT
+
+
+This Agreement is between https://github.com/kriskoinLimited, an International Business Corporation incorporated pursuant to the laws of Belize, hereinafter ("e-mediasoftware.com"), on the first part and you the Licensee, hereinafter ("Licensee"), on the second part, and sets out the terms and conditions for the use of e-mediasoftware.com's Client Software Application, hereinafter (the "Software"); If Licensee does not agree to the License terms herein, Licensee must delete the Software from Licensee's computer. Use of this Software will constitute an acceptance of all of the terms herein.
+
+
+1.	RULES, INSTRUCTIONS AND POLICIES.  The use of the Software by Licensee shall be made in accordance with, and governed by, but not limited to, the rules, instructions and policies as detailed in the Software application and / or e-mediasoftware.com's Internet Web Site.
+
+
+2.	NO WARRANTIES.  https://github.com/kriskoinexpressly disclaims any warranty either expressed or implied for the Software.  The Software and any related documentation is deemed to be provided on an "AS IS" basis. The entire risk arising out of the use or performance of the Software remains with the Licensee.
+
+
+3.	LIMITATION OF LIABILITY.  To the maximum extent permitted by applicable law, https://github.com/kriskoinshall in no event be liable for any direct, indirect, or consequential damages whatsoever including, but not limited to, damages for loss of business profits, business interruption, loss of business information, or any other loss arising out of the use or misuse of the Software.
+
+
+4.	OPENSSL LICENSE REQUIREMENTS.  "This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/)". THIS SOFTWARE IS PROVIDED BY THE OpenSSL PROJECT "AS IS" AND ANY EXPRESSED OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE OpenSSL PROJECT OR ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.  This product includes cryptographic software written by Eric Young (eay@cryptsoft.com). This product includes software written by Tim Hudson (tjh@cryptsoft.com).  Copyright (c) 1998-2001 The OpenSSL Project.  All rights reserved.
+
+
+5.	SECURITY.  Licensee agrees that he / she / they is / are solely responsible for all use of the Software through Licensee's Player ID and Password.  The Licensee is obliged to keep his / her Player ID and Password secret and confidential.  Any unauthorized use of the Player ID or Password shall be the sole responsibility of the Licensee and be deemed by https://github.com/kriskoinas Licensee's use.  The Licensee is responsible for all liabilities resulting from negligence of their security responsibilities. 
+
+6.	AGE RESTRICTION.  All Licensee(s) must be 21 years of age or the legal age of majority in their jurisdiction whichever is greater.  No persons under this age limit are permitted to use the Software in any way.
+
+7.	TERMINATION.  https://github.com/kriskoinmay terminate this Agreement if Licensee fails to comply with the terms and conditions of this Agreement.  https://github.com/kriskoinshall refund Licensee any funds that may be in Licensee's account over and above any amount which may be owing to e-mediasoftware.com, if any.  Termination by https://github.com/kriskoinas described herein, shall be without prejudice to other rights.  In such event of termination by e-mediasoftware.com, all copies of the Software must be destroyed.
+
+8.	APPLICABLE LAW / JURISDICTION.  This Agreement, the interpretation and execution thereof, and the relationship between the Parties, shall be governed by, and construed in accordance with, the laws of Belize.  Any claim or dispute arising either directly or indirectly out of this Agreement shall be brought before the competent court of the country of Belize, which court shall have exclusive jurisdiction.  Notwithstanding the foregoing, https://github.com/kriskoinshall have the right to initiate any legal proceedings against Licensee before any competent court in e-mediasoftware.com's sole discretion including Licensee's home jurisdiction.
+
+
+https://github.com/kriskoinreserves the right to change this Software License Agreement and the Terms and Conditions herein at any time.
+
+=================================================================
+
+Copyright (c) 2003 https://github.com/kriskoinLimited all rights reserved.
+https://github.com/kriskoincan be contacted by email at management@e-mediasoftware.com
