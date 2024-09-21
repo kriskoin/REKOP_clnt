@@ -117,8 +117,7 @@ static int PlayerSmallCardsControlIDs[MAX_PLAYERS_PER_GAME] = {
 
 //*********************************************************
 
-// 1999/06/28 - MB
-
+//
 //
 
 // Load the card bitmaps into memory.
@@ -303,8 +302,7 @@ void LoadCardBitmaps(HPALETTE hpal)
 
 //*********************************************************
 
-// 1999/06/28 - MB
-
+//
 //
 
 // Draw a hand of cards at a specific coordinate.
@@ -453,8 +451,7 @@ void DrawCards(BlitQueue *q, LPPOINT dest_pt, Card *card_array, int card_count, 
 
 //*********************************************************
 
-// 1999/06/28 - MB
-
+//
 //
 
 // Draw all the cards at a table.  This includes all players and

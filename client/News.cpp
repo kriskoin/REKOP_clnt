@@ -42,8 +42,7 @@ BOOL CALLBACK dlgNews(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam);
 
 //*********************************************************
 
-// 1999/07/27 - MB
-
+//
 //
 
 // Remove all control characters from a string
@@ -82,8 +81,7 @@ void StripControlChars(char *str)
 
 //*********************************************************
 
-// 1999/07/27 - MB
-
+//
 //
 
 // Display a news file stored locally
@@ -282,8 +280,7 @@ closefile:
 
 //*********************************************************
 
-// 1999/05/23 - MB
-
+//
 //
 
 // Entry point for the news thread.
@@ -369,8 +366,7 @@ void _cdecl NewsThreadEntryPoint(void *args)
 
 //*********************************************************
 
-// 1999/07/27 - MB
-
+//
 //
 
 // Retrieve and display news from our web site.  The work is done

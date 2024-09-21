@@ -458,8 +458,7 @@ BOOL CALLBACK dlgFuncWaitList(HWND hDlg, UINT message, WPARAM wParam, LPARAM lPa
 
 //*********************************************************
 
-// 1999/05/13 - MB
-
+//
 //
 
 // Display the waiting list dialog.  Show existing one
@@ -521,8 +520,7 @@ void WaitListDialog(HWND parent, WORD32 table_serial_number)
 
 //*********************************************************
 
-// 1999/05/13 - MB
-
+//
 //
 
 // Display the unjoin waiting list dialog.  Show existing one
@@ -663,8 +661,7 @@ int UnjoinWaitListDialog(HWND parent, WORD32 table_serial_number, int prompt)
 
 //*********************************************************
 
-// 1999/05/13 - MB
-
+//
 //
 
 // Update the information on the SeatAvail dialog box.
@@ -855,8 +852,7 @@ void UpdateSeatAvailInfo(HWND hDlg)
 
 //****************************************************************
 
-// 1999/05/13 - MB
-
+//
 //
 
 // Mesage handler for Seat Avail dialog box
@@ -1025,8 +1021,7 @@ BOOL CALLBACK dlgFuncSeatAvail(HWND hDlg, UINT message, WPARAM wParam, LPARAM lP
 
 //*********************************************************
 
-// 1999/05/13 - MB
-
+//
 //
 
 // Display/update the 'seat avail' dialog box whenever something
@@ -1101,8 +1096,7 @@ void UpdateSeatAvailDialog(HWND parent)
 
 //****************************************************************
 
-// 1999/04/27 - MB
-
+//
 //
 
 // Mesage handler for Prompt user to join a waiting list dialog box
@@ -1289,8 +1283,7 @@ BOOL CALLBACK dlgFuncPromptJoinWaitList(HWND hDlg, UINT message, WPARAM wParam, 
 
 //*********************************************************
 
-// 1999/07/20 - MB
-
+//
 //
 
 // Display a dialog box to prompt the user to join a waiting

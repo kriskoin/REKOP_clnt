@@ -341,8 +341,7 @@ int PotIDs[DISPLAY_POT_ID_COUNT] = {
 
 //*********************************************************
 
-// 1999/06/25 - MB
-
+//
 //
 
 // Load the chip bitmaps into memory.
@@ -494,8 +493,7 @@ void LoadChipBitmaps(HPALETTE hpal, ChipType chip_type)
 
 //*********************************************************
 
-// 1999/06/25 - MB
-
+//
 //
 
 // Draw stacks of chips at a specific coordinate.
@@ -729,8 +727,7 @@ void DrawChips(BlitQueue *q, LPPOINT dest_pt, int preferred_stack_size, int amou
 
 //*********************************************************
 
-// 1999/06/25 - MB
-
+//
 //
 
 // Get the coordinates for a picture control on a table.
@@ -759,8 +756,7 @@ void GetPictureCoordsOnTable(struct TableInfo *table, int control_id, LPPOINT ou
 
 //*********************************************************
 
-// 1999/06/25 - MB
-
+//
 //
 
 // Draw all the chips at a table.  This includes all players,

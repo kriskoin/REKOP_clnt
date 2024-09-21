@@ -612,8 +612,7 @@ static LRESULT CALLBACK ToolTipMsgQueueHookProc(int nCode, WPARAM wParam, LPARAM
 
 //*********************************************************
 
-// 1999/05/17 - MB
-
+//
 //
 
 // Open the tool tip hook procedures.  This procedure must
@@ -650,8 +649,7 @@ void OpenToolTipHooks(HINSTANCE hinst)
 
 //*********************************************************
 
-// 1999/05/17 - MB
-
+//
 //
 
 // Close the tool tip hook procedures.  This procedure must
@@ -680,8 +678,7 @@ void CloseToolTipHooks(void)
 
 //*********************************************************
 
-// 1999/05/17 - MB
-
+//
 //
 
 // Open a new ToolTip window as a child of a particular window.
@@ -786,8 +783,7 @@ HWND OpenToolTipWindow(HWND parent, struct DlgToolTipText *dttt)
 
 //*********************************************************
 
-// 1999/05/17 - MB
-
+//
 //
 
 // Close a ToolTip window opened with OpenToolTipWindow().
@@ -840,8 +836,7 @@ void CloseToolTipWindow(HWND tooltip_hwnd)
 
 //*********************************************************
 
-// 1999/07/28 - MB
-
+//
 //
 
 // Add/Change tooltip text for an arbitrary rectangle in the
@@ -1018,8 +1013,7 @@ void SetToolTipText(HWND tooltip_hwnd, UINT uId, LPRECT rect, char *text, int *i
 
 //*********************************************************
 
-// 1999/06/14 - MB
-
+//
 //
 
 // Scale a single window's client area position and size.
@@ -1136,8 +1130,7 @@ static void ScaleWindowPos(HWND hwnd, LPPOINT numerator, LPPOINT denominator)
 
 //*********************************************************
 
-// 1999/06/14 - MB
-
+//
 //
 
 // Scale a dialog box and all its controls to a standard 96 dpi
@@ -1256,8 +1249,7 @@ void ScaleDialogTo96dpi(HWND hDlg)
 
 //*********************************************************
 
-// 1999/06/14 - MB
-
+//
 //
 
 // Scale a child window to 96dpi.  This is an internal callback
@@ -1286,8 +1278,7 @@ static BOOL CALLBACK ScaleChildTo96dpi(HWND hwnd, LPARAM lParam)
 
 //*********************************************************
 
-// 2000/03/07 - MB
-
+//
 //
 
 // Set the size of a window to a particular number of screen pixels.
@@ -1310,8 +1301,7 @@ void SetWindowSize(HWND hwnd, int new_w, int new_h)
 
 //*********************************************************
 
-// 1999/06/14 - MB
-
+//
 //
 
 // Position a window so that it is on the screen (no part of
@@ -1394,8 +1384,7 @@ void WinPosWindowOnScreen(HWND hwnd)
 
 //*********************************************************
 
-// 1999/07/16 - MB
-
+//
 //
 
 // Launch the default Internet Browser with a specified URL.
@@ -1460,8 +1449,7 @@ ErrorType LaunchInternetBrowser(char *url)
 
 //*********************************************************
 
-// 1999/08/09 - MB
-
+//
 //
 
 // Set the text for a window if it has changed.  It not, don't do it.
@@ -1531,8 +1519,7 @@ BOOL SetDlgItemTextIfNecessary(HWND hwnd, int control_id, LPCTSTR lpString)
 
 //*********************************************************
 
-// 2000/12/14 - MB
-
+//
 //
 
 // Replace any &'s with && so they do not get interpreted by
@@ -1575,8 +1562,7 @@ char *DelimitStringForTextControl(char *src, char *dest, int max_dest_str_len)
 
 //*********************************************************
 
-// 1999/08/10 - MB
-
+//
 //
 
 // Calculate an intermediate color between two other colors
@@ -1617,8 +1603,7 @@ COLORREF CalculateIntermediateColor(COLORREF start_color, COLORREF end_color, in
 
 //*********************************************************
 
-// 1999/09/23 - MB
-
+//
 //
 
 // Retrieve the text from a dialog window and turn it into an integer.
@@ -1643,8 +1628,7 @@ int GetDlgTextInt(HWND hDlg, int control_id)
 
 //*********************************************************
 
-// 1999/09/23 - MB
-
+//
 //
 
 // Retrieve the text from a dialog window and turn it into a float (double)
@@ -1669,8 +1653,7 @@ double GetDlgTextFloat(HWND hDlg, int control_id)
 
 //*********************************************************
 
-// 1999/09/23 - MB
-
+//
 //
 
 // Retrieve the text from a dialog window (a hex string) and
@@ -1701,8 +1684,7 @@ WORD32 GetDlgTextHex(HWND hDlg, int control_id)
 
 //*********************************************************
 
-// 1999/09/23 - MB
-
+//
 //
 
 // Retrieve the text from a dialog window.  Zeroes entire dest
@@ -1729,8 +1711,7 @@ int GetDlgText(HWND hDlg, int control_id, char *dest_str, int dest_str_len)
 
 //*********************************************************
 
-// 1999/10/07 - MB
-
+//
 //
 
 // Enable a window if it is not already enabled.
@@ -1757,8 +1738,7 @@ BOOL EnableWindowIfNecessary(HWND hwnd, BOOL enable_flag)
 
 //*********************************************************
 
-// 1999/10/19 - MB
-
+//
 //
 
 // Call ShowWindow() if the show cmd does not match the current
@@ -1801,8 +1781,7 @@ BOOL ShowWindowIfNecessary(HWND hwnd, int sw_show_cmd)
 
 //*********************************************************
 
-// 1999/09/02 - MB
-
+//
 //
 
 // Add an item to a proximity highlight structure
@@ -1833,8 +1812,7 @@ void AddProximityHighlight(struct ProximityHighlightingInfo *phi, HWND hwnd)
 
 //*********************************************************
 
-// 2000/06/27 - MB
-
+//
 //
 
 // Try to find a top level window that is under a point.
@@ -1887,8 +1865,7 @@ HWND TopLevelWindowFromPoint(POINT pt)
 
 //*********************************************************
 
-// 1999/09/02 - MB
-
+//
 //
 
 // Update the tracking for the mouse proximity highlighting
@@ -2113,8 +2090,7 @@ void UpdateMouseProximityHighlighting(struct ProximityHighlightingInfo *phi, HWN
 
 //*********************************************************
 
-// 2000/11/13 - MB
-
+//
 //
 
 // A better SetForegroundWindow() (i.e. one that really works under Win98/2000).

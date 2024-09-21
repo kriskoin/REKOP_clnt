@@ -305,8 +305,7 @@ HBITMAP MiscBitmaps[MISCBITMAP_COUNT];
 
 //*********************************************************
 
-// 1999/08/06 - MB
-
+//
 //
 
 // Load the misc bitmaps into memory.
@@ -389,8 +388,7 @@ void LoadSnackMenuBitmaps(HPALETTE hpal)
 
 //*********************************************************
 
-// 1999/08/06 - MB
-
+//
 //
 
 // Draw a button control that had "owner draw" and "transparent" set
@@ -497,8 +495,7 @@ void DrawButtonItemWithBitmap(struct TableInfo *t, LPDRAWITEMSTRUCT dis, int bit
 
 //*********************************************************
 
-// 1999/08/06 - MB
-
+//
 //
 
 // Draw a button control that had "owner draw" set
@@ -703,8 +700,7 @@ void DrawButtonItemWithBitmapAndText(struct TableInfo *t, LPDRAWITEMSTRUCT dis, 
 
 //*********************************************************
 
-// 1999/08/08 - MB
-
+//
 //
 
 // Draw a string centered on a point.  Unlike the Windows DrawText()

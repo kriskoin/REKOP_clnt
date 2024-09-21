@@ -602,8 +602,7 @@ done:
 
 //*********************************************************
 
-// 2000/02/29 - MB
-
+//
 //
 
 //	Convert an IP address to a hostname (reverse DNS).
@@ -638,8 +637,7 @@ static PPCRITICAL_SECTION SSLCritSec;
 
 //*********************************************************
 
-// 1999/11/18 - MB
-
+//
 //
 
 // Grab/Release the SSL Critical Section
@@ -726,8 +724,7 @@ void LeaveSSLCritSec0(char *calling_file, int calling_line)
 
 //*********************************************************
 
-// 1999/10/28 - MB
-
+//
 //
 
 // Extract a field from an http header.  Returns a pointer to the
@@ -768,8 +765,7 @@ static char *ExtractHTTPHeaderField(char *http_header, const char *field_name)
 
 //*********************************************************
 
-// 1999/10/29 - MB
-
+//
 //
 
 // Break apart a URL into its component parts
@@ -858,8 +854,7 @@ ErrorType BreakApartURL(char *input_url,
 
 //*********************************************************
 
-// 1999/10/29 - MB
-
+//
 //
 
 // Post a header to a socket (possibly using SSL) and wait for an http reply.
@@ -1960,8 +1955,7 @@ ErrorType GetHttpPostResult(char *server_name, char *hdr_to_post, char *dest_fna
 
 //*********************************************************
 
-// 1999/10/28 - MB
-
+//
 //
 
 // Grab a file from a URL and write it to a specific disk file

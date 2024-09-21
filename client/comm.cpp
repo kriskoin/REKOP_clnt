@@ -135,8 +135,7 @@ int cont=0;
 
 //*********************************************************
 
-// 2000/07/26 - MB
-
+//
 //
 
 // Validate the game_rules BYTE8 received from the server for
@@ -331,8 +330,7 @@ void UpdateTableInfoEntry(struct CardRoom_TableInfo *ti)
 
 //*********************************************************
 
-// 1999/12/10 - MB
-
+//
 //
 
 // Send the ClientStateInfo structure for a table, provided it
@@ -407,8 +405,7 @@ ErrorType SendClientStateInfo(struct TableInfo *t)
 
 //****************************************************************
 
-// 1999/04/20 - MB
-
+//
 //
 
 // Send an arbitrary data structure to the server (arbitrary socket)
@@ -575,8 +572,7 @@ ErrorType SendDataStructure(int data_type, void *data_structure_ptr, int data_st
 
 //*********************************************************
 
-// 1999/10/06 - MB
-
+//
 //
 
 // Return a flag to indicate whether our app should be considered
@@ -641,8 +637,7 @@ ErrorType SendKeepAlive(void)
 
 //*********************************************************
 
-// 1999/10/13 - MB
-
+//
 //
 
 // Send a ping to the server.
@@ -699,8 +694,7 @@ void SendPing(void)
 
 //****************************************************************
 
-// 1999/04/21 - MB
-
+//
 //
 
 // Send a GamePlayerInputResult structure to our currently
@@ -779,8 +773,7 @@ ErrorType VerifyIncomingPacketFormat(Packet *p, int expected_size)
 
 //****************************************************************
 
-// 1999/04/20 - MB
-
+//
 //
 
 // Process a received GameCommonData structure.
@@ -911,8 +904,7 @@ ErrorType ProcessGameCommonData(struct GameCommonData*gcd, int input_structure_l
 
 //****************************************************************
 
-// 1999/04/20 - MB
-
+//
 //
 
 // Process a received GamePlayerData structure.
@@ -1045,8 +1037,7 @@ ErrorType ProcessGamePlayerData(struct GamePlayerData *gpd, int input_structure_
 
 //*********************************************************
 
-// 1999/07/26 - MB
-
+//
 //
 
 // If the server has asked for a particular action and we have
@@ -1123,8 +1114,7 @@ int CheckAutoRespondToInput(struct TableInfo *t, struct GamePlayerInputRequest *
 
 //****************************************************************
 
-// 1999/04/20 - MB
-
+//
 //
 
 // Process a received GamePlayerInputRequest structure.

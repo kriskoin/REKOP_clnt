@@ -1,7 +1,6 @@
 //****************************************************************
 
-// 1999/06/25 - MB
-
+//
 //
 
 // WinBlit.cpp : Misc. blitting related tools for Windows
@@ -104,8 +103,7 @@ struct MaskCacheEntry {
 
 //*********************************************************
 
-// 2000/02/16 - MB
-
+//
 //
 
 // Free up the stuff in a MaskCacheEntry
@@ -150,8 +148,7 @@ void MaskCache_FreeEntry(struct MaskCacheEntry *e)
 
 //*********************************************************
 
-// 2000/02/16 - MB
-
+//
 //
 
 // Find (or create) a mask for the passed HBITMAP
@@ -401,8 +398,7 @@ struct MaskCacheEntry *MaskCache_FindMask(HBITMAP src_hbitmap, HDC dest_hdc)
 
 //*********************************************************
 
-// 2000/02/16 - MB
-
+//
 //
 
 // Free all cached mask bitmaps
@@ -433,8 +429,7 @@ void MaskCache_FreeAll(void)
 
 //*********************************************************
 
-// 1999/06/25 - MB
-
+//
 //
 
 // Blit an HBITMAP with transparency into a DC given a dest point.
@@ -1068,8 +1063,7 @@ void BlitBitmapToDC(HBITMAP src_hbitmap, HDC dest_hdc, LPPOINT dest_pt)
 
 //*********************************************************
 
-// 1999/06/25 - MB
-
+//
 //
 
 // Blit an HBITMAP without transparency into a DC given a dest point.
@@ -1226,8 +1220,7 @@ void BlitBitmapToDC_nt(HBITMAP src_hbitmap, HDC dest_hdc)
 
 //*********************************************************
 
-// 1999/08/06 - MB
-
+//
 //
 
 // Blit a non-transparent rectangle from a source bitmap to a point
@@ -1346,8 +1339,7 @@ void BlitBitmapRectToDC(HBITMAP src_hbitmap, HDC dest_hdc, LPPOINT dest_pt, LPRE
 
 //*********************************************************
 
-// 1999/06/30 - MB
-
+//
 //
 
 // Duplicate an HBITMAP, including the memory used to hold
@@ -1466,8 +1458,7 @@ HBITMAP DuplicateHBitmap(HBITMAP hbm_original, HPALETTE hpalette)
 
 //*********************************************************
 
-// 2000/03/17 - MB
-
+//
 //
 
 // Duplicate an HBITMAP, including the memory used to hold
@@ -1620,8 +1611,7 @@ HBITMAP DuplicateHBitmapFlipped(HBITMAP hbm_original, HPALETTE hpalette)
 
 //*********************************************************
 
-// 1999/07/24 - MB
-
+//
 //
 
 // BlitQueue constructor/destructor
@@ -1650,8 +1640,7 @@ BlitQueue::~BlitQueue(void)
 
 //*********************************************************
 
-// 1999/07/24 - MB
-
+//
 //
 
 // Initialize the queue.  Remove all objects from it, etc.
@@ -1672,8 +1661,7 @@ void BlitQueue::Init(void)
 
 //*********************************************************
 
-// 1999/07/24 - MB
-
+//
 //
 
 // Compare and swap functions for sorting.
@@ -1710,8 +1698,7 @@ static void BlitQueueQSortSwap(int n1, int n2, void *base)
 
 //*********************************************************
 
-// 1999/07/24 - MB
-
+//
 //
 
 // Draw the queue to the specified HDC.  Queue is left empty.
@@ -1766,8 +1753,7 @@ void BlitQueue::DrawQueue(HDC dest_hdc)
 
 //*********************************************************
 
-// 1999/07/24 - MB
-
+//
 //
 
 // Queue a bitmap given a drawing type (internal routine)
@@ -1812,8 +1798,7 @@ void BlitQueue::AddBitmap(HBITMAP src_hbitmap, LPPOINT dest_pt, int draw_priorit
 
 //*********************************************************
 
-// 1999/07/24 - MB
-
+//
 //
 
 // Queue a bitmap with transparency.  Eventually calls BlitBitmapToDC()
@@ -1834,8 +1819,7 @@ void BlitQueue::AddBitmap(HBITMAP src_hbitmap, LPPOINT dest_pt, int draw_priorit
 
 //*********************************************************
 
-// 1999/07/24 - MB
-
+//
 //
 
 // Queue a bitmap without transparency.  Eventually calls BlitBitmapToDC_nt()
@@ -1858,8 +1842,7 @@ void BlitQueue::AddBitmap_nt(HBITMAP src_hbitmap, LPPOINT dest_pt, int draw_prio
 
 //*********************************************************
 
-// 1999/08/28 - MB
-
+//
 //
 
 // Darken a rect on a dc.

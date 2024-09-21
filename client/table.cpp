@@ -380,8 +380,7 @@ struct ChatModeData {
 
 //*********************************************************
 
-// 2000/09/18 - CR
-
+//
 //
 
 // Set the keyboard focus to something reasonable for a table window.
@@ -426,8 +425,7 @@ void SetTableKeyboardFocus(struct TableInfo *t)
 
 //*********************************************************
 
-// 1999/12/09 - CR
-
+//
 //
 
 // Add a chat message (generated locally) to our own chat buffer.
@@ -474,8 +472,7 @@ void AddDealerMessage(struct TableInfo *t, int chat_text_type, char *fmt, ...)
 
 //*********************************************************
 
-// 1999/08/27 - CR
-
+//
 //
 
 // Build the list of window handles we want to process WM_CTLCOLORSTATIC for.
@@ -618,8 +615,7 @@ static void BuildColorStaticTable(void)
 
 //*********************************************************
 
-// 1999/08/24 - CR
-
+//
 //
 
 // Set the IDC_WAIT_LIST_STATUS string and show window if non-null
@@ -658,8 +654,7 @@ void SetWaitListStatusString(struct TableInfo *t, char *str)
 
 //*********************************************************
 
-// 1999/07/12 - CR
-
+//
 //
 
 // Redraw entire background, all chips, and all cards
@@ -1106,8 +1101,7 @@ void RedrawAllTableGraphics(struct TableInfo *t)
 
 //*********************************************************
 
-// 2000/06/28 - CR
-
+//
 //
 
 // Return the handle to the top table window (playing or not).
@@ -1164,8 +1158,7 @@ HWND FindTopTableWindow(void)
 
 //*********************************************************
 
-// 1999/05/20 - CR
-
+//
 //
 
 // Flag a table window as needing redrawing and post a message
@@ -1214,8 +1207,7 @@ void FlagRedrawTable(int table_index)
 
 //****************************************************************
 
-// 1999/04/20 - CR
-
+//
 //
 
 // Convert a card to an ascii string.
@@ -1254,8 +1246,7 @@ char *CardToString(Card card, char *output_string)
 
 //*********************************************************
 
-// 1999/09/28 - CR
-//
+////
 // Set the state on a dialog checkbox and invalidate it
 // if we changed it.
 
@@ -1278,8 +1269,7 @@ void CheckDlgButtonIfNecessary(HWND hwnd, int control_id, int new_checkbox_state
 
 //*********************************************************
 
-// 1999/11/04 - CR
-
+//
 //
 
 // Determine if we're still playing in the current game or
@@ -1349,8 +1339,7 @@ int CheckIfPlayingCurrentGame(struct TableInfo *t)
 
 //*********************************************************
 
-// 2000/06/27 - CR
-
+//
 //
 
 // Count the number of tables we're currently playing at.
@@ -1385,8 +1374,7 @@ int CountPlayingTables(void)
 
 //*********************************************************
 
-// 2000/06/27 - CR
-
+//
 //
 
 // Determine if a particular table currently has action buttons
@@ -1434,8 +1422,7 @@ int CheckIfActionButtonsShowing(struct TableInfo *t)
 
 
 //*********************************************************
-// 2000/06/27 - CR
-//
+////
 // Count the number of tables that currently have game action
 // buttons up and showing.  See CheckIfActionButtonsShowing() for
 // details of that definition.
@@ -1465,8 +1452,7 @@ int CountTablesWithActionButtonsShowing(void)
 
 //*********************************************************
 
-// 1999/10/19 - CR
-
+//
 //
 
 // Clear all in-turn actions for a table.  Does NOT send new
@@ -1546,8 +1532,7 @@ void ClearInTurnActions(struct TableInfo *t, int clear_checkboxes_flag)
 
 
 //*********************************************************
-// 1999/11/02 - CR
-//
+////
 // Show of hide a window (SW_SHOWNA or SW_HIDE) if necessary.
 // Only hide if it is unchecked.
 // Returns TRUE if the window was actually shown.
@@ -1629,8 +1614,7 @@ void UpdateMymoneyText(struct TableInfo *t)
 
 //*********************************************************
 
-// 1999/05/07 - CR
-
+//
 //
 
 // Update any buttons on our screen during gameplay
@@ -2629,8 +2613,7 @@ void UpdatePlayingButtons(struct TableInfo *t)
 
 //*********************************************************
 
-// 1999/05/07 - CR
-
+//
 //
 
 // Update any buttons on our screen during watching
@@ -2701,8 +2684,7 @@ void UpdateWatchingButtons(struct TableInfo *t)
 
 //*********************************************************
 
-// 1999/08/10 - CR
-
+//
 //
 
 // Calculate and return the number of chips for a player's
@@ -2766,8 +2748,7 @@ int GetStakeForPlayer(struct TableInfo *t, int player_index)
 
 
 //*********************************************************
-// 1999/08/10 - CR
-//
+////
 // Set the text for a player ID box
 //
 
@@ -2895,8 +2876,7 @@ void UpdatePlayerIDBoxText(struct TableInfo *t, int player_index)
 
 //*********************************************************
 
-// 1999/08/10 - CR
-
+//
 //
 
 // Set the last action status indicator state.
@@ -2917,8 +2897,7 @@ void SetLastActionStatus(struct TableInfo *t, int status, int player_index)
 
 //*********************************************************
 
-// 1999/08/10 - CR
-
+//
 //
 
 // Update the last action indicators for each player if necessary
@@ -2973,8 +2952,7 @@ void UpdateLastActionIndicator(struct TableInfo *t)
 
 //*********************************************************
 
-// 1999/08/17 - CR
-
+//
 //
 
 // Invalidate all the player id boxes on a table (so they get redrawn)
@@ -3005,8 +2983,7 @@ void InvalidatePlayerIDBoxes(struct TableInfo *t)
 
 //*********************************************************
 
-// 1999/07/27 - CR
-
+//
 //
 
 // Set the title bar for a table window
@@ -3135,8 +3112,7 @@ void UpdateTableWindowTitle(struct TableInfo *t)
 
 //*********************************************************
 
-// 1999/10/07 - CR
-
+//
 //
 
 // Use the elapsed ticks since it became a new player's turn to
@@ -3175,8 +3151,7 @@ int DetermineCurrentPlayerHighlightState(struct TableInfo *t)
 
 //****************************************************************
 
-// 1999/04/20 - CR
-
+//
 //
 
 // Redraw a table given all its current information in the Table[] array
@@ -4372,8 +4347,7 @@ void RedrawTable(int table_index)
 
 //****************************************************************
 
-// 1999/04/20 - CR
-
+//
 //
 
 // Handle the user pressing the 'Leave Table' button
@@ -4650,8 +4624,7 @@ leavetable:;
 
 //*********************************************************
 
-// 1999/08/06 - CR
-
+//
 //
 
 // Handle a WM_DRAWITEM message for a table.  We get a Table
@@ -4951,8 +4924,7 @@ void HandleTableDrawItem(struct TableInfo *t, int control_id, LPDRAWITEMSTRUCT d
 
 //*********************************************************
 
-// 2000/03/15 - CR
-
+//
 //
 
 // Mesage handler for table options window
@@ -5083,8 +5055,7 @@ BOOL CALLBACK dlgFuncTableOptions(HWND hDlg, UINT message, WPARAM wParam, LPARAM
 
 
 //****************************************************************
-// 1999/04/20 - CR
-//
+////
 // Mesage handler for Table layout -- all games
 //
 
@@ -7912,8 +7883,7 @@ BOOL CALLBACK dlgFuncTableLayoutWindow(HWND hDlg, UINT message, WPARAM wParam, L
 
 //*********************************************************
 
-// 1999/05/13 - CR
-
+//
 //
 
 // Find a open table window's index given the table serial number.
@@ -7950,8 +7920,7 @@ int TableIndexFromSerialNumber(WORD32 table_serial_number)
 
 //*********************************************************
 
-// 1999/07/21 - CR
-
+//
 //
 
 // Take a game serial number and return the appropriate pointer into
@@ -7982,8 +7951,7 @@ struct TableInfo *TablePtrFromSerialNumber(WORD32 table_serial_number)
 
 //*********************************************************
 
-// 1999/05/13 - CR
-
+//
 //
 
 // Count the number of open table windows.
@@ -8012,8 +7980,7 @@ int OpenTableCount(void)
 
 //*********************************************************
 
-// 1999/08/27 - CR
-
+//
 //
 
 // Hook procedure for WH_CALLWNDPROC.  Used to trap BM_SETSTATE
@@ -8108,8 +8075,7 @@ LRESULT CALLBACK ColorStaticHookProc(int nCode, WPARAM wParam, LPARAM lParam)
 
 //*********************************************************
 
-// 1999/07/27 - CR
-
+//
 //
 
 // Update the title bars for all open tables
@@ -8136,8 +8102,7 @@ void UpdateTableWindowTitles(void)
 
 //*********************************************************
 
-// 2000/06/27 - CR
-
+//
 //
 
 // Top/show a table window if we're currently playing a game
@@ -8252,8 +8217,7 @@ void ShowTableWindowIfPlaying(struct TableInfo *t)
 
 //****************************************************************
 
-// 1999/05/05 - CR
-
+//
 //
 
 // Restore and activate an existing table window if it exists.
@@ -8320,8 +8284,7 @@ int ShowTableWindow(WORD32 table_serial_number, int steal_focus_flag)
 
 //*********************************************************
 
-// 2000/03/07 - CR
-
+//
 //
 
 // Display an error message that some bitmaps were unable to load.
@@ -8380,8 +8343,7 @@ void DisplayBitmapLoadingError(void)
 
 //****************************************************************
 
-// 1999/05/05 - CR
-
+//
 //
 
 // Create a new table window
@@ -9894,8 +9856,7 @@ BOOL CALLBACK dlgTableBuyInFunc(HWND hDlg, UINT message, WPARAM wParam, LPARAM l
 
 //*********************************************************
 
-// 1999/11/21 - CR
-
+//
 //
 
 // Determine if a line of chat should be displayed given the

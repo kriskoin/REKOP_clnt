@@ -124,8 +124,7 @@ Packet::~Packet(void)
  }
 
  //*********************************************************
- // 1999/05/18 - MB
- //
+ // //
  // Set the # of bytes which are used in this packet's user
  // data section.  Automatically fills in the header length
  // and other lengths to compensate for the header, etc.
@@ -191,8 +190,7 @@ ErrorType Packet::AllocData(char *src_pointer, int src_len)
 
 #if COMPRESS_PACKETS
 //*********************************************************
-// 1999/05/17 - MB
-//
+////
 // Constructor/destructor for the DiffEncoder class.
 //
 DiffEncoder::DiffEncoder(void){
@@ -213,8 +211,7 @@ DiffEncoder::~DiffEncoder(void)
 }
 
 //*********************************************************
-// 1999/05/18 - MB
-//
+////
 // Set up for encoding/decoding
 //
 struct DiffEncoder_SavedPacketInfo * DiffEncoder::SetupPacketInfo(Packet *p)
@@ -243,8 +240,7 @@ struct DiffEncoder_SavedPacketInfo * DiffEncoder::SetupPacketInfo(Packet *p)
 }
 
 //*********************************************************
-// 1999/05/17 - MB
-//
+////
 // Encode a packet.
 //
 ErrorType DiffEncoder::EncodePacket(Packet *p)
@@ -278,8 +274,7 @@ ErrorType DiffEncoder::EncodePacket(Packet *p)
 }
 
 //*********************************************************
-// 1999/05/17 - MB
-//
+////
 // Decode a packet.
 //
 ErrorType DiffEncoder::DecodePacket(Packet *p)
@@ -311,8 +306,7 @@ ErrorType DiffEncoder::DecodePacket(Packet *p)
 }
 
 //*********************************************************
-// 1999/05/17 - MB
-//
+////
 // Reset the encoder state
 //
 void DiffEncoder::ResetEncoder(void)
@@ -325,8 +319,7 @@ void DiffEncoder::ResetEncoder(void)
 }
 
 //*********************************************************
-// 1999/05/17 - MB
-//
+////
 // memory alloc/free functions for zlib
 //
 voidpf zalloc(voidpf opaque, uInt items, uInt size)
@@ -453,8 +446,7 @@ SocketTools::~SocketTools(void)
 
 #if COMPRESS_PACKETS
 //*********************************************************
-// 2000/06/05 - MB
-//
+////
 // Set the desired compression level (if necessary).
 // Zlib accepts compression levels between 0 (none) and 9 (most).
 //
@@ -469,8 +461,7 @@ void SocketTools::SetCompressionLevel(int new_level)
 #endif	// COMPRESS_PACKETS
 
 //*********************************************************
-// 2000/06/09 - MB
-//
+////
 // Set the connection address for this socket
 //
 void SocketTools::SetConnectionAddress(SOCKADDR_IN *sin)
@@ -481,8 +472,7 @@ void SocketTools::SetConnectionAddress(SOCKADDR_IN *sin)
 }
 
 //****************************************************************
-// 1999/04/22 - MB
-//
+////
 // Set the socket to use for this object.
 // You can pass INVALID_SOCKET to close the socket.
 //
@@ -533,8 +523,7 @@ ErrorType SocketTools::SetSocket(SOCKET new_socket)
 
 #if INCL_SSL_SUPPORT
 //*********************************************************
-// 1999/10/31 - MB
-//
+////
 // Set the SSL socket to use for this object.
 //
 ErrorType SocketTools::SetSSLSocket(void *new_ssl)
@@ -566,8 +555,7 @@ ErrorType SocketTools::SetSSLSocket(void *new_ssl)
 #endif
 
 //*********************************************************
-// 1999/07/18 - MB
-//
+////
 // Close our socket if it's open.  Set sock to INVALID_SOCKET and
 // set the disconnected flag.
 //
@@ -1166,8 +1154,7 @@ ErrorType SocketTools::RawReadBytes(char *buffer, int buffer_len, int *output_by
 #if ENABLE_SEND_QUEUING
 
 //*********************************************************
-// 1999/06/23 - MB
-//
+////
 // Determine if there is anything in the send queue
 // returns TRUE if send queue is empty.
 //
@@ -1394,8 +1381,7 @@ ErrorType SocketTools::ProcessSendQueue(void){
 
 
 //*********************************************************
-// 2000/06/09 - MB
-//
+////
 //  Read any incoming data as arriving packets and queue them up to be
 //  processed by ReadPacket().
 //
@@ -1860,8 +1846,7 @@ ErrorType SocketTools::SendBytes(char *buffer, int len, WORD32 *output_length)
 
 //*********************************************************
 
-// 1999/05/17 - MB
-
+//
 //
 
 //	Send a string of ASCII text to an already open and connected socket.
@@ -1908,8 +1893,7 @@ ErrorType SocketTools::SendString(char *str)
 
 //*********************************************************
 
-// 1999/05/17 - MB
-
+//
 //
 
 // Compress a packet.  Takes a ptr to a ptr to a packet.  The
@@ -2024,8 +2008,7 @@ ErrorType SocketTools::CompressPacket(Packet **p)
 
 //*********************************************************
 
-// 1999/05/17 - MB
-
+//
 //
 
 // Decompress a packet.  Takes a ptr to a ptr to a packet.  The

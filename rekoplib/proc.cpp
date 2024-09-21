@@ -1,7 +1,6 @@
 //*********************************************************
 
-// 1999/06/11 - MB
-
+//
 //
 
 //	Misc. process related tools (mostly linux).
@@ -118,8 +117,7 @@
 
 //*********************************************************
 
-// 1999/09/06 - MB
-
+//
 //
 
 // Add the current pid to a table of threads we dump if we detect a crash
@@ -196,8 +194,7 @@ void RegisterThreadForDumps(char *thread_name)
 
 //*********************************************************
 
-// 2000/02/29 - MB
-
+//
 //
 
 // Remove the current pid from the thread table.
@@ -250,8 +247,7 @@ void UnRegisterThreadForDumps(void)
 
 //*********************************************************
 
-// 1999/05/20 - MB
-
+//
 //
 
 // Turn this program into a daemon under Linux.
@@ -378,8 +374,7 @@ void SendSIGALRMToAllThreads(void)
 
 //*********************************************************
 
-// 1999/11/23 - MB
-
+//
 //
 
 // Return the name of a thread (pid) if known.
@@ -420,8 +415,7 @@ char *GetThreadName(void)
 
 //*********************************************************
 
-// 1999/11/23 - MB
-
+//
 //
 
 // Print out (to debwin) all the thread names we know about.
@@ -894,8 +888,7 @@ void Mutex::Release(void)
 
 //*********************************************************
 
-// 1999/05/19 - MB
-
+//
 //
 
 // Wrapper for converting _beginthread() to pthread_create().
@@ -948,8 +941,7 @@ unsigned long _beginthread(void (* funcptr)(void *), unsigned stack_size, void *
 
 //*********************************************************
 
-// 1999/05/19 - MB
-
+//
 //
 
 // Wrapper for converting InitializeCriticalSection() to
@@ -974,8 +966,7 @@ void InitializeCriticalSection(CRITICAL_SECTION *crit_sec_ptr)
 
 //*********************************************************
 
-// 1999/08/23 - MB
-
+//
 //
 
 // Read the processor time stamp counter
@@ -1046,8 +1037,7 @@ static volatile int iCritSecThreadInfoCount;	// # of entries in the CritSecThrea
 
 //*********************************************************
 
-// 1999/09/20 - MB
-
+//
 //
 
 // Return the current (or allocate one) CritSecThreadInfoStruct entry
@@ -1156,8 +1146,7 @@ static struct CritSecThreadInfoStruct *GetThreadInfoStruct(void)
 
 //*********************************************************
 
-// 1999/11/23 - MB
-
+//
 //
 
 // Print a list of the critical sections owned given a starting crit sec.
@@ -1268,8 +1257,7 @@ int PrintOwnedCriticalSections(PPCRITICAL_SECTION *crit_sec_ptr)
 
 //*********************************************************
 
-// 1999/11/04 - MB
-
+//
 //
 
 // Display any critical sections currently owned by this thread
@@ -1306,8 +1294,7 @@ void PrintOwnedCriticalSections(void)
 
 //*********************************************************
 
-// 1999/08/29 - MB
-
+//
 //
 
 // Our own EnterCriticalSection() which does timeouts and
@@ -1694,8 +1681,7 @@ static void PPEnterCriticalSection(PPCRITICAL_SECTION *crit_sec_ptr, int *output
 
 //*********************************************************
 
-// 1999/09/20 - MB
-
+//
 //
 
 // Initialize a critical section, with priority.
@@ -1724,8 +1710,7 @@ void PPInitializeCriticalSection(PPCRITICAL_SECTION *crit_sec_ptr, int crit_sec_
 
 //*********************************************************
 
-// 1999/09/20 - MB
-
+//
 //
 
 // Enter one of our critical sections, with error checking.
@@ -2060,8 +2045,7 @@ kp(("%s %s(%d) Warning: %s CritSec already owned by %s for %dms. NestCount now %
 
 //*********************************************************
 
-// 1999/09/20 - MB
-
+//
 //
 
 // Leave one of our critical sections, with error checking.
@@ -2212,8 +2196,7 @@ void PPLeaveCriticalSection0(PPCRITICAL_SECTION *crit_sec_ptr, char *src_fname, 
 
 //*********************************************************
 
-// 1999/09/20 - MB
-
+//
 //
 
 // Delete one of our critical sections.
@@ -2250,8 +2233,7 @@ void PPDeleteCriticalSection(PPCRITICAL_SECTION *crit_sec_ptr)
 
 //*********************************************************
 
-// 2000/09/19 - MB
-
+//
 //
 
 // Zero out some memory used by the stack to help make

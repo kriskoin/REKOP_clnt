@@ -1384,8 +1384,7 @@ void UpdateGameListViewItems(void)
 }
 
 //****************************************************************
-// 1999/05/03 - MB
-//
+////
 // Update the table summary info control to reflect the most recent
 // data received from the server.
 //
@@ -1537,8 +1536,7 @@ void UpdateTableInfoItems(void)
 }
 
 //*********************************************************
-// 1999/05/13 - MB
-//
+////
 // Update the various buttons on the cardroom window.  Enable/disable
 // as appropriate and change the text on them as appropriate.
 //
@@ -1648,8 +1646,7 @@ void UpdateCardRoomButtons(void)
 }
 
 //****************************************************************
-// 1999/04/27 - MB
-//
+////
 // Select a new game type on the tab control.  Includes adding
 // the list box control to the tab window.
 // Converts the game type to a tab index.
@@ -1825,8 +1822,7 @@ void SelectGameTypeTab(HWND hDlg, ClientDisplayTabIndex client_display_tab_index
 }
 
 //****************************************************************
-// 1999/04/27 - MB
-//
+////
 // Initialize the tab control for the card room window.  It should
 // contain all the games that are available to be played.
 //
@@ -1892,8 +1888,7 @@ void InitGameTypeTabControl(HWND hDlg)
 }
 
 //****************************************************************
-// 1999/04/27 - MB
-//
+////
 // Mesage handler for 'going to table' Window
 //
 BOOL CALLBACK dlgFuncGoingToTable(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
@@ -1936,8 +1931,7 @@ BOOL CALLBACK dlgFuncGoingToTable(HWND hDlg, UINT message, WPARAM wParam, LPARAM
 }
 
 //*********************************************************
-// 1999/05/13 - MB
-//
+////
 // Open window and ask server to join a table.
 //
 void JoinTable(WORD32 table_serial_number)
@@ -2025,8 +2019,7 @@ void JoinTable(WORD32 table_serial_number)
 
 #if PLAY_MONEY_ONLY
 //*********************************************************
-// 1999/08/30 - MB
-//
+////
 // Display a message about real money becoming available
 // down the road.
 // Return TRUE if the table was real money, FALSE if it was play money,
@@ -2053,8 +2046,7 @@ int RealMoneyTableMsg(WORD32 table_serial_number)
 #endif	// PLAY_MONEY_ONLY
 
 //*********************************************************
-// 1999/07/27 - MB
-//
+////
 // Close the 'going to table' dialog if it is open.
 // This can be called from any thread (it's non-blocking).
 //
@@ -2066,8 +2058,7 @@ void CloseGoingToTableDialog(void)
 }	
 
 //*********************************************************
-// 1999/11/05 - MB
-//
+////
 // If the cardroom window is open and this client version
 // is newer than the last official release, assume we're a beta
 // and that the upgrade menu item must be changed.
@@ -2102,8 +2093,7 @@ void ChangeUpgradeMenuToRevertIfNecessary(void)
 }
 
 //*********************************************************
-// 2000/02/04 - MB
-//
+////
 // Handle a request from the user to have their all-ins reset.
 //
 void HandleAllInResetRequest(HWND hDlg)
@@ -2186,8 +2176,7 @@ int BadTimeForIntensiveServerRequest(char *title, char *msg)
 
 
 //****************************************************************
-// 1999/04/27 - MB
-//
+////
 // Mesage handler for Card Room Window
 
 BOOL CALLBACK dlgFuncCardRoom(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
@@ -3375,8 +3364,7 @@ BOOL CALLBACK dlgFuncCardRoom(HWND hDlg, UINT message, WPARAM wParam, LPARAM lPa
 }
 
 //*********************************************************
-// 1999/05/30 - MB
-//
+////
 // Open the cardroom dialog window
 //
 void OpenCardRoom(void)
@@ -3700,8 +3688,7 @@ int LeaveTables(void)
 
 #if ADMIN_CLIENT
 //*********************************************************
-// 1999/11/19 - MB
-//
+////
 // Round a time_t to the nearest n value (in seconds)
 //
 time_t Nearesttime(time_t t, int rounding_interval_in_seconds)
@@ -3714,8 +3701,7 @@ time_t Nearesttime(time_t t, int rounding_interval_in_seconds)
 }
 
 //*********************************************************
-// 1999/11/19 - MB
-//
+////
 // Convert time_t to SYSTEMTIME and back
 //
 void Convert_time_t_to_SYSTEMTIME(time_t t, SYSTEMTIME *sys_time)
@@ -3738,8 +3724,7 @@ void Convert_SYSTEMTIME_to_time_t(SYSTEMTIME *sys_time, time_t *t)
 }
 
 //*********************************************************
-// 1999/11/19 - MB
-//
+////
 // Get the date and time pickers on the shot clock update dialog
 //
 static time_t GetShotClockDlgDate(HWND hDlg)
@@ -3784,8 +3769,7 @@ static time_t GetShotClockDlgDate(HWND hDlg)
 }
 
 //*********************************************************
-// 2000/09/27 - MB
-//
+////
 // Update the time zone and time to go examples on the change
 // shot clock dialog.
 //
@@ -3830,8 +3814,7 @@ void UpdateTimeZoneExamples(HWND hDlg)
 }
 
 //*********************************************************
-// 1999/11/19 - MB
-//
+////
 // Set the date and time pickers on the shot clock update dialog
 //
 static void SetShotClockDlgDate(HWND hDlg, time_t when)
@@ -3852,8 +3835,7 @@ static void SetShotClockDlgDate(HWND hDlg, time_t when)
 }
 
 //*********************************************************
-// 1999/11/19 - MB
-//
+////
 // Allow the administrator to change the global all-ins
 // reset time and total number available.
 //
@@ -3913,8 +3895,7 @@ BOOL CALLBACK dlgFuncChangeAllIns(HWND hDlg, UINT message, WPARAM wParam, LPARAM
 }
 
 //*********************************************************
-// 1999/11/19 - MB
-//
+////
 // Allow the administrator to change the shot clock message.
 //
 BOOL CALLBACK dlgFuncChangeShotClock(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
@@ -4338,8 +4319,7 @@ BOOL CALLBACK dlgFuncChangeShotClock(HWND hDlg, UINT message, WPARAM wParam, LPA
 }
 
 //****************************************************************
-// 1999/08/05 - MB
-//
+////
 // Mesage handler for 'Enter Broadcast Message' Window
 //
 BOOL CALLBACK dlgFuncEnterBroadcastMessage(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)

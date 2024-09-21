@@ -105,8 +105,7 @@ static void UpdateProgressPosition(void)
 
 //*********************************************************
 
-// 1999/07/29 - MB
-
+//
 //
 
 // Update status and progress on the splash screen.
@@ -135,8 +134,7 @@ void UpdateSplashStatus(int connection_status)
 
 //*********************************************************
 
-// 1999/09/18 - MB
-
+//
 //
 
 // Handle the WMP_UPDATE_SPLASH_STATUS message.
@@ -315,8 +313,7 @@ static void ProcessUpdateSplashStatusMessage(int connection_status)
 
 //****************************************************************
 
-// 1999/07/28 - MB
-
+//
 //
 
 // Mesage handler for Splash dialog
@@ -613,8 +610,7 @@ BOOL CALLBACK dlgFuncSplash(HWND hDlg, UINT message, WPARAM wParam, LPARAM lPara
 
 //*********************************************************
 
-// 1999/07/28 - MB
-
+//
 //
 
 // Open the splash dialog window
@@ -672,8 +668,7 @@ void OpenSplashDialog(void)
 
 //****************************************************************
 
-// 1999/07/28 - MB
-
+//
 //
 
 // Mesage handler for PromptFriends dialog
@@ -842,8 +837,7 @@ BOOL CALLBACK dlgFuncPromptFriends(HWND hDlg, UINT message, WPARAM wParam, LPARA
 
 //*********************************************************
 
-// 1999/07/28 - MB
-
+//
 //
 
 // Prompt user to tell their friends

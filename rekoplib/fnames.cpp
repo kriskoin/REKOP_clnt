@@ -162,8 +162,7 @@ void GetDirFromPath(const char *full_path, char *dest)
 
 //*********************************************************
 
-// 1999/06/22 - MB
-
+//
 //
 
 // Extract the root path from a full path (e.g. "c:" or "\\machine\share")
@@ -504,8 +503,7 @@ void FixPath(char *full_path)
 
 //*********************************************************
 
-// 1999/05/25 - MB
-
+//
 //
 
 // Turn all backslashes into forward slashes for URL's
@@ -672,8 +670,7 @@ char *GetNameFromPath2(char *full_path)
 
 //*********************************************************
 
-// 1999/05/11 - MB
-
+//
 //
 
 // Read a file into a block of memory.
@@ -718,8 +715,7 @@ ErrorType ReadFile(char *fname, void *buffer, long buffer_len, long *bytes_read_
 
 //*********************************************************
 
-// 1999/05/11 - MB
-
+//
 //
 
 // Write a block of memory to a file.
@@ -758,8 +754,7 @@ ErrorType WriteFile(char *fname, void *buffer, long buffer_len)
 
 //*********************************************************
 
-// 1999/08/11 - MB
-
+//
 //
 
 // Load an entire file into memory.  Allocate just enough
@@ -842,8 +837,7 @@ void *LoadFile(char *fname, long *bytes_read_ptr)
 
 //*********************************************************
 
-// 1999/06/21 - MB
-
+//
 //
 
 // Set the timestamp for a file given time_t
@@ -898,8 +892,7 @@ int SetFileTime_t(char *filename, time_t t)
 
 //*********************************************************
 
-// 1999/06/22 - MB
-
+//
 //
 
 // Calculate available disk space on a drive.
@@ -978,8 +971,7 @@ WORD32 CalcFreeDiskSpace(char *root_path)
 
 //*********************************************************
 
-// 2001/09/24 - MB
-
+//
 //
 
 // Look for a file in the current directory and the data/media
@@ -1052,8 +1044,7 @@ char *FindMediaFile(char *fname)
 
 //*********************************************************
 
-// 1999/06/22 - MB
-
+//
 //
 
 // Look for a file in the current directory and the data/
@@ -1134,8 +1125,7 @@ char *FindFile(char *fname)
 
 //*********************************************************
 
-// 1999/09/08 - MB
-
+//
 //
 
 // Create a temporary filename.
@@ -1198,8 +1188,7 @@ void MakeTempFName(char *dest, char *first_few_chars)
 
 //*********************************************************
 
-// 2001/02/27 - MB
-
+//
 //
 
 // Calculate how long since a file was last modified (in seconds)

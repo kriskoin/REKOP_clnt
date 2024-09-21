@@ -237,8 +237,7 @@ void AddToLog(char *log_file_name, char *first_line_string, char *fmt, ...)
 
 //*********************************************************
 
-// 2001/02/04 - MB
-
+//
 //
 
 // LogFile class for writing to log files
@@ -295,8 +294,7 @@ LogFile::~LogFile(void)
 
 //*********************************************************
 
-// 2001/02/04 - MB
-
+//
 //
 
 // Write a format string (for sprintf) to the log file of a log file class
@@ -1059,8 +1057,7 @@ char *strnncpy(char *dest, const char *src, int max_dest_len)
 
 //*********************************************************
 
-// 2000/02/17 - MB
-
+//
 //
 
 // strcat() that takes a max dest length.
@@ -1089,8 +1086,7 @@ char *strnncat(char *dest, const char *src, int max_dest_len)
 
 //*********************************************************
 
-// 2000/02/17 - MB
-
+//
 //
 
 // Make a string end with a newline if it already contains data
@@ -1117,8 +1113,7 @@ void MakeStringEndWithNewline(char *dest, int max_dest_len)
 
 //*********************************************************
 
-// 2000/11/06 - MB
-
+//
 //
 
 // Trim any newlines (or cr's) from the end of a string.
@@ -1155,8 +1150,7 @@ void TrimNewlines(char *str)
 
 //*********************************************************
 
-// 2001/01/18 - MB
-
+//
 //
 
 // rot13 a string (source and dest may be the same if desired)
@@ -1392,8 +1386,7 @@ struct tm *gmtime(const time_t *timer, struct tm *out)
 
 //*********************************************************
 
-// 1999/07/24 - MB
-
+//
 //
 
 // Return a formatted string for use in error logs and whatnot
@@ -1492,8 +1485,7 @@ char *TimeStrWithYear(void)
 
 
 
-// 2000/02/17 - MB
-
+//
 //
 
 // Return just the date as a string
@@ -1568,8 +1560,7 @@ char *DateStr(void)
 
 //*********************************************************
 
-// 1999/08/05 - MB
-
+//
 //
 
 // Function to convert a chip amount to a string
@@ -1714,8 +1705,7 @@ char *CurrencyString(char *str, int amount, ChipType chip_type, int force_pennie
 
 //*********************************************************
 
-// 1999/12/08 - MB
-
+//
 //
 
 // Function to convert an integer to a string with commas between 1000's
@@ -1786,8 +1776,7 @@ char *IntegerWithCommas(char *str, int amount)
 
 //*********************************************************
 
-// 1999/12/15 - MB
-
+//
 //
 
 // Swap characters found in a string.  For each occurance of
@@ -1848,8 +1837,7 @@ int CalcEmailValidationCode(char *email_str)
 
 //*********************************************************
 
-// 2001/03/06 - MB
-
+//
 //
 
 // Insert a \ character before any characters that would be illegal
@@ -1926,8 +1914,7 @@ char *DelimitIllegalCommandLineChars(char *str, int max_str_len)
 
 //*********************************************************
 
-// 2000/08/06 - MB
-
+//
 //
 
 // Swap illegal user-supplied characters with ? for command line
@@ -1978,8 +1965,7 @@ void SwapIllegalCommandLineChars(char *str)
 
 //*********************************************************
 
-// 1999/09/17 - MB
-
+//
 //
 
 // Background email thread.  This is the thread that actually sends
@@ -2314,8 +2300,7 @@ fclose(fi);
 
 //*********************************************************
 
-// 2000/02/21 - MB
-
+//
 //
 
 // Return TRUE if email queue is empty
@@ -2480,8 +2465,7 @@ int Email(char *to, char *from_name, char *from_address, char *subject, char *fi
 
 //*********************************************************
 
-// 2000/02/17 - MB
-
+//
 //
 
 // Print a formatted string to a file and then email the file using Email()
@@ -2528,8 +2512,7 @@ int EmailStr(char *to, char *from_name, char *from_address, char *subject, char 
 
 //*********************************************************
 
-// 2000/05/23 - MB
-
+//
 //
 
 // Call an application call-back with a critical alert error

@@ -245,8 +245,7 @@ static int SnackOrientations_8[MAX_PLAYERS_PER_GAME] = {0,0,1,1,3,3,4,4};
 
 //*********************************************************
 
-// 2000/03/15 - MB
-
+//
 //
 
 // Load the snack bitmaps into memory.
@@ -313,8 +312,7 @@ void LoadBarSnackBitmaps(HPALETTE hpal)
 
 //*********************************************************
 
-// 2000/03/15 - MB
-
+//
 //
 
 // Draw all the snacks at a table.
@@ -437,8 +435,7 @@ void DrawAllBarSnacks(struct TableInfo *t)
 
 //*********************************************************
 
-// 2000/05/27 - MB
-
+//
 //
 
 // A snack has been selected.  Close the menu and send
@@ -491,8 +488,7 @@ static void SelectSnack(HWND hDlg, struct TableInfo *t, int snack_selected)
 
 //*********************************************************
 
-// 2000/05/26 - MB
-
+//
 //
 
 // dialog callback function for the snack menu
@@ -927,8 +923,7 @@ BOOL CALLBACK dlgFuncSnackMenu(HWND hDlg, UINT message, WPARAM wParam, LPARAM lP
 
 //*********************************************************
 
-// 2000/05/26 - MB
-
+//
 //
 
 // Open and/or show the snack menu screen.
@@ -1026,8 +1021,7 @@ void OpenSnackMenuWindow(struct TableInfo *t)
 
 //*********************************************************
 
-// 2000/05/27 - MB
-
+//
 //
 
 // Close a snack menu if it's open

@@ -144,8 +144,7 @@ struct DlgToolTipText CashierDlgToolTipText[] = {
 
 //*********************************************************
 
-// 1999/11/13 - MB
-
+//
 //
 
 void DisplayNoCCFunctionsMessage(void)
@@ -172,8 +171,7 @@ void DisplayNoCCFunctionsMessage(void)
 
 //*********************************************************
 
-// 2000/02/28 - MB
-
+//
 //
 
 // Dialog message handler
@@ -362,8 +360,7 @@ static void DisplayCashierClosedMessage(HWND hDlg)
 
 //*********************************************************
 
-// 2001/03/13 - MB
-
+//
 //
 
 // Encode (trivially) a cc number or month/year so they don't appear
@@ -3655,8 +3652,7 @@ JF*/
 
 //*********************************************************
 
-// 1999/11/09 - MB
-
+//
 //
 
 // Open and/or show the cashier screen.  Make sure the client is

@@ -37,8 +37,7 @@ static int iNotifyIfUpToDate;	// set if we should notify the user that they are 
 static int iDisableInternetFunctions;	// set if we should disable use of the internet functions (for WriteFileFromUrl())
 
 //*********************************************************
-// 1999/06/22 - MB
-//
+////
 // Update the download bytes and total files, ETA, etc. on
 // the dialog box.
 //
@@ -68,8 +67,7 @@ static void UpdateByteProgress(void)
 }
 
 //*********************************************************
-// 1999/06/22 - MB
-//
+////
 // Set the IDC_CURRENT_FILE entry in the status dialog box
 //
 void SetCurrentFileMsg(char *operation, char *full_pathname)
@@ -98,8 +96,7 @@ void upgradeTasks(char *operation)
 }
 
 //*********************************************************
-// 1999/10/28 - MB
-//
+////
 // Grab a file from a URL and write it to a specific disk file
 // using Microsoft's Internet functions.  They will use a proxy if
 // necessary and might even cache things.
@@ -173,8 +170,7 @@ ErrorType WriteFileFromUrlUsingInternetFunctions(HINTERNET inet_hndl, char *sour
 }
 
 //*********************************************************
-// 1999/10/28 - MB
-//
+////
 // Callback function while writing a url file to disk
 // Returns non-zero to cancel.
 //
@@ -191,8 +187,7 @@ static int WriteFileFromURLCallback(WORD32 additional_bytes_received_and_written
 }
 
 //*********************************************************
-// 1999/05/23 - MB
-//
+////
 // Grab a file from a URL and write it to a specific disk file.
 // Default to using Microsoft's internet functions, but fall back
 // to our own code if that fails.
@@ -267,8 +262,7 @@ ErrorType WriteFileFromUrl(HINTERNET inet_hndl, char *source_url, char *dest_pat
 }
 
 //*********************************************************
-// 1999/05/23 - MB
-//
+////
 // Create a temporary destination name given a URL.
 // The resulting filename looks like this: ".\upgrtemp\filename.ext".
 // The dest_name array should be of size MAX_FNAME_LEN or larger.
@@ -281,8 +275,7 @@ void GetTempFileNameFromUrl(char *source_url, char *dest_name)
 }
 
 //*********************************************************
-// 1999/05/23 - MB
-//
+////
 // Grab a file from a URL and write it to a file with the same name
 // in our local temp directory (".\upgrtemp\filename.ext")
 //
@@ -294,8 +287,7 @@ ErrorType WriteTempFileFromUrl(HINTERNET inet_hndl, char *source_url)
 }
 
 //*********************************************************
-// 1999/05/25 - MB
-//
+////
 // Read the upgrade info file (text) into a structure.
 //
 // The resulting structure must be freed with free().
@@ -387,8 +379,7 @@ struct UpgradeInfo *ReadUpgradeInfoFile(char *src_file_name)
 }
 
 //*********************************************************
-// 1999/07/15 - MB
-//
+////
 // Check if a particular file exists and matches the one from the
 // upgrade info file.
 // returns: match flag (TRUE=matches, FALSE=not found or does not match)
@@ -424,8 +415,7 @@ int CheckForMatchingFile(char *fname, struct FileUpgradeInfo *fui)
 }	
 
 //*********************************************************
-// 1999/05/25 - MB
-//
+////
 // Go through the file list and determine which files need
 // to be downloaded.
 // Returns the total # of bytes which need to be downloaded and
@@ -474,8 +464,7 @@ void DetermineDownloadFiles(struct UpgradeInfo *upgr_info, ULONG *output_downloa
 }
 
 //*********************************************************
-// 1999/09/10 - MB
-//
+////
 // Show the 'upgrade failed' message box.
 //
 void ShowUpgradeFailedMessageBox(void)
@@ -569,8 +558,7 @@ int processUpgradeRule(struct upgrade_rules ur){
 };//processUpgradeRule
 
 //*********************************************************
-// 1999/05/23 - MB
-//
+////
 // Entry point for the auto-upgrade thread.
 //
 void _cdecl UpgradeThreadEntryPoint(void *args)
@@ -988,8 +976,7 @@ exitupgrade:
 }
 
 //****************************************************************
-// 1999/04/27 - MB
-//
+////
 // Mesage handler for upgrade status window
 //
 BOOL CALLBACK dlgFuncUpgradeStatus(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
@@ -1034,8 +1021,7 @@ BOOL CALLBACK dlgFuncUpgradeStatus(HWND hDlg, UINT message, WPARAM wParam, LPARA
 }
 
 //*********************************************************
-// 1999/05/23 - MB
-//
+////
 // Handle a received ServerVersionInfo structure.  This function
 // must be called from the main message thread.  It will create
 // a new thread to do the background work if necessary.

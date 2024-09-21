@@ -849,8 +849,7 @@ void khexdump(void *ptr, int len, int bytes_per_line, int bytes_per_number)
 
 //*********************************************************
 
-// 1999/05/12 - MB
-
+//
 //
 
 // Send a source path to DebWin for automatically bringing
@@ -877,8 +876,7 @@ void kAddSourcePath(char *path)
 
 //*********************************************************
 
-// 1999/05/12 - MB
-
+//
 //
 
 // Send the source path for the library kprintf.cpp is in to

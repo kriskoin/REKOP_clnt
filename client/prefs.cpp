@@ -311,8 +311,7 @@ extern char VendorCode[6];
 
 //*********************************************************
 
-// 1999/11/20 - MB
-
+//
 //
 
 // Trim an arbitrary list of characters from a string
@@ -353,8 +352,7 @@ void TrimCharsFromString(char *str, char *trim_chars)
 
 //*********************************************************
 
-// 1999/08/18 - MB
-
+//
 //
 
 // Validate an individual string to make sure it has something in it.
@@ -409,8 +407,7 @@ static int ValidateString(char *str, int min_str_len, int max_str_len, char *str
 
 //*********************************************************
 
-// 1999/11/10 - MB
-
+//
 //
 
 // Validate an individual email address to make sure it looks OK.
@@ -547,8 +544,7 @@ int ValidateEmail(HWND hDlg, char *email_str)
 
 //*********************************************************
 
-// 1999/08/18 - MB
-
+//
 //
 
 // Validate whether the user typed in something legal for all
@@ -738,8 +734,7 @@ static int ValidateNewAccountFields(HWND hDlg, struct AccountRecord *ar)
 
 //*********************************************************
 
-// 1999/08/13 - MB
-
+//
 //
 
 // Read all the fields from the ACCOUNT_CREATE dialog box
@@ -896,8 +891,7 @@ BOOL CALLBACK dlgFuncReadContract(HWND hDlg, UINT message, WPARAM wParam, LPARAM
 
 //*********************************************************
 
-// 1999/08/13 - MB
-
+//
 //
 
 // Mesage handler for account settings dialog window
@@ -1232,8 +1226,7 @@ BOOL CALLBACK dlgFuncAccount(HWND hDlg, UINT message, WPARAM wParam, LPARAM lPar
 
 //*********************************************************
 
-// 1999/08/19 - MB
-
+//
 //
 
 // Handle the receipt of a misc client message from the server
@@ -1274,8 +1267,7 @@ void HandleCreateAccountResult(struct MiscClientMessage *mcm)
 
 //*********************************************************
 
-// 1999/08/13 - MB
-
+//
 //
 
 // Create a new account.
@@ -1903,8 +1895,7 @@ int Validate_Date(char *day, char *month, char *year){
 
 //*********************************************************
 
-// 1999/11/10 - MB
-
+//
 //
 
 // Read all the fields from the Real Money account setup dialog box
@@ -2034,8 +2025,7 @@ int ReadRealMoneyAccountFields(HWND hDlg, struct AccountRecord *ar, int address_
 
 //*********************************************************
 
-// 1999/08/18 - MB
-
+//
 //
 
 // Validate whether the user typed in something legal for all
@@ -2663,8 +2653,7 @@ BOOL CALLBACK dlgFuncUpdateAddressInfo(HWND hDlg, UINT message, WPARAM wParam, L
 
 //*********************************************************
 
-// 1999/11/08 - MB
-
+//
 //
 
 // Mesage handler for the 'Make account real money ready' dialog window
@@ -3057,8 +3046,7 @@ BOOL CALLBACK dlgFuncMakeRealMoneyReady(HWND hDlg, UINT message, WPARAM wParam, 
 
 //*********************************************************
 
-// 1999/11/08 - MB
-
+//
 //
 
 // Make sure our account is real money ready.
@@ -3107,8 +3095,7 @@ int MakeAccountRealMoneyReady(void)
 
 //*********************************************************
 
-// 1999/11/10 - MB
-
+//
 //
 
 // Intiate the process for the user to set up their account for
@@ -3148,8 +3135,7 @@ void InitiateRealMoneyAccountSetup(void)
 
 //*********************************************************
 
-// 1999/09/23 - MB
-
+//
 //
 
 // Process the receipt of a new account record from the server
@@ -3430,8 +3416,7 @@ ErrorType ProcessAccountRecord(struct AccountRecord *ar, int input_structure_len
 
 //*********************************************************
 
-// 2000/02/01 - MB
-
+//
 //
 
 // Mesage handler for the 'change email' dialog window
@@ -3616,8 +3601,7 @@ BOOL CALLBACK dlgFuncChangeEmail(HWND hDlg, UINT message, WPARAM wParam, LPARAM 
 
 //*********************************************************
 
-// 1999/11/24 - MB
-
+//
 //
 
 // Mesage handler for the 'change password' dialog window
@@ -3790,8 +3774,7 @@ BOOL CALLBACK dlgFuncChangePassword(HWND hDlg, UINT message, WPARAM wParam, LPAR
 
 //****************************************************************
 
-// 1999/08/05 - MB
-
+//
 //
 
 // Mesage handler for 'Block Computer' window
@@ -4084,8 +4067,7 @@ static int iCheckRunButtonIDs[MAX_PLAYERS_PER_CHECK_RUN_PAGE] = {
 
 //*********************************************************
 
-// 1999/09/28 - MB
-
+//
 //
 
 // Set the state on a dialog checkbox if necessary
@@ -4112,8 +4094,7 @@ static void CheckDlgButtonIfNecessary(HWND hwnd, int control_id, int new_checkbo
 
 //*********************************************************
 
-// 1999/12/28 - MB
-
+//
 //
 
 // Fill in the text and show/hide the checkboxes for the
@@ -4182,8 +4163,7 @@ static void UpdateCheckRunDialog(HWND hDlg)
 
 //*********************************************************
 
-// 1999/12/07 - MB
-
+//
 //
 
 // Mesage handler for the 'admin check run' dialog window
@@ -4450,8 +4430,7 @@ BOOL CALLBACK dlgFuncAdminCheckRun(HWND hDlg, UINT message, WPARAM wParam, LPARA
 
 //*********************************************************
 
-// 2000/08/19 - MB
-
+//
 //
 
 // Adjust a single dialog window item to essentially fill
@@ -4486,8 +4465,7 @@ void AdjustDlgItemToFillWindow(HWND parent_hwnd, int dlg_item_id)
 
 //*********************************************************
 
-// 2000/09/05 - MB
-
+//
 //
 
 // Convert a WCHAR string to a regular CHAR string.  Throw
@@ -4522,8 +4500,7 @@ void WideStrToAsciiStr(WCHAR *src, char *dest, int max_dest_len)
 
 //*********************************************************
 
-// 2000/09/05 - MB
-
+//
 //
 
 // Guess the short time zone name (e.g. PDT) based on the long
@@ -4568,8 +4545,7 @@ void GuessShortTimeZoneName(char *src, char *dest)
 
 //*********************************************************
 
-// 1999/12/07 - MB
-
+//
 //
 
 // Mesage handler for the 'admin stats' dialog window
@@ -6580,8 +6556,7 @@ BOOL CALLBACK dlgFuncAdminStats(HWND hDlg, UINT message, WPARAM wParam, LPARAM l
 
 //*********************************************************
 
-// 1999/12/07 - MB
-
+//
 //
 
 // Open the admin stats window (if it's not already open)
@@ -6620,8 +6595,7 @@ void OpenAdminStatsWindow(void)
 
 //*********************************************************
 
-// 1999/11/11 - MB
-
+//
 //
 
 // Mesage handler for administrator transfer money dialog window
@@ -7596,8 +7570,7 @@ static BYTE8 PrivLevels[] = {
 
 //*********************************************************
 
-// 1999/09/23 - MB
-
+//
 //
 
 // Fill the editable fields of an account record with the data
@@ -7871,8 +7844,7 @@ static void FillAccountRecordFromDialogFields(HWND hDlg, struct AccountRecord *a
 
 //*********************************************************
 
-// 2000/04/04 - MB
-
+//
 //
 
 // Update the length info for the admin notes field
@@ -8819,8 +8791,7 @@ BOOL CALLBACK dlgEmailSearch(HWND hDlg, UINT message, WPARAM wParam, LPARAM lPar
 
 //*********************************************************
 
-// 1999/09/23 - MB
-
+//
 //
 
 // Fill in the fields of the edit account dialog box with the
@@ -9406,8 +9377,7 @@ static struct DlgToolTipText AdminEditAccountToolTipText[] = {
 
 //*********************************************************
 
-// 1999/09/22 - MB
-
+//
 //
 
 // Mesage handler for administrator edit account settings dialog window
@@ -10815,8 +10785,7 @@ send_retrieve_now:
 
 //*********************************************************
 
-// 1999/09/22 - MB
-
+//
 //
 
 // Bring up the administrator's account editing dialog box.
@@ -12317,8 +12286,7 @@ BOOL CALLBACK dlgSetCCLimits(HWND hDlg, UINT message, WPARAM wParam, LPARAM lPar
 
 //*********************************************************
 
-// 2000/08/18 - MB
-
+//
 //
 
 // Daily stat predictor: update a single float
@@ -12393,8 +12361,7 @@ static void Pred_UpdateEntry(float *dest, float new_data, int do_trivial_filteri
 
 //*********************************************************
 
-// 2000/08/18 - MB
-
+//
 //
 
 // Daily stat predictor: log new data
@@ -12633,8 +12600,7 @@ void Pred_LogNewStats(time_t src_data_time,
 
 //*********************************************************
 
-// 2000/08/19 - MB
-
+//
 //
 
 // Retrieve some prediction related information.
